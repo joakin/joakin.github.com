@@ -2,6 +2,15 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Open+Sans+Condensed:700);
 
 body {
-    font-family: 'Lato';
+    font-family: 'Lato', Helvetica, Verdana, sans;
+	background: #e2e2e2;
+    background-image: url('../img/50-90-5.png');
+    background-repeat: repeat;
+    background-position: top left;
+    background-attachment: scroll;
+}
+
+#container {
+    background-color: #ffffff;
 }
 
