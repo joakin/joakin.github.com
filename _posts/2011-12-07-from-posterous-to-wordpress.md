@@ -15,17 +15,17 @@ I have just moved from my posterous blog into a self hosted solution (wordpress)
 
 Moving out of posterous was a no-brainer, specially since they changed into posterous spaces. Everything became so social, with facebook/google+/tumblr smell that it no longer is a blogging platform I can consider using.
 
-It still has its uses, and of course its public, but it’s just not for me.
+It still has its uses, and of course its public, but it's just not for me.
 
 ### Bad things about posterous ###
 
 It is slow. Or at least I perceive it as slow.
 
-Management is horrible. Blogs management is horrible. The whole backend it’s an ajax application that is really bloated. It’s the page that most times has crashed google chrome for me.
+Management is horrible. Blogs management is horrible. The whole backend it's an ajax application that is really bloated. It's the page that most times has crashed google chrome for me.
 
-It has poor customization. The job with the themes is very good (but the editor makes you want to kill yourself slowly and painfully) but you cannot use javascript on them. It’s understandable because of the security risks, but if you need to touch stuff then you can’t. It also lacks plugins, so you get the standard blog format without the ability to customize it with plugins and addons. If you want a half serious writing platform, you need something more customizable.
+It has poor customization. The job with the themes is very good (but the editor makes you want to kill yourself slowly and painfully) but you cannot use javascript on them. It's understandable because of the security risks, but if you need to touch stuff then you can't. It also lacks plugins, so you get the standard blog format without the ability to customize it with plugins and addons. If you want a half serious writing platform, you need something more customizable.
 
-Added stuff on the blog theme. Since it is a hosted solution, they promote the usage of their application by putting some things into your page, even if you don’t want to, like the navigation bar or the bottom-of-the-page bar.
+Added stuff on the blog theme. Since it is a hosted solution, they promote the usage of their application by putting some things into your page, even if you don't want to, like the navigation bar or the bottom-of-the-page bar.
 
 ### Good things about posterous ###
 
@@ -45,16 +45,16 @@ It has tons of plugins for whatever you want, it has importers from lots of plac
 
 Millions of themes (even if I use the default). If you want a beautiful theme there are free available, cheap good ones, or wonderful premium. You also get tons of resources just in case you want to create your own.
 
-There probably are lots of stuff that I don’t even know, but I know that they are there, and if some day I need to add stuff or handle special cases chances are that somebody already did it successfully and shared it.
+There probably are lots of stuff that I don't even know, but I know that they are there, and if some day I need to add stuff or handle special cases chances are that somebody already did it successfully and shared it.
 
 ### Migration ###
 
-Posterous doesn’t provide a exporter that I can use directly on wordpress, and there are several solutions available, but right now I can’t get any of them to work.
+Posterous doesn't provide a exporter that I can use directly on wordpress, and there are several solutions available, but right now I can't get any of them to work.
 
-The first one was using the posterous importer plugin to fetch the data, but that didn’t work. It looks like the plugin is no longer maintained, so it’s outdated.
+The first one was using the posterous importer plugin to fetch the data, but that didn't work. It looks like the plugin is no longer maintained, so it's outdated.
 
 The other one was creating a blog in [wordpress.com][] and using their posterous importer, and then export that blog into wordpress rss format and import it on this one.
-This didn’t work either because the posts never got imported into wordpress.com . Maybe I did something wrong, maybe it is because that blog is private, who knows, I will keep trying.
+This didn't work either because the posts never got imported into wordpress.com . Maybe I did something wrong, maybe it is because that blog is private, who knows, I will keep trying.
 
 ### Plugins ###
 
@@ -72,7 +72,7 @@ The stack is a simple LAMP on a [linode][], and the domain was bought at [namech
 
 For installing and configuring the lamp, wordpress and the domain records, I followed the [documentation from the linode library][linodedocs]. It is pretty good.
 
-That’s it for now, it has been quite easy until the moment to get going.
+That's it for now, it has been quite easy until the moment to get going.
 
 [wordpress.com]: http://wordpress.com/
 [wpsp]: http://wordpress.org/extend/plugins/wp-super-cache/
