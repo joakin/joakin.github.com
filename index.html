@@ -3,12 +3,29 @@ layout: default
 title: Chimeces
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
+<div id="home" class='row'>
+
+    <div class='row'>
+        <div class='span7'>
+            {% for post in site.categories.post limit:1 offset:0 %}
+                {% assign headerSize = 1 %}
+                {% assign wordsCount = 250 %}
+                {% include post-briefing.html %}
+            {% endfor %}
+        </div>
+        <div class='span5'>
+            <div class='span5'>
+                {% for post in site.categories.post limit:4 offset:1 %}
+                    {% include post-briefing.html %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <ul>
     {% for post in site.categories.post %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
-  </ul>
+    <ul>
 </div>
 
