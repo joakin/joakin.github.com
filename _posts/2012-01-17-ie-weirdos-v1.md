@@ -1,6 +1,9 @@
 ---
 layout: post
-title: From posterous to wordpress
+category: post
+title: IE weirdos v1
+tags:
+  - Web programming
 ---
 
 {{ page.title }}

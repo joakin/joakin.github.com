@@ -1,6 +1,9 @@
 ---
 layout: post
+category: post
 title: Starting a blog... again
+tags:
+  - Personal
 ---
 
 {{ page.title }}

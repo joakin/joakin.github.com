@@ -1,6 +1,9 @@
 ---
 layout: post
+category: post
 title: From posterous to wordpress
+tags:
+  - System administration
 ---
 
 {{ page.title }}
