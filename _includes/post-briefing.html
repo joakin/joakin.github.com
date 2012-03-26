@@ -1,11 +1,12 @@
 
-    {% unless headerSize %}
+    {% if huge == true %}
         {% assign headerSize = 3 %}
-    {% endunless %}
-    {% assign secondaryHeaderSize = headerSize | minus:3 %}
-    {% unless wordsCount %}
         {% assign wordsCount = 75 %}
-    {% endunless %}
+    {% else %}
+        {% assign headerSize = 1 %}
+        {% assign wordsCount = 500 %}
+    {% endif %}
+    {% assign secondaryHeaderSize = headerSize | minus:3 %}
 
     <h{{ headerSize }}><a href="{{ post.url }}">{{ post.title }}</a></h{{headerSize}}>
     <h4>

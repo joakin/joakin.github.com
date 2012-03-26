@@ -3,15 +3,15 @@ layout: default
 title: Chimeces
 ---
 
-<div id="home" class='row'>
+<div id="home">
 
     <div class='row'>
         <div class='span7'>
             {% for post in site.categories.post limit:1 offset:0 %}
-                {% assign headerSize = 1 %}
-                {% assign wordsCount = 250 %}
+                {% assign huge = true %}
                 {% include post-briefing.html %}
             {% endfor %}
+            {% assign huge = false %}
         </div>
         <div class='span5'>
             <div class='span5'>
