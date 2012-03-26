@@ -12,6 +12,6 @@
         {{ post.date | format_date }}
     </h4>
 
-    <p>{{ post.content | strip_html | truncatewords: 75 }}</p>
+    <p>{{ post.content | strip_html | truncatewords: wordsCount }}</p>
     <p><a href="{{ post.url }}">Read more...</a></p>
 
