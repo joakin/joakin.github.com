@@ -28,7 +28,7 @@ button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:poin
 input[type="search"]{-webkit-appearance:textfield;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
 input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{-webkit-appearance:none;}
 textarea{overflow:auto;vertical-align:top;}
-body{margin:0;font-family:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:26px;color:#333333;background-color:#ffffff;}
+body{margin:0;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:26px;color:#333333;background-color:#ffffff;}
 a{color:#0088cc;text-decoration:none;}
 a:hover{color:#005580;text-decoration:underline;}
 .row{margin-left:-20px;*zoom:1;}.row:before,.row:after{display:table;content:"";}
@@ -79,7 +79,7 @@ a:hover{color:#005580;text-decoration:underline;}
 .container:after{clear:both;}
 .container-fluid{padding-left:20px;padding-right:20px;*zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";}
 .container-fluid:after{clear:both;}
-p{margin:0 0 13px;font-family:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:26px;}p small{font-size:16px;color:#999999;}
+p{margin:0 0 13px;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;line-height:26px;}p small{font-size:16px;color:#999999;}
 .lead{margin-bottom:26px;font-size:20px;font-weight:200;line-height:39px;}
 h1,h2,h3,h4,h5,h6{margin:0;font-family:inherit;font-weight:bold;color:inherit;text-rendering:optimizelegibility;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-weight:normal;color:#999999;}
 h1{font-size:30px;line-height:52px;}h1 small{font-size:18px;}
@@ -188,7 +188,7 @@ form{margin:0 0 26px;}
 fieldset{padding:0;margin:0;border:0;}
 legend{display:block;width:100%;padding:0;margin-bottom:39px;font-size:27px;line-height:52px;color:#333333;border:0;border-bottom:1px solid #eee;}legend small{font-size:19.5px;color:#999999;}
 label,input,button,select,textarea{font-size:18px;font-weight:normal;line-height:26px;}
-input,button,select,textarea{font-family:'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;}
+input,button,select,textarea{font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
 label{display:block;margin-bottom:5px;color:#333333;}
 input,textarea,select,.uneditable-input{display:inline-block;width:210px;height:26px;padding:4px;margin-bottom:9px;font-size:18px;line-height:26px;color:#555555;border:1px solid #cccccc;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 .uneditable-textarea{width:auto;height:auto;}
