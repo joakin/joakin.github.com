@@ -15,7 +15,7 @@ title: Chimeces
         </div>
         <div class='span5'>
             {% for post in site.categories.post limit:4 offset:1 %}
-                <div class='span5'>
+                <div>
                     {% include post-briefing.html %}
                 </div>
             {% endfor %}

@@ -5,13 +5,14 @@ title: Archive - Chimeces
 
 <div id="archive">
 
-    <div class='row'>
-        {% for post in site.categories.post %}
+    {% assign huge = false %}
+    {% for post in site.categories.post %}
+        <div class='row'>
             <div class='span12'>
                 {% include post-briefing.html %}
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 
 </div>
 
