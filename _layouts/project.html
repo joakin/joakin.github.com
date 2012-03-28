@@ -3,7 +3,7 @@ layout: default
 ---
 
     <div id='project'>
-        <h1>{{ title }}</h1>
+        <h1>{{ page.title }}</h1>
         <div class='row'>
             <div class='span6'>
                 <p>{{ content }}</p>
@@ -16,7 +16,7 @@ layout: default
                             {% include project-thumbnail.html %}
                         {% endfor %}
                     </li>
-                    {% for image in images offset:1 %}
+                    {% for image in page.images offset:1 %}
                         <li class='span2'>
                             {% assign image = image %}
                             {% include project-thumbnail.html %}
