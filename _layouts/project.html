@@ -11,7 +11,7 @@ layout: default
             <div class='span6'>
                 <ul class='thumbnails'>
                     <li class='span4'>
-                        {% for image in images limit:1 offset:0 %}
+                        {% for image in page.images limit:1 offset:0 %}
                             {% assign image = image %}
                             {% include project-thumbnail.html %}
                         {% endfor %}
