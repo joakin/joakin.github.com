@@ -3,12 +3,13 @@ layout: default
 title: Work - Chimeces
 ---
 
-<div id="archive">
-
+<div id="projects">
+    {{site.categories}}
     <ul class='thumbnails'>
         {% for project in site.categories.project %}
             <li class='span4'>
-                {{project}}
+                {% assign project = project %}
+                {% include project-briefing.html %}
             </li>
         {% endfor %}
     </ul>
