@@ -6,19 +6,19 @@ title: Chimeces
 <div id="home">
 
     <div class='row'>
-        <div class='span6'>
+        <div class='span8'>
             <div class="page-header">
-                <h3>Last posts</h3>
+                <h2>Last posts</h2>
             </div>
             <div class='row'>
-                <div class='span4'>
+                <div class='span5'>
                     {% for post in site.categories.post limit:1 offset:0 %}
                         {% assign huge = true %}
                         {% include post-briefing.html %}
                     {% endfor %}
                     {% assign huge = false %}
                 </div>
-                <div class='span2'>
+                <div class='span3'>
                     {% for post in site.categories.post limit:4 offset:1 %}
                         <div>
                             {% include post-briefing.html %}
@@ -42,13 +42,13 @@ title: Chimeces
                 </p>
             </div>
         </div>
-        <div class='span6'>
+        <div class='span4'>
             <div class="page-header">
-                <h3>Last projects</h3>
+                <h2>Last projects</h2>
             </div>
             <ul class='thumbnails'>
-                {% for project in site.categories.project %}
-                    <li class='span2'>
+                {% for project in site.categories.project limit:6 %}
+                    <li class='span4'>
                         {% assign project = project %}
                         {% include project-briefing.html %}
                     </li>
