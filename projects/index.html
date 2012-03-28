@@ -4,11 +4,11 @@ title: Work - Chimeces
 ---
 
 <div id="projects">
-    {{site.categories}}
+
     <ul class='thumbnails'>
-        {% for project in site.categories.project %}
+        {% for post in site.categories.project %}
             <li class='span4'>
-                {% assign project = project %}
+                {% assign post = post %}
                 {% include project-briefing.html %}
             </li>
         {% endfor %}
