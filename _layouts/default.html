@@ -16,13 +16,7 @@
 </head>
 <body>
     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a></p><![endif]-->
-    <header class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="/">Chimeces</a>
-            </div>
-        </div>
-    </header>
+    {% include header.html %}
     <div class='container' role="main">
         {{content}}
     </div>
