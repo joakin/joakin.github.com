@@ -1,7 +1,7 @@
 
     <div class="thumbnail">
         {% for image in post.images limit:1 offset:0 %}
-            <img src="{% image.thumbnail %}" alt='{% image.title %}'>
+            <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
         {% endfor %}
         <div class="caption">
             <h4>{% post.title %}</h4>
