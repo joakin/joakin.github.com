@@ -6,9 +6,9 @@ title: Work - Chimeces
 <div id="projects">
 
     <ul class='thumbnails'>
-        {% for post in site.categories.project %}
+        {% for project in site.categories.project %}
             <li class='span4'>
-                {% assign post = post %}
+                {% assign project = project %}
                 {% include project-briefing.html %}
             </li>
         {% endfor %}
