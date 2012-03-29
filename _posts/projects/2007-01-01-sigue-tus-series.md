@@ -1,23 +1,27 @@
 ---
 layout: project
 category: project
-title: I hate databases
+title: Sigue tus series
 tags:
   - design
+  - ruby on rails
+  - web
 images:
-  - thumbnail: '/img/projects/ihatedatabases/1-small.png'
-    url: '/img/projects/ihatedatabases/1.png'
-    title: 'Menu'
-  - thumbnail: '/img/projects/ihatedatabases/2-small.png'
-    url: '/img/projects/ihatedatabases/2.png'
-    title: 'Start'
-  - thumbnail: '/img/projects/ihatedatabases/3-small.png'
-    url: '/img/projects/ihatedatabases/3.png'
-    title: 'Algorithm selection'
-  - thumbnail: '/img/projects/ihatedatabases/4-small.png'
-    url: '/img/projects/ihatedatabases/4.png'
-    title: 'Algorithms selected'
+  - thumbnail: '/img/projects/sigue-tus-series/1-small.png'
+    url: '/img/projects/sigue-tus-series/1.png'
+    title: 'Land page'
+  - thumbnail: '/img/projects/sigue-tus-series/2-small.png'
+    url: '/img/projects/sigue-tus-series/2.png'
+    title: 'User home'
+  - thumbnail: '/img/projects/sigue-tus-series/3-small.png'
+    url: '/img/projects/sigue-tus-series/3.png'
+    title: 'User config'
+  - thumbnail: '/img/projects/sigue-tus-series/4-small.png'
+    url: '/img/projects/sigue-tus-series/4.png'
+    title: 'Show add'
+  - thumbnail: '/img/projects/sigue-tus-series/4-small.png'
+    url: '/img/projects/sigue-tus-series/5.png'
+    title: 'Chapter select'
 ---
 
-Oldie stuff also.
 
