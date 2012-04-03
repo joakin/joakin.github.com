@@ -36,5 +36,37 @@ images:
     title: 'Pdf output'
 ---
 
-Oldie stuff also.
+I did this project when I was working for the university before finishing my
+degree.
+
+It was a web application that would be used to layout pages and generate pdf
+magazines.
+
+In the frontend it was a full javascript application, my first one. This was
+before the days of backbone and other frontend frameworks.
+
+It was written in pure javascript with jQuery and jQuery UI to support.
+
+The design in general was quite poor but it was full of nice functionality.
+
+Auto generated index, templates for the magazine, templates for headers,
+predefined layouts, freedom to add boxes and images, etc.
+
+It was also possible to save and load the work done, and afterwards you could
+download the pdf resulting from your work.
+
+The articles and images could be written and edited in place or taken from
+certain databases. In the backend with j2ee I did as proxy and consulted the
+data sources.
+
+For the pdf generation I used a firefox on the server, and some scripts, where
+it would load the same work locally, print it to pdf, and then return it to the
+client.
+
+The result was quite clumsy in terms of memory management but it was pretty
+powerful in terms of layouts, css and pdf printing.
+
+By the time there was not any headless browser that I knew or could use...
+
+Anyway, this was a nice project, where I learnt a lot of Javascript.
 
