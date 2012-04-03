@@ -6,20 +6,20 @@ tags:
   - design
   - web
 images:
-  - thumbnail: '/img/projects/snipeventures/1-small.png'
-    url: '/img/projects/snipeventures/1.png'
+  - thumbnail: '/img/projects/snipeventures/1-small.jpg'
+    url: '/img/projects/snipeventures/1.jpg'
     title: 'Home'
-  - thumbnail: '/img/projects/snipeventures/2-small.png'
-    url: '/img/projects/snipeventures/2.png'
+  - thumbnail: '/img/projects/snipeventures/2-small.jpg'
+    url: '/img/projects/snipeventures/2.jpg'
     title: 'Clients'
-  - thumbnail: '/img/projects/snipeventures/3-small.png'
-    url: '/img/projects/snipeventures/3.png'
+  - thumbnail: '/img/projects/snipeventures/3-small.jpg'
+    url: '/img/projects/snipeventures/3.jpg'
     title: 'About'
-  - thumbnail: '/img/projects/snipeventures/4-small.png'
-    url: '/img/projects/snipeventures/4.png'
+  - thumbnail: '/img/projects/snipeventures/4-small.jpg'
+    url: '/img/projects/snipeventures/4.jpg'
     title: 'Industries'
-  - thumbnail: '/img/projects/snipeventures/5-small.png'
-    url: '/img/projects/snipeventures/5.png'
+  - thumbnail: '/img/projects/snipeventures/5-small.jpg'
+    url: '/img/projects/snipeventures/5.jpg'
     title: 'Contact'
 ---
 
