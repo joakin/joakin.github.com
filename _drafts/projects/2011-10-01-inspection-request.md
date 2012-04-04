@@ -51,5 +51,22 @@ It features:
   * Information loading via services
   * Form validation
   * Form preview before submit
-* ...
+* User created work lists
+  * Editable lists of Inspections with preview
+* Search form
+  * Basic and advanced search
+  * Results table with preview, pagination and filters
+  * Posibility to save search as Work list
+* Details of inspection
+  * Hideable menu
+  * Smooth scroll between sections
+  * Details open in a tab to enable comparison and such
+
+From the previous project and this one I started truly learning javascript and
+getting a good level on it.
+
+I really liked how this prototype turned out, really smooth and with a good
+consistent design.
+
+Anyway, it was not used for anything...
 
