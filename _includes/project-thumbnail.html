@@ -1,11 +1,12 @@
 
     <div class="thumbnail">
-        <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
+        <a href='{{ image.url }}' class="btn btn-small pull-right">
+            <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
+        </a>
         <div class="caption">
             <p>
-                {{ image.title }}
                 <a href='{{ image.url }}' class="btn btn-small pull-right">
-                    <i class='icon-zoom-in'></i>
+                    {{ image.title }}
                 </a>
             </p>
         </div>

@@ -1,14 +1,14 @@
 
     <div class="thumbnail">
         {% for image in project.images limit:1 offset:0 %}
-            <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
+            <a href='{{ project.url }}' class="btn btn-small pull-right">
+                <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
+            </a>
         {% endfor %}
         <div class="caption">
             <h4>
-                {{ project.title }}
                 <a href='{{ project.url }}' class="btn btn-small pull-right">
-                    <i class='icon-eye-open'></i>
-                    View
+                    {{ project.title }}
                 </a>
             </h4>
         </div>
