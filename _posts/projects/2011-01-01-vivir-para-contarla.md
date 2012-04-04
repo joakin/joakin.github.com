@@ -5,18 +5,24 @@ title: Vivir para contarla
 tags:
   - design
 images:
-  - thumbnail: '/img/projects/ihatedatabases/1-small.png'
-    url: '/img/projects/ihatedatabases/1.png'
-    title: 'Menu'
-  - thumbnail: '/img/projects/ihatedatabases/2-small.png'
-    url: '/img/projects/ihatedatabases/2.png'
-    title: 'Start'
-  - thumbnail: '/img/projects/ihatedatabases/3-small.png'
-    url: '/img/projects/ihatedatabases/3.png'
-    title: 'Algorithm selection'
-  - thumbnail: '/img/projects/ihatedatabases/4-small.png'
-    url: '/img/projects/ihatedatabases/4.png'
-    title: 'Algorithms selected'
+  - thumbnail: '/img/projects/vivirparacontarla/1-small.png'
+    url: '/img/projects/vivirparacontarla/1.png'
+    title: 'Home page'
+  - thumbnail: '/img/projects/vivirparacontarla/2-small.png'
+    url: '/img/projects/vivirparacontarla/2.png'
+    title: 'About us'
+  - thumbnail: '/img/projects/vivirparacontarla/3-small.png'
+    url: '/img/projects/vivirparacontarla/3.png'
+    title: 'Products'
+  - thumbnail: '/img/projects/vivirparacontarla/4-small.png'
+    url: '/img/projects/vivirparacontarla/4.png'
+    title: 'Product page'
+  - thumbnail: '/img/projects/vivirparacontarla/5-small.png'
+    url: '/img/projects/vivirparacontarla/5.png'
+    title: 'More page'
+  - thumbnail: '/img/projects/vivirparacontarla/6-small.png'
+    url: '/img/projects/vivirparacontarla/6.png'
+    title: 'Contact'
 ---
 
 Oldie stuff also.
