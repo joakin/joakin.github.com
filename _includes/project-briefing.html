@@ -1,16 +1,10 @@
 
-    <div class="thumbnail">
+    <a class="thumbnail" href='{{ project.url }}'>
         {% for image in project.images limit:1 offset:0 %}
-            <a href='{{ project.url }}'>
-                <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
-            </a>
+            <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
         {% endfor %}
         <div class="caption">
-            <h4>
-                <a href='{{ project.url }}'>
-                    {{ project.title }}
-                </a>
-            </h4>
+            <h4>{{ project.title }}</h4>
         </div>
-    </div>
+    </a>
 
