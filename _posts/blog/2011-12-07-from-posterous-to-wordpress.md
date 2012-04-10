@@ -2,6 +2,7 @@
 layout: post
 category: post
 title: From posterous to wordpress
+comments: true
 tags:
   - System administration
 ---
