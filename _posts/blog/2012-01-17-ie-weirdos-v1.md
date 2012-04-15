@@ -2,6 +2,7 @@
 layout: post
 category: post
 title: IE weirdos v1
+comments: true
 tags:
   - Web programming
 ---
