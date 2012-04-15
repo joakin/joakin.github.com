@@ -7,9 +7,6 @@ tags:
   - Personal
 ---
 
-{{ page.title }}
-================
-
 Again, another website, another blog.
 
 This is supposed to be my permanent writing space, no more changing to hosted platforms and solutions without my domain name. It's my data, it's my legacy.

@@ -7,9 +7,6 @@ tags:
   - System administration
 ---
 
-{{ page.title }}
-================
-
 I have just moved from my posterous blog into a self hosted solution (wordpress).
 
 ### Why move ###

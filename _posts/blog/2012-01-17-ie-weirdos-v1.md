@@ -7,9 +7,6 @@ tags:
   - Web programming
 ---
 
-{{ page.title }}
-================
-
 As usual when working in a project, the moment to face IE comes, and it always comes with new and weirder surprises.
 
 Compatibility mode is usually the first thing to fuck your page up. I always use the strategy to start from newer to older, just because i get fewer errors. Then fix that stuff, and move on into the older versions one at a time.
