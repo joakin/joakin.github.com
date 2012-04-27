@@ -4,7 +4,7 @@ category: post
 title: From posterous to wordpress
 comments: true
 tags:
-  - System administration
+  - sys admin
 ---
 
 I have just moved from my posterous blog into a self hosted solution (wordpress).

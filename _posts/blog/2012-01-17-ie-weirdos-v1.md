@@ -4,7 +4,7 @@ category: post
 title: IE weirdos v1
 comments: true
 tags:
-  - Web programming
+  - js
 ---
 
 As usual when working in a project, the moment to face IE comes, and it always comes with new and weirder surprises.

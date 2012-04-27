@@ -4,7 +4,7 @@ category: post
 title: Starting a blog... again
 comments: true
 tags:
-  - Personal
+  - meta
 ---
 
 Again, another website, another blog.
