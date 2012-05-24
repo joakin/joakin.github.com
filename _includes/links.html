@@ -1,8 +1,8 @@
 
-<ul class="nav nav-list">
+<ul>
     {% for link in page.links %}
         {% if link.header %}
-            <li class="nav-header">
+            <li class="header-link">
                 <i class='{{ link.icon }}'></i>
                 {{ link.text }}
             </li>

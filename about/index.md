@@ -3,32 +3,32 @@ layout: about
 title: About - Chimeces
 links:
   - text: Contact
-    icon: icon-user
+    icon: icon-contact
     header: true
   - text: Twitter
     url: http://twitter.com/joakin
-    icon: icon-chevron-right
+    icon: icon-twitter
   - text: Code
-    icon: icon-th-list
+    icon: icon-code
     header: true
   - text: Github
     url: http://github.com/joakin
-    icon: icon-chevron-right
+    icon: icon-github
   - text: Bitbucket
     url: https://bitbucket.org/joakin
-    icon: icon-chevron-right
+    icon: icon-bitbucket
   - text: Music
     icon: icon-music
     header: true
   - text: Grooveshark
     url: http://grooveshark.com/#!/user/Joaquin+Oltra/66993
-    icon: icon-chevron-right
+    icon: icon-grooveshark
   - text: Favourites
-    icon: icon-star
+    icon: icon-favs
     header: true
   - text: Pinboard
     url: http://pinboard.in/u:joakin
-    icon: icon-chevron-right
+    icon: icon-pinboard
 ---
 
 I have to write something here. To check some of the stuff I do online or

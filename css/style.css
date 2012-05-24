@@ -8,7 +8,6 @@ body {
     background-position: top left;
     background-attachment: scroll;
     text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4);
-    padding-top:60px;
 }
 
 #container {

@@ -1,8 +1,10 @@
 
-    <a class="thumbnail" href='{{ image.url }}'>
+<div class='project-image'>
+    <a href='{{ image.url }}'>
         <img src="{{ image.thumbnail }}" alt='{{ image.title }}'>
-        <div class="caption">
-            <p>{{ image.title }}</p>
-        </div>
+        <span class="caption">
+            {{ image.title }}
+        </span>
     </a>
+</div>
 

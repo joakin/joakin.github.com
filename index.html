@@ -5,57 +5,29 @@ title: Chimeces
 
 <div id="home">
 
-    <div class='row'>
-        <div class='span8'>
-            <div class="page-header">
-                <h2>Last posts</h2>
-            </div>
-            <div class='row'>
-                <div class='span5'>
-                    {% for post in site.categories.post limit:1 offset:0 %}
-                        {% assign huge = true %}
-                        {% include post-briefing.html %}
-                    {% endfor %}
-                    {% assign huge = false %}
-                </div>
-                <div class='span3'>
-                    {% for post in site.categories.post limit:4 offset:1 %}
-                        <div>
-                            {% include post-briefing.html %}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% for i in (1..4) %}
-                <div class='row'>
-                    {% assign forOffset = 5 + (3*i) %}
-                    {% for post in site.categories.post limit:3 offset:forOffset %}
-                        <div class='span2'>
-                            {% include post-briefing.html %}
-                        </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-            <p class='well'>
-                To view more visit the <a href='/blog'>archive</a>
-            </p>
-        </div>
-        <div class='span4'>
-            <div class="page-header">
-                <h2>Last projects</h2>
-            </div>
-            <ul class='thumbnails'>
-                {% for project in site.categories.project limit:3 %}
-                    <li class='span4'>
-                        {% assign project = project %}
-                        {% include project-briefing.html %}
-                    </li>
+    <div class='last-posts'>
+        <h2>Last posts</h2>
+        <div class='posts-list'>
+                {% for post in site.categories.post %}
+                    {% include post-briefing.html %}
                 {% endfor %}
-            </ul>
-            <p class='well'>
-                To view more visit the <a href='/projects'>portfolio</a>
-            </p>
         </div>
+        <p class='info'>
+            To view more visit the <a href='/blog'>archive</a>
+        </p>
+    </div>
+
+    <div class="last-projects">
+        <h2>Last projects</h2>
+        <div class="projects-list">
+            {% for project in site.categories.project limit:3 %}
+                {% assign project = project %}
+                {% include project-briefing.html %}
+            {% endfor %}
+        </div>
+        <p class='info'>
+            To view more visit the <a href='/projects'>portfolio</a>
+        </p>
     </div>
 
 </div>

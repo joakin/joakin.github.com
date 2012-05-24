@@ -5,14 +5,12 @@ title: Work - Chimeces
 
 <div id="projects">
 
-    <ul class='thumbnails'>
+    <div class='projects-list'>
         {% for project in site.categories.project %}
-            <li class='span4'>
-                {% assign project = project %}
-                {% include project-briefing.html %}
-            </li>
+            {% assign project = project %}
+            {% include project-briefing.html %}
         {% endfor %}
-    </ul>
+    </div>
 
 </div>
 
