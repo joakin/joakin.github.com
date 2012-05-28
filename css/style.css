@@ -1,24 +1,236 @@
+@import url("http://fonts.googleapis.com/css?family=Lora|Tenor+Sans&.css");
 
-@import url(http://fonts.googleapis.com/css?family=Chau+Philomene+One|Tenor+Sans);
+@import "normalize.css";
+/*---------------------------------------------------
+    LESS Prefixer
+  ---------------------------------------------------
+    
+    All of the CSS3 fun, none of the prefixes!
 
-@import url(normalize.css);
+    As a rule, you can use the CSS properties you
+    would expect just by adding a '.':
 
+    box-shadow => .box-shadow(@args)
+
+    Also, when shorthand is available, arguments are
+    not parameterized. Learn CSS, not LESS Prefixer.
+
+    -------------------------------------------------
+    TABLE OF CONTENTS
+    (*) denotes a syntax-sugar helper
+    -------------------------------------------------
+
+        .animation(@args)
+            .animation-delay(@delay)
+            .animation-direction(@direction)
+            .animation-duration(@duration)
+            .animation-iteration-count(@count)
+            .animation-name(@name)
+            .animation-play-state(@state)
+            .animation-timing-function(@function)
+        .background-size(@args)
+        .border-radius(@args)
+        .box-shadow(@args)
+            .inner-shadow(@args) *
+        .box-sizing(@args)
+            .border-box() *
+            .content-box() *
+        .columns(@args)
+            .column-count(@count)
+            .column-gap(@gap)
+            .column-rule(@args)
+            .column-width(@width)
+        .gradient(@default,@start,@stop) *
+            .linear-gradient-top(@default,@color1,@stop1,@color2,@stop2,[@color3,@stop3,@color4,@stop4])*
+            .linear-gradient-left(@default,@color1,@stop1,@color2,@stop2,[@color3,@stop3,@color4,@stop4])*
+        .opacity(@factor)
+        .transform(@args)
+            .rotate(@deg)
+            .scale(@factor)
+            .translate(@x,@y)
+            .translate3d(@x,@y,@z)
+            .translateHardware(@x,@y) *
+        .text-shadow(@args)
+        .transition(@args)
+            .transition-delay(@delay)
+            .transition-duration(@duration)
+            .transition-property(@property)
+            .transition-timing-function(@function)
+
+
+
+    Credit to LESS Elements for the motivation and
+    to CSS3Please.com for implementation.
+
+    Copyright (c) 2012 Joel Sutherland
+    MIT Licensed:
+    http://www.opensource.org/licenses/mit-license.php
+
+-----------------------------------------------------*/
+/* Animation */
+/* Background Size */
+/* Border Radius */
+/* Box Shadows */
+/* Box Sizing */
+/* Columns */
+/* Gradients */
+/* Opacity */
+/* Text Shadow */
+/* Transforms */
+/* Transitions */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lora';
+}
+p {
+  margin: 1.5em 0;
+}
+a {
+  color: #1177bb;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+a:visited {
+  color: #1b5cb1;
+}
+a:active {
+  color: #1595ea;
+}
+a:hover {
+  color: #083b5e;
+}
+img {
+  max-width: 100%;
+}
 body {
-	background: #e2e2e2;
-    background-image: url('../img/50-90-5.png');
-    background-repeat: repeat;
-    background-position: top left;
-    background-attachment: scroll;
-    text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4);
-    font-family: 'Tenor Sans';
-    color: #444;
+  background: #e2e2e2;
+  background-image: url('../img/50-90-5.png');
+  background-repeat: repeat;
+  background-position: top left;
+  background-attachment: scroll;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4);
+  font-family: 'Lora';
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #222222;
 }
-
-header, .container {
-    margin: 20px 20%;
+header {
+  overflow: hidden;
 }
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Chau Philomene One';
+header h1 {
+  display: inline-block;
+  float: left;
 }
-
+.container,
+header {
+  margin: 0 auto;
+  padding: 1.5em;
+  max-width: 80ex;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#brand {
+  text-decoration: none;
+  color: black;
+  text-transform: lowercase;
+}
+.nav {
+  display: inline-block;
+  padding-left: 0;
+  float: right;
+}
+.nav li {
+  display: inline-block;
+}
+.nav li a {
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.75em;
+}
+.info {
+  padding: 1.125em;
+  font-size: 13.5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 0.75em;
+  -moz-border-radius: 0.75em;
+  border-radius: 0.75em;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+#about {
+  overflow: hidden;
+}
+#about .links-list {
+  float: right;
+}
+#about h2 {
+  display: inline-block;
+}
+.post-date {
+  margin: -1.5em 0 0;
+  font-style: italic;
+  font-size: 0.75em;
+}
+.project-brief,
+.project-image {
+  width: 32.9%;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1.5em;
+}
+.project-brief a,
+.project-image a {
+  display: inline-block;
+  position: relative;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+.project-brief a .caption,
+.project-image a .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75em;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #e6e6e6;
+  text-shadow: 0 1px 1px black;
+  font-size: 75%;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.project-brief a:hover .caption,
+.project-image a:hover .caption {
+  color: white;
+  padding: 1.5em;
+}
+.links-list .header-link {
+  list-style-type: none;
+  color: #888888;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0.75em 0 0;
+}
+.links-list li {
+  margin-left: 2.25em;
+}
