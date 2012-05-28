@@ -13,19 +13,20 @@ body {
     color: @color;
 }
 
-header {
-    overflow: hidden;
-    h1 {
-        display: inline-block;
-        float: left;
-    }
-}
-
 .container, header {
     margin: 0 auto;
     padding: @lineHeight;
     max-width: 80ex;
     background-color: fade(white, 50%);
+}
+
+header {
+    overflow: hidden;
+    padding: 0 @lineHeight;
+    h1 {
+        display: inline-block;
+        float: left;
+    }
 }
 
 #brand {
