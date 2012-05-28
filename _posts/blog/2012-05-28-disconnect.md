@@ -13,8 +13,8 @@ tired and messed up. With this flow of work and daily routine I've been
 getting more and more exhausted mentally. The good thing is that I've learnt to
 appreciate a good rest.
 
-There have been several times when I've gotten to do something different, or
-maybe go on a trip and disconnect completely from work. It feels so great to
+There have been several times when I've gotten to do something different, like
+going on a trip and disconnecting completely from work. It feels so great to
 have your mind far away from trouble, stress and work entanglement.
 
 For me, it happens at the gym, on a snow trip of 4 days with some friends,
