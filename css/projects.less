@@ -1,0 +1,37 @@
+
+.project-brief, .project-image {
+
+    width: 32.9%;
+    display: inline-block;
+    .box-sizing(border-box);
+    padding: @lineHeight;
+
+    a {
+        display: inline-block;
+        position: relative;
+        .border-radius(@fontSize/2);
+
+        img {
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: @lineHeight/2;
+            text-align: center;
+            background: fade(black, 60%);
+            color: darken(white, 10%);
+            text-shadow: 0 1px 1px black;
+            font-size: 75%;
+            .transition(all 0.3s ease);
+        }
+
+        &:hover .caption {
+            color: white;
+            padding: @lineHeight;
+        }
+    }
+}
+
