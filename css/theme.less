@@ -15,14 +15,15 @@ body {
 
 .container, header {
     margin: 0 auto;
-    padding: @lineHeight;
+    padding: @lineHeight @lineHeight*2;
     max-width: 720px;
     background-color: fade(white, 50%);
+    .box-sizing(border-box);
 }
 
 header {
     overflow: hidden;
-    padding: 0 @lineHeight;
+    padding: 0 @lineHeight*2;
     h1 {
         display: inline-block;
         float: left;
