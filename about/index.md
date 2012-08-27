@@ -26,6 +26,8 @@ links:
   - text: Favourites
     icon: icon-favs
     header: true
+  - text: Kippt
+    url: https://kippt.com/joakin
   - text: Pinboard
     url: http://pinboard.in/u:joakin
     icon: icon-pinboard
