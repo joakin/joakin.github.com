@@ -622,6 +622,15 @@ header {
 }
 .container {
   background: white url('../img/bg2.png') top left repeat;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0px 5px 20px black;
+  -moz-box-shadow: 0px 5px 20px black;
+  box-shadow: 0px 5px 20px black;
 }
 header {
   padding: 0 2.8em;
@@ -638,7 +647,7 @@ header:after {
 }
 header h1 {
   display: inline-block;
-  margin: 0.8rem 0 0;
+  margin: 2rem 0 0;
   float: left;
 }
 #brand {
@@ -754,11 +763,10 @@ header h1 {
 .project-brief a,
 .project-image a {
   display: inline-block;
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+  border: 5px solid white;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -768,9 +776,9 @@ header h1 {
 }
 .project-brief a img,
 .project-image a img {
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -780,31 +788,19 @@ header h1 {
 }
 .project-brief a .caption,
 .project-image a .caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: 0.7em;
   text-align: center;
-  background: rgba(0, 0, 0, 0.75);
-  color: #f2f2f2;
-  text-shadow: 0 1px 1px black;
+  color: #444444;
   font-size: 0.75rem;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  -webkit-border-radius: 0 0 9px 9px;
-  -moz-border-radius: 0 0 9px 9px;
-  border-radius: 0 0 9px 9px;
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
 }
 .project-brief a:hover .caption,
 .project-image a:hover .caption {
-  color: white;
-  padding: 0.933333333em;
+  color: black;
+  padding: 1.4em;
 }
 .links-list .header-link {
   list-style-type: none;
