@@ -800,7 +800,6 @@ header h1 {
 .project-brief a:hover .caption,
 .project-image a:hover .caption {
   color: black;
-  padding: 1.4em;
 }
 .links-list .header-link {
   list-style-type: none;
