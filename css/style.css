@@ -693,6 +693,20 @@ header h1 {
 #about h2 {
   display: inline-block;
 }
+.post-brief:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.post-brief .post-title {
+  margin-left: 80px;
+}
+.post-brief .post-date {
+  float: left;
+  width: 60px;
+  text-align: right;
+  padding-right: 20px;
+}
 #post {
   max-width: 80ex;
   margin: auto;
