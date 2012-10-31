@@ -604,10 +604,12 @@ header {
   margin: 0 auto;
   padding: 1.4em 2.8em;
   max-width: 1024px;
-  background: white url('../img/bg2.png') top left repeat;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+.container {
+  background: white url('../img/bg2.png') top left repeat;
 }
 header {
   padding: 0 2.8em;
