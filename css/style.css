@@ -621,7 +621,7 @@ header:after {
 }
 header h1 {
   display: inline-block;
-  margin: 0.8em 0 0;
+  margin: 0.8rem 0 0;
   float: left;
 }
 #brand {
@@ -693,10 +693,14 @@ header h1 {
 #about h2 {
   display: inline-block;
 }
+#post {
+  max-width: 80ex;
+  margin: auto;
+}
 .post-date {
   margin: -1.4em 0 0;
   font-style: italic;
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 .project-brief,
 .project-image {
@@ -745,7 +749,7 @@ header h1 {
   background: rgba(0, 0, 0, 0.75);
   color: #f2f2f2;
   text-shadow: 0 1px 1px black;
-  font-size: 75%;
+  font-size: 0.75rem;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
