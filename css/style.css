@@ -617,6 +617,7 @@ header {
 header h1 {
   display: inline-block;
   margin: 0.8em 0 0;
+  float: left;
 }
 #brand {
   text-decoration: none;
@@ -637,6 +638,14 @@ header h1 {
   font-weight: bold;
   text-decoration: none;
   padding: 0.7em;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
   -webkit-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);
   -moz-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);
   box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);

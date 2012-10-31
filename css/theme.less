@@ -28,6 +28,7 @@ header {
     h1 {
         display: inline-block;
         margin: 0.8em 0 0;
+        float: left;
     }
 }
 
@@ -51,6 +52,9 @@ header {
             font-weight: bold;
             text-decoration: none;
             padding: @lineHeight/2;
+            color: white;
+            border: 1px solid rgba(0,0,0,0.2);
+            .border-radius(8px);
             .box-shadow(~"inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2)");
             text-shadow: 0 0 1px rgba(0,0,0,0.5), 0px 2px 0px rgba(255,255,255,0.1), 0px -2px 0px rgba(0,0,0,0.2);
             .transition(all 0.3s ease);
