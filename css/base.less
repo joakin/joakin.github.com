@@ -27,11 +27,19 @@ img {
     max-width: 100%;
 }
 
-.clearfix() {
+
+.clearfix {
+    *zoom: 1;
+    &:before,
     &:after {
-        content: '';
         display: table;
-        clear:both;
+        content: "";
+        // Fixes Opera/contenteditable bug:
+        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
     }
 }
 

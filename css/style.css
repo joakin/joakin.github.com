@@ -587,6 +587,18 @@ a:hover {
 img {
   max-width: 100%;
 }
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
 body {
   background: #444444;
   background-image: url('../img/bg.png');
@@ -613,10 +625,15 @@ header {
 }
 header {
   padding: 0 2.8em;
+  *zoom: 1;
+}
+header:before,
+header:after {
+  display: table;
+  content: "";
+  line-height: 0;
 }
 header:after {
-  content: '';
-  display: table;
   clear: both;
 }
 header h1 {
@@ -693,9 +710,16 @@ header h1 {
 #about h2 {
   display: inline-block;
 }
+.post-brief {
+  *zoom: 1;
+}
+.post-brief:before,
 .post-brief:after {
-  content: '';
   display: table;
+  content: "";
+  line-height: 0;
+}
+.post-brief:after {
   clear: both;
 }
 .post-brief .post-title {
