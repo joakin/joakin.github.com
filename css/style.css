@@ -722,12 +722,13 @@ header h1 {
 .post-brief:after {
   clear: both;
 }
-.post-brief .post-title {
-  margin-top: 0px;
-  margin-left: 80px;
+.post-brief .post-title,
+.post-brief .post-date {
+  display: inline-block;
+  vertical-align: baseline;
 }
 .post-brief .post-date {
-  float: left;
+  display: inline-block;
   width: 60px;
   text-align: right;
   padding-right: 20px;
