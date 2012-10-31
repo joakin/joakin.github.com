@@ -723,6 +723,7 @@ header h1 {
   clear: both;
 }
 .post-brief .post-title {
+  margin-top: 0px;
   margin-left: 80px;
 }
 .post-brief .post-date {
