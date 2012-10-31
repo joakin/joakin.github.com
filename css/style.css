@@ -588,7 +588,7 @@ img {
   max-width: 100%;
 }
 body {
-  background: #e2e2e2;
+  background: #4289a2;
   background-image: url('../img/bg.png');
   background-repeat: repeat;
   background-position: top left;
@@ -610,9 +610,13 @@ header {
   box-sizing: border-box;
 }
 header {
-  background: black url('../img/bg3.png') top left repeat;
-  overflow: hidden;
+  background: #7f381e url('../img/bg3.png') top left repeat;
   padding: 0 2.8em;
+}
+header:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 header h1 {
   display: inline-block;
