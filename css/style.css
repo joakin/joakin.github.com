@@ -616,12 +616,13 @@ header {
 }
 header h1 {
   display: inline-block;
-  float: left;
+  margin: 0.8em 0 0;
 }
 #brand {
   text-decoration: none;
-  color: black;
+  color: white;
   text-transform: lowercase;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0px 2px 0px rgba(255, 255, 255, 0.1), 0px -2px 0px rgba(0, 0, 0, 0.2);
 }
 .nav {
   display: inline-block;
@@ -636,6 +637,24 @@ header h1 {
   font-weight: bold;
   text-decoration: none;
   padding: 0.7em;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0px 2px 0px rgba(255, 255, 255, 0.1), 0px -2px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.nav li a:hover {
+  -webkit-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2);
+}
+.nav li a:active {
+  -webkit-box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2);
 }
 .info {
   padding: 1.05em;
