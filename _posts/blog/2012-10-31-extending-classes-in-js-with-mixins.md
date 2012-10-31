@@ -2,7 +2,7 @@
 ---
 layout: post
 category: post
-title: Extending objects using mixins
+title: Extending classes in js using mixins
 comments: true
 tags:
   - js
