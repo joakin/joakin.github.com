@@ -588,7 +588,7 @@ img {
   max-width: 100%;
 }
 body {
-  background: #4289a2;
+  background: #444444;
   background-image: url('../img/bg.png');
   background-repeat: repeat;
   background-position: top left;
@@ -604,6 +604,7 @@ header {
   margin: 0 auto;
   padding: 1.4em 2.8em;
   max-width: 1024px;
+  background: white url('../img/bg2.png') top left repeat;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
