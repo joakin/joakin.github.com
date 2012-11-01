@@ -12,19 +12,17 @@
         display: inline-block;
         border: 5px solid white;
         .border-radius(@borderRadius);
-        .box-shadow(0 1px 2px white);
-
-        img {
-            .border-radius(@borderRadius);
-            .box-shadow(inset 0 2px 2px fade(black, 20%));
-        }
+        .box-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 
         .caption {
+            display: block;
             padding: @lineHeight/2;
             text-align: center;
             color: #444;
-            font-size: 0.75rem;
+            font-size: 1.3rem;
+            padding: 0.1em;
             .transition(all 0.3s ease);
+            font-variant: small-caps;
         }
 
         &:hover .caption {
