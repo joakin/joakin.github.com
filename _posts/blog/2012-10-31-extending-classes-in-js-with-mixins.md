@@ -49,6 +49,7 @@ the explode functionality as a standalone mixin:
         blowUp: function() {
             if (this.blown === null) {
                 console.log('KaBoww');
+                this.blown = (new Date()).getTime();
             } else {
                 console.log('Already blown up');
             }
