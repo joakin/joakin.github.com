@@ -1,13 +1,16 @@
 
+gists
 {% if gists %}
-
+there are gists
   {% for gist in gists %}
-
+gists!1
     {% if gist.files %}
+    there are files
       {% for filename in gist.files %}
         <script src="https://gist.github.com/{{ gist.id }}.js?file={{ filename }}"></script>
       {% endfor %}
     {% else %}
+    no files
       <script src="https://gist.github.com/{{ gist.id }}.js"> </script>
     {% endif %}
 
