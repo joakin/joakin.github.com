@@ -270,8 +270,8 @@ kbd,
 samp {
   font-family: monospace, serif;
   _font-family: monospace;
-  font-size: 1em;
-  font-size: 1rem;
+  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 /*
  * Improves readability of pre-formatted text in all browsers
