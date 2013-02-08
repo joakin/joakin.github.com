@@ -48,7 +48,7 @@ input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-se
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 textarea{overflow:auto;vertical-align:top;}
 table{border-collapse:collapse;border-spacing:0;}
-h1,h2,h3,h4,h5,h6{font-family:'Source Sans Pro';}
+h1,h2,h3,h4,h5,h6{font-family:'Source Sans Pro',sans-serif;}
 p{margin:1.4em 0;}
 a{color:#1177bb;-webkit-transition:color 0.2s ease;-moz-transition:color 0.2s ease;-o-transition:color 0.2s ease;transition:color 0.2s ease;text-decoration:none;}a:visited{color:#1b5cb1;}
 a:active{color:#1595ea;}
@@ -56,7 +56,7 @@ a:hover{color:#083b5e;}
 img{max-width:100%;}
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
-body{background:#444;background-image:url('../img/bg.png');background-repeat:repeat;background-position:top left;background-attachment:scroll;text-shadow:0 1px 0px rgba(255, 255, 255, 0.4);font-family:'Source Sans Pro';font-size:18px;line-height:1.4em;color:#222222;}
+body{background:#444;background-image:url('../img/bg.png');background-repeat:repeat;background-position:top left;background-attachment:scroll;text-shadow:0 1px 0px rgba(255, 255, 255, 0.4);font-family:'Source Sans Pro',sans-serif;font-size:18px;line-height:1.4em;color:#222222;}
 .container,header{margin:0 auto;padding:1.4em 2.8em;max-width:1024px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
 .container{background:#ffffff url('../img/bg2.png') top left repeat;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box;-webkit-box-shadow:inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);-moz-box-shadow:inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);box-shadow:inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2);}
 header{padding:0 2.8em;*zoom:1;}header:before,header:after{display:table;content:"";line-height:0;}
