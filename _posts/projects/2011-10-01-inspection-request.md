@@ -56,13 +56,13 @@ It features:
 * Search form
   * Basic and advanced search
   * Results table with preview, pagination and filters
-  * Posibility to save search as Work list
+  * Possibility to save search as Work list
 * Details of inspection
-  * Hideable menu
+  * Toggable animated menu
   * Smooth scroll between sections
   * Details open in a tab to enable comparison and such
 
-From the previous project and this one I started truly learning javascript and
+From the previous project and this one I started truly perfecting javascript and
 getting a good level on it.
 
 I really liked how this prototype turned out, really smooth and with a good

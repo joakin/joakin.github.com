@@ -34,7 +34,7 @@ Oh and the name...
 
 * He did not have one for his project
 * He was being mentored by the database teacher
-* I hate databases
+* I hated databases
 
 So at the end I chose this one for the mockups, but later he changed it before
 delivery.

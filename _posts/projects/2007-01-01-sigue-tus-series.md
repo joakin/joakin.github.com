@@ -42,7 +42,8 @@ The reality is that I did the scrapping irrespectfully but also unknowing that
 I was kind of screwing them.
 
 They threatened to sue me if I would not stop, and almost did not listen to me,
-so at the end I had to shut it down.
+so at the end I had to shut it down even though I fixed the issues and make the
+scrapping respectful.
 
 The version visible at the screenshots is the v2, which I was planning to
 apply to v1 shortly before they sued me. It never happened.

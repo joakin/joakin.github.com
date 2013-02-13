@@ -29,6 +29,12 @@ links:
   - text: Pinboard
     url: http://pinboard.in/u:joakin
     icon: icon-pinboard
+  - text: Books
+    icon: icon-books
+    header: true
+  - text: GoodReads
+    url: http://goodreads.com/joakin
+    icon: icon-goodreads
 ---
 
 Hi! I'm Joaquin.
