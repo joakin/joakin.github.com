@@ -21,7 +21,7 @@ to a significant market* as the first and most important condition.
 
 ### 1. Prefer not having to generate content manually
 
-Rio was radically positioned on this one. The product builders and mantainers
+Rio was radically positioned on this one. The product builders and maintainers
 should not have to generate / insert / find / upload content manually.
 
 Content should be provided automatically from trusted sources, like users or
