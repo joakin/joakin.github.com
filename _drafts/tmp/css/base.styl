@@ -1,0 +1,23 @@
+
+h1, h2, h3, h4, h5, h6
+  font-family: fontFamily2
+
+p
+  margin: lineHeight 0
+
+a
+  color: linkColor
+  transition: color 0.2s ease
+  text-decoration: none
+
+  &:visited
+    color: desaturate(linkColor + 10deg, 10%)
+  &:active
+    color: lighten(linkColor, 10%)
+  &:hover
+    color: darken(linkColor, 20%)
+
+img
+  max-width: 100%
+
+

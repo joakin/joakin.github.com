@@ -1,0 +1,90 @@
+
+body
+  background: #444
+  background-image: url('../img/bg.png')
+  background-repeat: repeat
+  background-position: top left
+  background-attachment: scroll
+
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4)
+  font-family: fontFamily1
+  font-size: fontSize
+  line-height: lineHeight
+  color: color
+
+.container, header
+  margin: 0 auto
+  padding: lineHeight lineHeight*2
+  max-width: 1024px
+  box-sizing: border-box
+
+.container
+  background: white url('../img/bg2.png') top left repeat
+  border-radius: 2px
+  box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2)
+
+header
+  padding: 0 lineHeight*2
+  clearfix()
+  h1
+    display: inline-block
+    margin: 2rem 0 0
+    float: left
+
+#brand
+  text-decoration: none
+  color: white
+  text-transform: lowercase
+  text-shadow: 0 0 1px rgba(0,0,0,0.5), 0px 2px 0px rgba(255,255,255,0.1), 0px -2px 0px rgba(0,0,0,0.2)
+
+.nav
+  display: inline-block
+  padding-left: 0
+  float: right
+
+  li
+    display: inline-block
+
+    a
+      display: inline-block
+      font-weight: bold
+      text-decoration: none
+      padding: (lineHeight/2)
+      color: white
+      background-color: rgba(255,255,255,0.1)
+      border: 1px solid rgba(0,0,0,0.2)
+      border-radius: 8px
+      box-shadow: inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2)
+      text-shadow: 0 0 1px rgba(0,0,0,0.5), 0px 2px 0px rgba(255,255,255,0.1), 0px -2px 0px rgba(0,0,0,0.2)
+      transition: all 0.3s ease
+
+      &:hover
+        background-color: rgba(255,255,255,0.2)
+        box-shadow: inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2)
+
+      &:active
+        background-color: rgba(0,0,0,0.1)
+        box-shadow: 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2)
+
+
+.info
+  padding: lineHeight*0.75
+  font-size: 0.75em
+  background-color: #fff8
+  box-shadow: inset 0px 0px 2px #0002
+  border-radius: (lineHeight/2)
+
+#about
+  overflow: hidden
+  .links-list
+    float: right
+
+  h2
+    display: inline-block
+
+footer
+  .copy
+    text-align: center
+    color: white
+    text-shadow: 0 1px 0px black
+    font-size: 0.5em
