@@ -11,7 +11,7 @@ layout: default
     <div class='last-posts'>
         <h2>Last posts</h2>
         <div class='posts-list'>
-            {% for post in site.categories.post limit:10 %}
+            {% for post in site.categories.post limit:20 %}
                 {% include post-briefing.html %}
             {% endfor %}
         </div>
@@ -20,6 +20,7 @@ layout: default
         </p>
     </div>
 
+    {% comment %}
     <div class="last-projects">
         <h2>Last projects</h2>
         <div class="projects-list">
@@ -32,6 +33,7 @@ layout: default
             To view more visit the <a href='/projects'>portfolio</a>
         </p>
     </div>
+    {% endcomment %}
 
 </div>
 
