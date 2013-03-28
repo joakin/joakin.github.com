@@ -49,6 +49,7 @@ I've worked on the [projects page](/projects).
 
 I mainly specialize on **front end development**. I also consider myself quite
 capable in the following areas (ordered from better to worse):
+
   * Ui development
   * Web design
   * Backend coding
