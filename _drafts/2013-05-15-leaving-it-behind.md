@@ -114,7 +114,7 @@ acknowledging that what you fear and makes you insecure is the uncertainty of
 your future, and a whole lot more.
 
 Like the tired mind of the adolescent who breaks free leaving home, a mix of
-fatigue and joy possessed me, locking away the coward in far deep hole.
+fatigue and joy possessed me, locking away the coward in a hole far deep down.
 
 ### Environment and opinions
 
