@@ -15,7 +15,7 @@ of something that should have been a lot easier.
 There are many things I tried to keep myself on track, stay on the job and
 avoid burnout.  I started exercising, at the beginning three times per week,
 later on joining a kick-boxing class, and at the end 4 of the 5 days of a
-week. I also resumed reading, it had been years without reading books, and I
+week. I also resumed reading, I had been years without reading books, and I
 loved it, so I started again hoping to resume the abandoned love affair. At
 last I thought, maybe improving my personal settings will finally do it. There
 was not much left to try, so I moved to another city where my partner in love
