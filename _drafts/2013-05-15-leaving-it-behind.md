@@ -7,10 +7,14 @@ tags:
   - personal
 ---
 
-All that time, cheating to yourself has a price. A psychological one. The
+All that time cheating to yourself has a price, a psychological one. The
 burden gets bigger as time goes by, you suffer from lack of interest and
 concentration, among other things, and you end up making a whole big trouble
 of something that should have been a lot easier.
+
+Finally, when the glass filled, and I reached my limits, something happened
+and I sent my resignation letter. I was finally leaving the job after that
+long time struggling and lying to myself.
 
 There are many things I tried to keep myself on track, stay on the job and
 avoid burnout.  I started exercising, at the beginning three times per week,
