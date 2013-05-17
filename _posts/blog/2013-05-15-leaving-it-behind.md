@@ -90,14 +90,14 @@ We talked for a while, a burning fire inside me with every word I read or
 wrote, a mix of anxiety, happiness, courage. He had finally taken the extra
 step and we talked for a while about it.
 
-  > [...]
-  > **me**: but how did you manage it, why now?
-  > **Jorge**: why not now?
-  > **Jorge**: this is as good as any other day to do it
-  > [... more conversation ...]
-  > **Jorge**: look at it this way, it is not that you are crazy for wanting to
-  > leave
-  > **Jorge**: it is that you are crazy if you stay
+  > * [...]
+  > * **me**: but how did you manage it, why now?
+  > * **Jorge**: why not now?
+  > * **Jorge**: this is as good as any other day to do it
+  > * [... more conversation ...]
+  > * **Jorge**: look at it this way, it is not that you are crazy for wanting to
+  >   leave
+  > * **Jorge**: it is that you are crazy if you stay
 
 His gentle hand propelled me of the cliff, and as I was falling to the unknown
 I saw his majestic beard and I thanked him.
