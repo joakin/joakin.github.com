@@ -196,40 +196,68 @@ fancy bells, just writing. The full screen mode is worth it.
 
 #### Pencil Project
 
-[Pencil Project][]
+[Pencil Project][] is an open source tool based on firefox's xul runner. It is
+a very interesting prototyping tool, cross platform, and worth checking out.
 
 #### RestClient
 
-[RestClient][]
+[RestClient][] is a java app that comes in handy when you have to test some
+webservices and do not have a web page set up. It works, but it is far from
+pretty. With time I substituted it with things like [Chrome's Postman
+extension][chrome-postman] or [Firefox's Rest Client
+extension][ff-rest-client], which comply as well and are prettier and do not
+depend on java.
 
 #### Xampp
 
-[Xampp][]
+[Xampp][] provides an easy way of setting up an Apache, MySql, Php stack. For
+example I have the apache document root pointing to my projects folder and
+opened at startup, so that at anytime I can open any file/site of the folder in
+the browser.
 
 #### Node
 
-[Node][]
+[Node][] is a JS framework based on async that runs on V8 on the server. It
+also serves as a platform to lots of useful tools for web development, like css
+and js minifiers, less/stylus compilers, jslint/jshint, uglifyjs, coffeescript
+compiler, etc.
 
-[Node downloadsd][node-downloads] Windows Binary (.exe)
+On it's ecosystem lots of useful tools for web development and it has been
+really useful to have node and npm installed to make use of this tools.
 
-[Node portable 0.10.8 by imsky.co][node-portable]
-
-#### Php
-
+To install it, I had to find a portable version the first time, from something
+like [Node portable 0.10.8 by imsky.co][node-portable], save it on my paths,
+and then, from there on, I updated the node binary from the official node site,
+going to [Node downloads][node-downloads] and downloading the **Windows Binary
+(.exe)**.
 
 #### Python
 
-[Python][]
-[Portable python][portable-python]
+I dabbled into [Python][] through its fantastic docs to do some scripting and
+automate tasks on my computer. Python is a great language really pleasant to
+use. When I installed it there was no portable version and it was a bit of
+a hell to get it to install, but it seems like they have updated ones at
+[Portable python][portable-python] now.
 
 #### Chrome
 
-[Chrome][]
+Google [Chrome][] is a fantastic browser that installs perfectly on corporate
+restricted environments, and has been tremendously useful. It's devtools are
+great, and it is a very good browser.
 
 #### Firefox Portable
 
-[Firefox Portable][]
-[Aurora][]
+At work we had a Firefox installed, but it was the ESR (Enterprise Release)
+version and it had the profile modified and settings blocked, besides bookmarks
+and home page presets and nasty addons pre-installed.
+
+At the beginning I moved to using [Aurora][], a more experimental release of
+firefox, but very stable, but the enterprise firefox updates would screw with
+my profile.
+
+To use the excellent and free Firefox and keep my profile with my stuff and
+without the company's stuff I had to search for the [Firefox Portable][]
+version, which works seamlessly.
 
 #### Vim
 
@@ -287,6 +315,8 @@ fancy bells, just writing. The full screen mode is worth it.
 [FocusWriter]: http://gottcode.org/focuswriter/
 [Pencil Project]: http://pencil.evolus.vn/
 [RestClient]: https://code.google.com/p/rest-client/
+[chrome-postman]: https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm
+[ff-rest-client]: https://addons.mozilla.org/en-us/firefox/addon/restclient/
 [Xampp]: http://www.apachefriends.org/en/xampp.html
 [Node]: http://nodejs.org/
 [node-downloads]: http://nodejs.org/download/
