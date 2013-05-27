@@ -116,49 +116,83 @@ things, and a million more.
 
 #### WindowPad
 
-WindowPad is a great substitute of the poor 
+[WindowPad][] is a great substitute of the poor aero snap. It is a window manager
+on its own. It lets you move windows, resize them, change them of monitor,
+maximize, etc, all with key shortcuts. It is a wonderful utility and it is
+built on AutoHotkey, but it is delivered as a self contained executable.
 
-[WindowPad][]
-[WindowPadX][]
+There is also [WindowPadX][], a fork of WindowPad that is supposed to add some
+good features. I haven't tried it myself, but looks promising.
 
 #### Snipping Tool
 
-[Snipping Tool][]
+The Windows [Snipping Tool][] is the default windows 7 screen shooting tool
+(besides the Print Screen button). It actually is quite nice, and has enough
+functionality for a day to day work.
+
+I included it because it is a hidden gem that is useful and already available.
 
 #### Custom Fonts (regfont)
 
-[Custom Fonts (regfont)][regfont]
+If you are anything like me, you like having fonts of your liking available to
+customize how parts of the system work. The editor, browser defaults, and
+system font, for example. The problem with not having administrator privileges
+is that you cannot install fonts normally because they are located on
+`C:\Windows\Fonts` and that is an administrator folder.
 
-```cmd
-D:\devel\bin\regfont.exe -a D:\devel\fonts\*
-```
+Luckily, normal users are able to install fonts using shortcuts that only last
+through the user session. When the user logs out the fonts are erased.
 
-[Font problem][font-install-problem]
-[Font problem 2][font-install-problem-2]
+By using a program like [regfont][], and adding it to startup, we can have the
+fonts installed every time we log in. It only takes a few seconds.
+
+So save regfont somewhere, like in `D:\devel\bin\regfont.exe`, then create
+a shortcut, and place it on the startup folder.
+
+`%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+
+And then, right click it, and on the target field set it so that regfont loads
+them from where you are putting your custom fonts:
+
+`D:\devel\bin\regfont.exe -a D:\devel\fonts\*`
+
+Ref links:
+* [Font problem][font-install-problem]
+* [Font problem 2][font-install-problem-2]
 
 
 ### Applications
 
 #### Dropbox
 
-[Dropbox][]
-[Dropbox portable][]
+This online storage solution needs no presentation. Seamless cloud file sync
+that allow you to share stuff between your home computer and the work one.
+
+I managed to get the [Dropbox][] installer working but I know some partners
+that had to use the officially supported and very updated [Dropbox portable][].
 
 #### Calibre Portable
 
-[Calibre Portable][]
+Calibre is a book manager that works greatly. It has also an ebook reader,
+which is what I used it for. Besides that, you can use it for sorting a library
+of work related pdfs and documents.
+
+I had to install [Calibre Portable][], not the normal version.
 
 #### Pidgin
 
-[Pidgin][]
+[Pidgin][] is an open source IM client. It allows you to connect to multiple
+chat services, and works great.
 
 #### Launchy
 
-[Launchy][]
+[Launchy][] is an application launcher, very useful if you have to move a lot
+through folders or open different applications all the time.
 
 #### FocusWriter
 
-[FocusWriter][]
+[FocusWriter][] is a minimalistic writing environment worth checking out. No
+fancy bells, just writing. The full screen mode is worth it.
 
 #### Pencil Project
 
