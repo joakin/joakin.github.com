@@ -283,6 +283,9 @@ configurability, tabs, transparent background, etc.
 
 Great program, I could not have lived without it.
 
+Edit: Some commenters have recommended [ConEmu][] over Console2, check it out
+and decide by yourself, I'm going to.
+
 #### Msysgit (or cygwin). POSIX shell on windows (bash)
 
 If you come from some linux/unix, for sure you are going to miss a good bash.
@@ -386,6 +389,7 @@ for windows developers, please leave a comment.
 [Emacs]: http://www.gnu.org/software/emacs/
 [LightTable]: http://www.lighttable.com/
 [Console2]: http://sourceforge.net/projects/console/
+[ConEmu]: http://code.google.com/p/conemu-maximus5/
 [msysgit]: http://msysgit.github.io/
 [cygwin]: http://www.cygwin.com/
 [Git]: http://msysgit.github.io/
