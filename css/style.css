@@ -596,13 +596,10 @@ body {
   background-position: top left;
   background-attachment: scroll;
   text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4);
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   font-size: 16px;
   line-height: 1.7;
   color: #222222;
-}
-p {
-  font-family: 'Libre Baskerville', serif;
 }
 .container,
 header {
@@ -627,6 +624,7 @@ header {
 }
 header {
   padding: 0 3.4;
+  font-family: 'Source Sans Pro', sans-serif;
   *zoom: 1;
 }
 header:before,
