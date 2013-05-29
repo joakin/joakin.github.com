@@ -789,6 +789,7 @@ header h1 {
   color: black;
 }
 .links-list .header-link {
+  font-family: 'Source Sans Pro', sans-serif;
   list-style-type: none;
   color: #888888;
   text-transform: uppercase;
