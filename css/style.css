@@ -639,7 +639,7 @@ header:after {
 }
 header h1 {
   display: inline-block;
-  margin: 0;
+  margin: 0.23em 0;
   float: left;
 }
 #brand {
