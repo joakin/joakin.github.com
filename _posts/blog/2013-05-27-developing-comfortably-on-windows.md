@@ -63,6 +63,7 @@ config file:
 `D:\devel\bin\cntlm\cntlm.exe -c D:\devel\bin\cntlm\cntlm.ini`
 
 To fill the .ini file, look at these links or use your *search-fu*:
+
 * [My example cntlm.ini config based on my real one working][Cntlm ini file]
 * [How to fill proxy information in cntlm config file][Cntlm sample]
 
@@ -157,6 +158,7 @@ them from where you are putting your custom fonts:
 `D:\devel\bin\regfont.exe -a D:\devel\fonts\*`
 
 Ref links:
+
 * [Font problem][font-install-problem]
 * [Font problem 2][font-install-problem-2]
 
