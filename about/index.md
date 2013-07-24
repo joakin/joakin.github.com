@@ -44,11 +44,15 @@ I'm a programmer from Alicante, Spain.
 If you want to get in touch with me, try [email](mailto://joaquin@chimeces.com)
 first, or any of the sites on the side bar.
 
-You can check what I write about on the [blog](/blog) and some of the stuff
-I've worked on the [projects page](/projects).
+You can check what I write about on the [blog](/blog)
+{% comment %}
+and some of the stuff I've worked on the [projects page](/projects).
+{% endcomment %}
 
-I mainly specialize on **front end development**. I also consider myself quite
-capable in the following areas (ordered from better to worse):
+I mainly specialize on **javascript programming** and **front end
+development**. I also consider myself quite capable in the following areas
+(ordered from better to worse):
+
   * Ui development
   * Web design
   * Backend coding

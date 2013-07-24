@@ -1,45 +1,60 @@
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: @fontFamily2;
+  font-family: @fontFamily1;
+  line-height: 1.5;
 }
 
+h1 { font-size: 2.8em }
+h2 { font-size: 2.2em }
+h3 { font-size: 1.6em }
+h4 { font-size: 1.3em }
+h5 { font-size: 1.1em }
+h6 { font-size: 1em   }
+
 p {
-    margin: @lineHeight 0;
+  margin: @lineHeight 0;
 }
 
 a {
-    color: @linkColor;
-    .transition(color 0.2s ease);
-    text-decoration: none;
+  color: @linkColor;
+  .transition(color 0.2s ease);
+  text-decoration: none;
 
-    &:visited {
-        color: desaturate(spin(@linkColor, 10), 10%);
-    }
-    &:active {
-        color: lighten(@linkColor, 10%);
-    }
-    &:hover {
-        color: darken(@linkColor, 20%);
-    }
+  &:visited {
+    color: desaturate(spin(@linkColor, 10), 10%);
+  }
+  &:active {
+    color: lighten(@linkColor, 10%);
+  }
+  &:hover {
+    color: darken(@linkColor, 20%);
+  }
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 
 .clearfix {
-    *zoom: 1;
-    &:before,
-    &:after {
-        display: table;
-        content: "";
-        // Fixes Opera/contenteditable bug:
-        // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
-        line-height: 0;
-    }
-    &:after {
-        clear: both;
-    }
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+code {
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 3px 5px;
+  .border-radius(4px);
 }
 
