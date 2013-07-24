@@ -1,7 +1,7 @@
 markdown: rdiscount
 pygments: true
 paginate: 10
-permalink: /:categories/:title
+permalink: /:year/:month/:day/:title/
 
 name: Chimeces
 url: http://chimeces.com
