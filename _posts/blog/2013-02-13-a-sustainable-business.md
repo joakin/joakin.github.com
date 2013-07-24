@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: A sustainable business
 comments: true
 tags:

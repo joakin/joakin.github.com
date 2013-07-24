@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: A JS code review
 comments: true
 tags:

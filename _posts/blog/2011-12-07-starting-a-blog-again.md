@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: Starting a blog... again
 comments: true
 tags:

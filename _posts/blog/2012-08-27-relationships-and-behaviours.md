@@ -1,7 +1,5 @@
-
 ---
 layout: post
-category: post
 title: Relationships and behaviours
 comments: true
 tags:

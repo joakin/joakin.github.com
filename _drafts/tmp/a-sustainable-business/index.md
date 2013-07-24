@@ -1,6 +1,5 @@
 ---
 template: article.jade
-category: post
 title: A sustainable business
 date: 2013-02-13
 comments: true

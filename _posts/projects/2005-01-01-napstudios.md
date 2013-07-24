@@ -1,6 +1,5 @@
 ---
 layout: project
-category: project
 title: Nap Studios
 tags:
   - design

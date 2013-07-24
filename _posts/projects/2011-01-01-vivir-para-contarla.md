@@ -1,6 +1,5 @@
 ---
 layout: project
-category: project
 title: Vivir para contarla
 tags:
   - design

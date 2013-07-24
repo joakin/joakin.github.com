@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: Disconnect
 comments: true
 tags:

@@ -1,6 +1,5 @@
 ---
 layout: project
-category: project
 title: I hate databases
 tags:
   - design

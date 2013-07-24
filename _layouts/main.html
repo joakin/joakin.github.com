@@ -8,10 +8,14 @@ layout: default
         {{ content }}
     </div>
 
+    <!--
+    {{ site.categories }}
+    -->
+
     <div class='last-posts'>
         <h2>Last posts</h2>
         <div class='posts-list'>
-            {% for post in site.categories.post limit:10 %}
+            {% for post in site.categories.blog limit:10 %}
                 {% include post-briefing.html %}
             {% endfor %}
         </div>
@@ -23,7 +27,7 @@ layout: default
     <div class="last-projects">
         <h2>Last projects</h2>
         <div class="projects-list">
-            {% for project in site.categories.project limit:3 %}
+            {% for project in site.categories.projects limit:3 %}
                 {% assign project = project %}
                 {% include project-briefing.html %}
             {% endfor %}

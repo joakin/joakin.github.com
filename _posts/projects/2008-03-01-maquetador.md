@@ -1,6 +1,5 @@
 ---
 layout: project
-category: project
 title: Maquetador
 tags:
   - design

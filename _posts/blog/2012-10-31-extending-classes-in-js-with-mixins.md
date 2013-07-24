@@ -1,7 +1,5 @@
-
 ---
 layout: post
-category: post
 title: Extending classes in js using mixins
 comments: true
 tags:

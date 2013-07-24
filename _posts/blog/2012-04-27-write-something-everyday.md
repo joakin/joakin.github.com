@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: Write something every day
 comments: true
 tags:

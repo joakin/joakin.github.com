@@ -1,6 +1,5 @@
 ---
 layout: project
-category: project
 title: Sigue tus series
 tags:
   - design
