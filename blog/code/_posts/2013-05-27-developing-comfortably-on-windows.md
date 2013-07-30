@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: Developing comfortably on windows
 comments: true
 tags:

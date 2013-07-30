@@ -1,6 +1,5 @@
 ---
 layout: post
-category: post
 title: Leaving it behind
 comments: true
 tags:
