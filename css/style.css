@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Source+Sans+Pro:400,700);
+@import url("http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Source+Sans+Pro:400,700&.css");
 /*---------------------------------------------------
     LESS Prefixer
   ---------------------------------------------------
@@ -135,6 +135,8 @@ html {
   /* 1 */
 
   -webkit-text-size-adjust: 100%;
+  /* 2 */
+
   -ms-text-size-adjust: 100%;
   /* 2 */
 
@@ -406,6 +408,8 @@ textarea {
   /* 2 */
 
   vertical-align: baseline;
+  /* 3 */
+
   *vertical-align: middle;
   /* 3 */
 
@@ -461,6 +465,8 @@ input[type="radio"] {
   /* 2 */
 
   *height: 13px;
+  /* 3 */
+
   *width: 13px;
   /* 3 */
 
@@ -822,4 +828,8 @@ header h1 {
 }
 .links-list li {
   margin-left: 2.55em;
+}
+.post-pic {
+  display: block;
+  text-align: center;
 }
