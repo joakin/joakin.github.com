@@ -78,10 +78,28 @@ header {
   }
 }
 
-.well {
-  background-color: fade(white, 50%);
-  .box-shadow(inset 0px 0px 2px fade(black, 20%));
+.well(@background: white,
+      @shadow: black,
+      @padding: 10px,
+      @margin: 0 0 20px) {
+  background-color: fade(@background, 50%);
+  .box-shadow(inset 0px 0px 2px fade(@shadow, 20%));
   .border-radius(@lineHeight/2);
+  padding: @padding;
+  margin: @margin;
+
+  &>:first-child {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  &>:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.notice(@color: yellow) {
+  .well(lighten(@color, 15%), darken(@color, 25%));
 }
 
 .info {
@@ -92,6 +110,10 @@ header {
 
 .welcome-msg {
   .well();
+}
+
+.notice-msg {
+  .notice();
 }
 
 #about {
