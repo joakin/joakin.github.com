@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div id="category-list">
+
+  <a class='category-rss-link'
+    href='./index.xml'>{{page.categoryname | upcase}} RSS</a>
+
+  <h2>{{ page.title }}</h2>
+
+  <div>
+
+    {% if page.custom %}
+      {{ content }}
+    {% else %}
+      <p>
+      This is the list of posts of the category travel. If you enjoy them, feel
+      free to subscribe to the rss with the button up there to the right.
+      </p>
+    {% endif %}
+
+  </div>
+
+  <div class='posts-list'>
+    {% for post in site.categories[page.categoryname] %}
+      {% include post-briefing.html %}
+    {% endfor %}
+  </div>
+
+</div>
