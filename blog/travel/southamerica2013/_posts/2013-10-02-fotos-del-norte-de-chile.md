@@ -13,6 +13,8 @@ Acabo de subir las fotos del norte de Chile y de el tour por Bolivia en Uyuni.
 Las fotos empiezan [a partir de
 esta](http://www.flickr.com/photos/29485727@N07/10055571264/lightbox/) (ultimos
 dias en lima)
+(Hay que darle a la flecha hacia la izquierda, para ver las fotos nuevas. No
+tengo ni idea de por que)
 
 El enlace al set entero es donde siempre:
 
