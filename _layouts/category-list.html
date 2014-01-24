@@ -5,7 +5,7 @@ layout: default
 <div id="category-list">
 
   <a class='category-rss-link'
-    href='./index.xml'>{{page.categoryname | upcase}} RSS</a>
+    href='./{{page.categoryname}}.xml'>{{page.categoryname | upcase}} RSS</a>
 
   <h2>{{ page.title }}</h2>
 
@@ -14,10 +14,6 @@ layout: default
     {% if page.custom %}
       {{ content }}
     {% else %}
-      <p>
-      This is the list of posts of the category travel. If you enjoy them, feel
-      free to subscribe to the rss with the button up there to the right.
-      </p>
     {% endif %}
 
   </div>

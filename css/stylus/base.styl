@@ -31,12 +31,13 @@ a
   text-decoration none
 
   &:visited
-    color darken(desaturate(linkColor, 20%), 30%)
+    color desaturate(linkColor - 180deg, 20%)
   &:active
     color lighten(linkColor, 10%)
   &:hover
-    color darken(linkColor, 15%)
     background-color rgba(brand-color, 0.1)
+  &:visited:hover
+    background-color rgba(desaturate(linkColor - 180deg, 20%), 0.01)
 
 img
   max-width 100%
@@ -58,22 +59,3 @@ code
   padding 3px 5px
   border-radius(4px)
 
-transparent-btn()
-  display inline-block
-  font-weight bold
-  text-decoration none
-  padding (lineHeight/2)
-  background-color rgba(255,255,255,0.1)
-  border 1px solid rgba(0,0,0,0.2)
-  border-radius 8px
-  box-shadow inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2)
-  text-shadow 0 0 1px rgba(0,0,0,0.5), 0px 2px 0px rgba(255,255,255,0.1), 0px -2px 0px rgba(0,0,0,0.2)
-  transition all 0.3s ease
-
-  &:hover
-    background-color rgba(255,255,255,0.2)
-    box-shadow inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2)
-
-  &:active
-    background-color rgba(0,0,0,0.1)
-    box-shadow 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2)
