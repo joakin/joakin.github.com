@@ -5,16 +5,22 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size 2.8em
+  margin: 0.34em 0;
 h2
   font-size 2.2em
+  margin: 0.42em 0;
 h3
   font-size 1.6em
+  margin: 0.5em 0;
 h4
   font-size 1.3em
+  margin: 0.66em 0;
 h5
   font-size 1.1em
+  margin: 0.84em 0;
 h6
   font-size 1em
+  margin: 1.16em 0;
 
 p
   margin lineHeight 0
@@ -25,11 +31,12 @@ a
   text-decoration none
 
   &:visited
-    color desaturate(linkColor + 10deg, 10%)
+    color darken(desaturate(linkColor, 20%), 30%)
   &:active
     color lighten(linkColor, 10%)
   &:hover
-    color darken(linkColor, 20%)
+    color darken(linkColor, 15%)
+    background-color rgba(brand-color, 0.1)
 
 img
   max-width 100%
