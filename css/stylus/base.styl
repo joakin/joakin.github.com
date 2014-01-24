@@ -1,0 +1,72 @@
+
+h1, h2, h3, h4, h5, h6
+  font-family fontFamily1
+  line-height 1.5
+
+h1
+  font-size 2.8em
+h2
+  font-size 2.2em
+h3
+  font-size 1.6em
+h4
+  font-size 1.3em
+h5
+  font-size 1.1em
+h6
+  font-size 1em
+
+p
+  margin lineHeight 0
+
+a
+  color linkColor
+  transition color 0.2s ease
+  text-decoration none
+
+  &:visited
+    color desaturate(linkColor + 10deg, 10%)
+  &:active
+    color lighten(linkColor, 10%)
+  &:hover
+    color darken(linkColor, 20%)
+
+img
+  max-width 100%
+
+clearfix()
+  *zoom 1
+  &:before, &:after
+    display table
+    content ""
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height 0
+  &:after
+    clear both
+
+code
+  border 1px solid #ccc
+  background-color white
+  padding 3px 5px
+  border-radius(4px)
+
+transparent-btn()
+  display inline-block
+  font-weight bold
+  text-decoration none
+  padding (lineHeight/2)
+  background-color rgba(255,255,255,0.1)
+  border 1px solid rgba(0,0,0,0.2)
+  border-radius 8px
+  box-shadow inset 0px 1px 1px rgba(255,255,255,0.2), 0px 1px 1px rgba(0,0,0,0.2)
+  text-shadow 0 0 1px rgba(0,0,0,0.5), 0px 2px 0px rgba(255,255,255,0.1), 0px -2px 0px rgba(0,0,0,0.2)
+  transition all 0.3s ease
+
+  &:hover
+    background-color rgba(255,255,255,0.2)
+    box-shadow inset 0px 1px 1px rgba(255,255,255,0.5), 0px 1px 1px rgba(0,0,0,0.2)
+
+  &:active
+    background-color rgba(0,0,0,0.1)
+    box-shadow 0px 1px 1px rgba(255,255,255,0.3), inset 0px 1px 1px rgba(0,0,0,0.2)
