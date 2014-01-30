@@ -40,32 +40,29 @@ images:
     title: 'Details in tabs'
 ---
 
-This was a prototype for an application that had to be rewritten. It is/was
-a fully functional web application that consumed json services.
+A web application that consumed json services. It was kind of a task manager
+for a specific business workflow.
 
 It features:
 
-* A user home page with last reviewed items and saved work lists
-* A form to create inspection requests
-  * Information loading via services
-  * Form validation
-  * Form preview before submit
-* User created work lists
-  * Editable lists of Inspections with preview
-* Search form
-  * Basic and advanced search
-  * Results table with preview, pagination and filters
-  * Possibility to save search as Work list
-* Details of inspection
-  * Toggable animated menu
-  * Smooth scroll between sections
-  * Details open in a tab to enable comparison and such
+* A user home page with last reviewed items and saved work lists.
+* A form to create inspection requests.
+  * Information loading via json services.
+  * Form validation.
+  * Form preview before submit.
+* User created work lists.
+  * Editable lists of Inspections with preview.
+* Search form.
+  * Basic and advanced search.
+  * Results table with preview, pagination and filters.
+  * Possibility to save search as Work list.
+* Details of inspection.
+  * Toggable animated menu.
+  * Smooth scroll between sections.
+  * Opening details in tabs to enable comparison of files.
 
-From the previous project and this one I started truly perfecting javascript and
-getting a good level on it.
-
-I really liked how this prototype turned out, really smooth and with a good
+I really liked how this app turned out, really smooth and with a good
 consistent design.
 
-Anyway, it was not used for anything...
+More JS webapp experience.
 

@@ -22,16 +22,6 @@ images:
     title: 'Contact'
 ---
 
-This was one of the projects ordered to 23pixeles, with promises and lies.
-
-Meetings, buzzwords and such.
-
-After the design phases, and a couple of meetings and deliverables, we created the 
-site.
-
-Then we asked for the money in advanced before delivering, and nothing was given,
-everything finished.
-
-Promises vanished, money never appeared, and luckily he only had the designs,
-but not the website.
+A small project for a finance consulting company. Design and a static website
+for them to have presence on the internet.
 

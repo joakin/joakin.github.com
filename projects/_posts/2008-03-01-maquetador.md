@@ -4,6 +4,7 @@ title: Maquetador
 tags:
   - design
   - web app
+  - js
   - j2ee
 images:
   - thumbnail: '/img/projects/maquetador/1-small.jpg'
@@ -35,37 +36,33 @@ images:
     title: 'Pdf output'
 ---
 
-I did this project when I was working for the university before finishing my
-degree.
+A project I did when I was working in the University. It was a web application
+that would be used to layout pages and generate pdf magazines. A magazine
+editor.
 
-It was a web application that would be used to layout pages and generate pdf
-magazines.
-
-In the frontend it was a full javascript application, my first one. This was
-before the days of backbone and other frontend frameworks.
+In the frontend it was a full javascript application, my first big one. This
+was before the days of backbone and other frontend frameworks.
 
 It was written in pure javascript with jQuery and jQuery UI to support.
 
 The design in general was quite poor but it was full of nice functionality.
 
-Auto generated index, templates for the magazine, templates for headers,
-predefined layouts, freedom to add boxes and images, etc.
+Some of the features:
 
-It was also possible to save and load the work done, and afterwards you could
-download the pdf resulting from your work.
+* Auto generated index.
+* Templates for the magazine page layouts, headers and style. (some predefined
+  ones and a mechanism to add new ones)
+* Predetermined page layouts and also free-form boxes and images.
+* Save and load current magazine issue.
+* Pdf download rendered from the magazine issue.
+* Integration with external sources for article and image retrieval.
 
-The articles and images could be written and edited in place or taken from
-certain databases. In the backend with j2ee I did as proxy and consulted the
-data sources.
+A challenge at the time was to get the rendering from web pages to PDF.  For
+that I used a Firefox on the server (it gave me a few stability problems).
 
-For the pdf generation I used a firefox on the server, and some scripts, where
-it would load the same work locally, print it to pdf, and then return it to the
-client.
+The result of the printing process was a bit unstable for the server in terms
+of memory management but it was pretty powerful in terms of layouts, css and
+pdf printing for the client.
 
-The result was quite clumsy in terms of memory management but it was pretty
-powerful in terms of layouts, css and pdf printing.
-
-By the time there was not any headless browser that I knew or could use...
-
-Anyway, this was a nice project, where I learnt a lot of Javascript.
+A lot of JavaScript was learnt.
 
