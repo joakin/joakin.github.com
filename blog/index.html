@@ -4,14 +4,7 @@ title: Archive - Chimeces
 ---
 
 <div id="archive">
-  <h3>Categories</h3>
-  <ul class='categories-list'>
-    {% for cat in site.categories %}
-      {% unless cat[0] == 'blog' or cat[0] == 'projects' %}
-        <li><a href='/categories/{{ cat[0] }}.html'>{{ cat[0] }}</a></li>
-      {% endunless %}
-    {% endfor %}
-  </ul>
+  {% include categories.html %}
   <h3>Posts by date</h3>
   <div class='posts-list'>
     {% for post in site.categories.blog %}

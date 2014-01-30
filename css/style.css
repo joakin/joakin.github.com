@@ -210,6 +210,15 @@ header h1 {
   padding-bottom: 0;
   margin-bottom: 0;
 }
+#home .last-posts>.info {
+  clear: both;
+}
+#home .posts-list {
+  float: left;
+}
+#home .categories {
+  float: right;
+}
 #about {
   overflow: hidden;
 }
