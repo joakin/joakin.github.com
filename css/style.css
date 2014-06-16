@@ -82,7 +82,7 @@ header {
 }
 header {
   background-color: #222;
-  background: url("/img/header.jpg") no-repeat center center fixed;
+  background: url("/img/header.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
