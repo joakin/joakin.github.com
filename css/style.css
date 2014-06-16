@@ -1,4 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Arapey");
+@import url("http://fonts.googleapis.com/css?family=Vollkorn|Montserrat&.css");
 @import "normalize.css";
 h1,
 h2,
@@ -6,7 +6,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Arapey', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
 }
 h1 {
@@ -70,7 +70,7 @@ code {
 body {
   background: #fff url("../img/bg2.png") top left repeat;
   text-shadow: 0 1px 0px rgba(255,255,255,0.4);
-  font-family: 'Arapey', sans-serif;
+  font-family: 'Vollkorn', serif;
   font-size: 22px;
   line-height: 1.5em;
   color: #222;
@@ -86,7 +86,7 @@ header {
 }
 header {
   padding: 0 3em;
-  font-family: 'Arapey', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   *zoom: 1;
 }
 header:before,
@@ -306,10 +306,10 @@ header h1 {
   margin-top: 24px;
 }
 .category-rss-link {
-  font-family: 'Arapey', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .links-list .header-link {
-  font-family: 'Arapey', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   list-style-type: none;
   color: #7a7a7a;
   text-transform: uppercase;
