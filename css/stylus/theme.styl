@@ -1,29 +1,30 @@
 
 body
-  // background: #444
-  // background-image: url('../img/bg.png')
-  background: white url('../img/bg2.png') top left repeat
+  // background white url('../img/bg2.png') top left repeat
+  background-color white
 
-  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.4)
-  font-family: fontFamily2
-  font-size: fontSize
-  line-height: lineHeight
-  color: color
+  text-shadow 0 1px 0px rgba(255, 255, 255, 0.4)
+  font-family fontFamily2
+  font-size fontSize
+  line-height lineHeight
+  color color
 
 .container, header
-  margin: 0 auto
-  padding: lineHeight lineHeight*2
-  max-width: 1024px
-  box-sizing: border-box
+  margin 0 auto
+  padding lineHeight 10%
+  box-sizing border-box
 
 header
-  padding: 0 lineHeight*2
-  font-family: fontFamily1
+  background-color #222
+  background url(/img/header.jpg) no-repeat center center fixed
+  background-size cover
+  padding 120px 10%
+  font-family fontFamily1
   clearfix()
   h1
-    display: inline-block
-    margin: 0.5rem 0 0
-    float: left
+    display inline-block
+    margin 0.5rem 0 0
+    float left
 
 .container>div
   >h1
@@ -32,69 +33,80 @@ header
     margin-top 0
 
 #brand
-  text-decoration: none
-  color: brand-color
-  text-transform: lowercase
-  text-shadow: 0 3px 0px rgba(brand-color,0.2)
+  text-decoration none
+  color brand-color
+  text-transform lowercase
+  text-shadow 0 3px 0px rgba(brand-color,0.2)
+  position relative
+  .subtitle
+    font-size 0.2em
+    font-weight normal
+    font-style italic
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    text-align center
 
 .nav
-  display: inline-block
-  padding-left: 0
-  float: right
+  display inline-block
+  padding-left 0
+  float right
 
   li
-    display: inline-block
+    display inline-block
 
     a
-      display: inline-block
-      font-weight: bold
-      text-decoration: none
-      padding: (lineHeight/2)
-      color: brand-color
-      // border: 1px solid rgba(0,0,0,0.2)
-      border-radius: 8px
-      transition: all 0.5s ease
-      position: relative
+      display inline-block
+      font-weight bold
+      text-decoration none
+      padding (lineHeight/2)
+      color brand-color
+      // border 1px solid rgba(0,0,0,0.2)
+      border-radius 8px
+      transition all 0.5s ease
+      position relative
 
       &:hover
-        background-color: rgba(brand-color,0.1)
-        box-shadow: 0px 1px 0px rgba(darken(brand-color, 5%), 0.3)
-        text-shadow: 0 2px 0px rgba(brand-color,0.2)
-        top: -1px
+        background-color rgba(brand-color,0.1)
+        box-shadow 0px 1px 0px rgba(darken(brand-color, 5%), 0.3)
+        text-shadow 0 2px 0px rgba(brand-color,0.2)
 
       &:active
-        transition: all 0.1s ease
-        background-color: rgba(brand-color,0.1)
-        box-shadow: inset 0px 1px 0px rgba(darken(brand-color, 5%), 0.3)
-        top: 1px
+        transition all 0.1s ease
+        background-color rgba(brand-color,0.1)
+        box-shadow inset 0px 1px 0px rgba(darken(brand-color, 5%), 0.3)
+        top 1px
 
 
-well(background = rgba(#e8e8e8, 0.5), shadow = rgba(black, 0.1), padding = 10px, margin = 0 0 20px)
-  background-color: background
-  box-shadow: 0px 3px 0px shadow
-  border-radius: 4px
-  padding: padding
-  margin: margin
+well(background = rgba(#f3f3f3, 0.5), shadow = rgba(black, 0.02), padding = 15px, margin = 0 0 20px)
+  background-color background
+  border-top 3px solid shadow
+  border-radius 4px
+  padding padding
+  margin margin
 
   &>:first-child
-    padding-top: 0
-    margin-top: 0
+    padding-top 0
+    margin-top 0
 
   &>:last-child
-    padding-bottom: 0
-    margin-bottom: 0
+    padding-bottom 0
+    margin-bottom 0
 
-notice(color = rgb(255, 255, 150))
+notice(color = rgb(251, 251, 217))
   well(lighten(color, 40%), darken(rgba(color, 0.05), 60%))
-  color darken(color, 65%)
+  color darken(color - 15deg, 55%)
+  font-size 0.8em
 
 .info
-  padding: lineHeight*0.75
-  font-size: 0.9em
+  padding lineHeight*0.75
+  font-size 0.9em
   well()
 
 .welcome-msg
-  well()
+  bg = rgb(251, 254, 246)
+  well(bg, rgba(darken(bg, 50%), 0.1))
   margin-bottom 30px
 
 .notice-msg
@@ -102,18 +114,25 @@ notice(color = rgb(255, 255, 150))
 
 #home
   .last-posts>.info
-    clear: both
+    clear both
+  .posts-list
+    float left
+  .categories
+    float right
+
+#archive
+  overflow hidden
   .posts-list
     float left
   .categories
     float right
 
 #about
-  overflow: hidden
+  overflow hidden
   .links-list
-    float: right
+    float right
 
   h2
-    display: inline-block
+    display inline-block
 
 

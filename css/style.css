@@ -1,4 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Vollkorn|Montserrat&.css");
+@import url("http://fonts.googleapis.com/css?family=Vollkorn");
 @import "normalize.css";
 h1,
 h2,
@@ -6,7 +6,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Vollkorn', Georgia, serif;
   line-height: 1.5;
 }
 h1 {
@@ -15,47 +15,44 @@ h1 {
 }
 h2 {
   font-size: 2.2em;
-  margin: 0.42em 0;
+  margin: 0.84em 0 0.42em;
 }
 h3 {
   font-size: 1.6em;
-  margin: 0.5em 0;
+  margin: 1em 0 0.5em;
 }
 h4 {
   font-size: 1.3em;
-  margin: 0.66em 0;
+  margin: 1.32em 0 0.66em;
 }
 h5 {
   font-size: 1.1em;
-  margin: 0.84em 0;
+  margin: 1.68em 0 0.84em;
 }
 h6 {
   font-size: 1em;
-  margin: 1.16em 0;
+  margin: 2.32em 0 1.16em;
 }
 p {
-  margin: 1.5em 0;
+  margin: 1em 0;
 }
 a {
-  color: #168bd9;
-  -webkit-transition: #222 0.2s ease;
-  -moz-transition: #222 0.2s ease;
-  -o-transition: #222 0.2s ease;
-  -ms-transition: #222 0.2s ease;
-  transition: #222 0.2s ease;
+  color: #168cdb;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   text-decoration: none;
 }
 a:visited {
-  color: #c66829;
+  color: #96c3e2;
 }
 a:active {
-  color: #2299e9;
+  color: #239ae9;
 }
 a:hover {
-  background-color: rgba(22,140,219,0.1);
-}
-a:visited:hover {
-  background-color: rgba(198,104,41,0.01);
+  background-color: rgba(22,140,219,0.04);
 }
 img {
   max-width: 100%;
@@ -68,9 +65,9 @@ code {
   border-radius: 4px;
 }
 body {
-  background: #fff url("../img/bg2.png") top left repeat;
+  background-color: #fff;
   text-shadow: 0 1px 0px rgba(255,255,255,0.4);
-  font-family: 'Vollkorn', serif;
+  font-family: 'Vollkorn', Georgia, serif;
   font-size: 22px;
   line-height: 1.5em;
   color: #222;
@@ -78,15 +75,19 @@ body {
 .container,
 header {
   margin: 0 auto;
-  padding: 1.5em 3em;
-  max-width: 1024px;
+  padding: 1.5em 10%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 header {
-  padding: 0 3em;
-  font-family: 'Montserrat', sans-serif;
+  background-color: #222;
+  background: url("/img/header.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  padding: 120px 10%;
+  font-family: 'Vollkorn', Georgia, serif;
   *zoom: 1;
 }
 header:before,
@@ -110,9 +111,20 @@ header h1 {
 }
 #brand {
   text-decoration: none;
-  color: #168cdb;
+  color: #fff;
   text-transform: lowercase;
-  text-shadow: 0 3px 0px rgba(22,140,219,0.2);
+  text-shadow: 0 3px 0px rgba(255,255,255,0.2);
+  position: relative;
+}
+#brand .subtitle {
+  font-size: 0.2em;
+  font-weight: normal;
+  font-style: italic;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 .nav {
   display: inline-block;
@@ -127,7 +139,7 @@ header h1 {
   font-weight: bold;
   text-decoration: none;
   padding: 0.75em;
-  color: #168cdb;
+  color: #fff;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   -webkit-transition: all 0.5s ease;
@@ -138,11 +150,10 @@ header h1 {
   position: relative;
 }
 .nav li a:hover {
-  background-color: rgba(22,140,219,0.1);
-  -webkit-box-shadow: 0px 1px 0px rgba(21,133,208,0.3);
-  box-shadow: 0px 1px 0px rgba(21,133,208,0.3);
-  text-shadow: 0 2px 0px rgba(22,140,219,0.2);
-  top: -1px;
+  background-color: rgba(255,255,255,0.1);
+  -webkit-box-shadow: 0px 1px 0px rgba(242,242,242,0.3);
+  box-shadow: 0px 1px 0px rgba(242,242,242,0.3);
+  text-shadow: 0 2px 0px rgba(255,255,255,0.2);
 }
 .nav li a:active {
   -webkit-transition: all 0.1s ease;
@@ -150,20 +161,19 @@ header h1 {
   -o-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  background-color: rgba(22,140,219,0.1);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(21,133,208,0.3);
-  box-shadow: inset 0px 1px 0px rgba(21,133,208,0.3);
+  background-color: rgba(255,255,255,0.1);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(242,242,242,0.3);
+  box-shadow: inset 0px 1px 0px rgba(242,242,242,0.3);
   top: 1px;
 }
 .info {
   padding: 1.125em;
   font-size: 0.9em;
-  background-color: rgba(232,232,232,0.5);
-  -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
-  box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+  background-color: rgba(243,243,243,0.5);
+  border-top: 3px solid rgba(0,0,0,0.02);
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  padding: 10px;
+  padding: 15px;
   margin: 0 0 20px;
 }
 .info>:first-child {
@@ -175,12 +185,11 @@ header h1 {
   margin-bottom: 0;
 }
 .welcome-msg {
-  background-color: rgba(232,232,232,0.5);
-  -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
-  box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+  background-color: #fbfef6;
+  border-top: 3px solid rgba(150,225,25,0.1);
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  padding: 10px;
+  padding: 15px;
   margin: 0 0 20px;
   margin-bottom: 30px;
 }
@@ -193,14 +202,14 @@ header h1 {
   margin-bottom: 0;
 }
 .notice-msg {
-  background-color: #ffffc0;
-  -webkit-box-shadow: 0px 3px 0px rgba(162,162,0,0.05);
-  box-shadow: 0px 3px 0px rgba(162,162,0,0.05);
+  background-color: #fdfde8;
+  border-top: 3px solid rgba(169,169,18,0.05);
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  padding: 10px;
+  padding: 15px;
   margin: 0 0 20px;
-  color: #8e8e00;
+  color: #bf9614;
+  font-size: 0.8em;
 }
 .notice-msg>:first-child {
   padding-top: 0;
@@ -217,6 +226,15 @@ header h1 {
   float: left;
 }
 #home .categories {
+  float: right;
+}
+#archive {
+  overflow: hidden;
+}
+#archive .posts-list {
+  float: left;
+}
+#archive .categories {
   float: right;
 }
 #about {
@@ -244,6 +262,7 @@ header h1 {
 .post-brief .post-date {
   display: inline-block;
   vertical-align: baseline;
+  margin-top: 0;
 }
 .post-brief .post-date {
   display: inline-block;
@@ -306,15 +325,15 @@ header h1 {
   margin-top: 24px;
 }
 .category-rss-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Vollkorn', Georgia, serif;
 }
 .links-list .header-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Vollkorn', Georgia, serif;
   list-style-type: none;
   color: #7a7a7a;
   text-transform: uppercase;
   font-weight: bold;
-  margin: 0.75em 0 0;
+  margin: 0.75em 1em;
 }
 .links-list li {
   margin-left: 2.25em;

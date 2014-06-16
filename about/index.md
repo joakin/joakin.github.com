@@ -2,36 +2,24 @@
 layout: about
 title: About - Chimeces
 links:
-  - text: Contact
+  - text: Find me in...
     icon: icon-contact
     header: true
   - text: Twitter
     url: http://twitter.com/joakin
     icon: icon-twitter
-  - text: Code
-    icon: icon-code
-    header: true
   - text: Github
     url: http://github.com/joakin
     icon: icon-github
   - text: Bitbucket
     url: https://bitbucket.org/joakin
     icon: icon-bitbucket
-  - text: Music
-    icon: icon-music
-    header: true
   - text: Grooveshark
     url: http://grooveshark.com/#!/user/Joaquin+Oltra/66993
     icon: icon-grooveshark
-  - text: Favourites
-    icon: icon-favs
-    header: true
   - text: Pinboard
     url: http://pinboard.in/u:joakin
     icon: icon-pinboard
-  - text: Books
-    icon: icon-books
-    header: true
   - text: GoodReads
     url: http://goodreads.com/joakin
     icon: icon-goodreads

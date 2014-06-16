@@ -8,36 +8,34 @@ h1
   margin: 0.34em 0;
 h2
   font-size 2.2em
-  margin: 0.42em 0;
+  margin: 0.84em 0 0.42em;
 h3
   font-size 1.6em
-  margin: 0.5em 0;
+  margin: 1em 0 0.5em;
 h4
   font-size 1.3em
-  margin: 0.66em 0;
+  margin: 1.32em 0 0.66em;
 h5
   font-size 1.1em
-  margin: 0.84em 0;
+  margin: 1.68em 0 0.84em;
 h6
   font-size 1em
-  margin: 1.16em 0;
+  margin: 2.32em 0 1.16em;
 
 p
-  margin lineHeight 0
+  margin 1em 0
 
 a
   color linkColor
-  transition color 0.2s ease
+  transition all 0.5s ease
   text-decoration none
 
   &:visited
-    color desaturate(linkColor - 180deg, 20%)
+    color lighten(desaturate(linkColor, 30%), 50%)
   &:active
     color lighten(linkColor, 10%)
   &:hover
-    background-color rgba(brand-color, 0.1)
-  &:visited:hover
-    background-color rgba(desaturate(linkColor - 180deg, 20%), 0.01)
+    background-color rgba(linkColor, 0.04)
 
 img
   max-width 100%
