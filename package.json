@@ -1,0 +1,24 @@
+{
+  "name": "joakin.github.com",
+  "version": "0.0.0",
+  "description": "my site",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nib": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joakin/joakin.github.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joakin/joakin.github.com/issues"
+  },
+  "homepage": "https://github.com/joakin/joakin.github.com"
+}
