@@ -53,6 +53,7 @@ their exif data (date taken) as possible, using the awesome `jhead` command
 line tool:
 
 [organize-photos](https://github.com/joakin/dotfiles/blob/master/bin/organize-photos)
+
 ```sh
 #!/bin/sh
 if [ -z "$1" ]
