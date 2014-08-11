@@ -68,6 +68,10 @@ p code {
 pre {
   line-height: 1.3;
 }
+pre,
+code {
+  font-size: 1rem;
+}
 body {
   background-color: #fff;
   text-shadow: 0 1px 0px rgba(255,255,255,0.4);
