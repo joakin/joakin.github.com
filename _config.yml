@@ -8,3 +8,4 @@ url: http://chimeces.com
 
 kramdown:
   input: GFM
+  use_coderay: true
