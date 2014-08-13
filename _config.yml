@@ -1,6 +1,5 @@
 markdown: kramdown
 highlighter: pygments
-pygments: true
 paginate: 10
 permalink: /:categories/:year/:month/:day/:title/
 
