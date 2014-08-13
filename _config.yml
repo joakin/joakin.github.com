@@ -1,7 +1,10 @@
-markdown: rdiscount
+markdown: kramdown
 highlighter: pygments
 paginate: 10
 permalink: /:categories/:year/:month/:day/:title/
 
 name: Chimeces
 url: http://chimeces.com
+
+kramdown:
+  input: GFM
