@@ -1,4 +1,4 @@
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 paginate: 10
 permalink: /:categories/:year/:month/:day/:title/
@@ -6,4 +6,10 @@ permalink: /:categories/:year/:month/:day/:title/
 name: Chimeces
 url: http://chimeces.com
 
-redcarpet: [fenced_code_blocks, tables, autolink, no_intra_emphasis, strikethrough]
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+redcarpet:
+  extensions: [fenced_code_blocks, tables, autolink, no_intra_emphasis, strikethrough]
+
