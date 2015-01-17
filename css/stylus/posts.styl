@@ -4,15 +4,18 @@
   clearfix()
 
   .post-title, .post-date
-    display inline-block
+    display block
+    @media (min-width: mediumWidthSize)
+      display inline-block
     vertical-align baseline
     margin-top 0
 
   .post-date
-    display inline-block
-    width 90px
-    text-align right
-    padding-right 20px
+    @media (min-width: mediumWidthSize)
+      display inline-block
+      width 90px
+      text-align right
+      padding-right 20px
 
 #post
   max-width 80ex

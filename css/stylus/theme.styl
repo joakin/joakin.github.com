@@ -11,20 +11,40 @@ body
 
 .container, header
   margin 0 auto
-  padding lineHeight 10%
+  padding (lineHeight/5) 1%
+  @media (min-width: smallWidthSize) and (max-width: mediumWidthSize)
+    padding (lineHeight/4) 3%
+  @media (min-width: mediumWidthSize) and (max-width: bigWidthSize)
+    padding (lineHeight/3) 5%
+  @media (min-width: bigWidthSize)
+    padding (lineHeight/2) 10%
   box-sizing border-box
 
 header
   background-color #222
   background url(/img/header.jpg) no-repeat center center
   background-size cover
-  padding 120px 10%
+  padding 2%
   font-family fontFamily1
   clearfix()
+  text-align center
+  @media (min-width: mediumWidthSize)
+    text-align left
+
   h1
     display inline-block
-    margin 0.5rem 0 0
-    float left
+    margin 0
+    @media (min-width: mediumWidthSize)
+      margin-top 0.5rem
+
+    float none
+    @media (min-width: mediumWidthSize)
+      float left
+
+  @media (min-width: smallWidthSize) and (max-width: bigWidthSize)
+    padding 3% 5%
+  @media (min-width: bigWidthSize)
+    padding 7% 10%
 
 .container>div
   >h1
@@ -51,7 +71,11 @@ header
 .nav
   display inline-block
   padding-left 0
-  float right
+  float none
+  @media (min-width: mediumWidthSize)
+    float right
+  @media (max-width: mediumWidthSize)
+    margin 0
 
   li
     display inline-block
@@ -60,7 +84,11 @@ header
       display inline-block
       font-weight bold
       text-decoration none
-      padding (lineHeight/2)
+
+      padding (lineHeight/4)
+      @media (min-width: mediumWidthSize)
+        padding (lineHeight/2)
+
       color brand-color
       // border 1px solid rgba(0,0,0,0.2)
       border-radius 8px

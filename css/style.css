@@ -98,10 +98,28 @@ body {
 .container,
 header {
   margin: 0 auto;
-  padding: 1.5em 10%;
+  padding: 0.3em 1%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+@media (min-width: 400px) and (max-width: 768px) {
+  .container,
+  header {
+    padding: 0.375em 3%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container,
+  header {
+    padding: 0.5em 5%;
+  }
+}
+@media (min-width: 1024px) {
+  .container,
+  header {
+    padding: 0.75em 10%;
+  }
 }
 header {
   background-color: #222;
@@ -109,9 +127,10 @@ header {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  padding: 120px 10%;
+  padding: 2%;
   font-family: 'Latin Modern Roman', Georgia, serif;
   *zoom: 1;
+  text-align: center;
 }
 header:before,
 header:after {
@@ -122,10 +141,35 @@ header:after {
 header:after {
   clear: both;
 }
+@media (min-width: 768px) {
+  header {
+    text-align: left;
+  }
+}
 header h1 {
   display: inline-block;
-  margin: 0.5rem 0 0;
-  float: left;
+  margin: 0;
+  float: none;
+}
+@media (min-width: 768px) {
+  header h1 {
+    margin-top: 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  header h1 {
+    float: left;
+  }
+}
+@media (min-width: 400px) and (max-width: 1024px) {
+  header {
+    padding: 3% 5%;
+  }
+}
+@media (min-width: 1024px) {
+  header {
+    padding: 7% 10%;
+  }
 }
 .container>div >h1,
 .container>div >h2,
@@ -152,7 +196,17 @@ header h1 {
 .nav {
   display: inline-block;
   padding-left: 0;
-  float: right;
+  float: none;
+}
+@media (min-width: 768px) {
+  .nav {
+    float: right;
+  }
+}
+@media (max-width: 768px) {
+  .nav {
+    margin: 0;
+  }
 }
 .nav li {
   display: inline-block;
@@ -161,7 +215,7 @@ header h1 {
   display: inline-block;
   font-weight: bold;
   text-decoration: none;
-  padding: 0.75em;
+  padding: 0.375em;
   color: #fff;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -171,6 +225,11 @@ header h1 {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
   position: relative;
+}
+@media (min-width: 768px) {
+  .nav li a {
+    padding: 0.75em;
+  }
 }
 .nav li a:hover {
   background-color: rgba(255,255,255,0.1);
@@ -283,15 +342,23 @@ header h1 {
 }
 .post-brief .post-title,
 .post-brief .post-date {
-  display: inline-block;
+  display: block;
   vertical-align: baseline;
   margin-top: 0;
 }
-.post-brief .post-date {
-  display: inline-block;
-  width: 90px;
-  text-align: right;
-  padding-right: 20px;
+@media (min-width: 768px) {
+  .post-brief .post-title,
+  .post-brief .post-date {
+    display: inline-block;
+  }
+}
+@media (min-width: 768px) {
+  .post-brief .post-date {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    padding-right: 20px;
+  }
 }
 #post {
   max-width: 80ex;
@@ -348,6 +415,11 @@ header h1 {
 }
 .category-rss-link {
   font-family: 'Latin Modern Roman', Georgia, serif;
+}
+@media (max-width: 1024px) {
+  .links-list {
+    padding-left: 0;
+  }
 }
 .links-list .header-link {
   font-family: 'Latin Modern Roman', Georgia, serif;
