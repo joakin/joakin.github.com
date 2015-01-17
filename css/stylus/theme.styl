@@ -143,22 +143,23 @@ notice(color = rgb(251, 251, 217))
 #home
   .last-posts>.info
     clear both
-  .posts-list
-    float left
-  .categories
-    float right
 
 #archive
   overflow hidden
+
+#home, #archive
   .posts-list
-    float left
+    @media (min-width: smallWidthSize)
+      float left
   .categories
-    float right
+    @media (min-width: smallWidthSize)
+      float right
 
 #about
   overflow hidden
   .links-list
-    float right
+    @media (min-width: (smallWidthSize + (mediumWidthSize - smallWidthSize)/2))
+      float right
 
   h2
     display inline-block

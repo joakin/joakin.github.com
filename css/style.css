@@ -308,26 +308,28 @@ header h1 {
 #home .last-posts>.info {
   clear: both;
 }
-#home .posts-list {
-  float: left;
-}
-#home .categories {
-  float: right;
-}
 #archive {
   overflow: hidden;
 }
-#archive .posts-list {
-  float: left;
+@media (min-width: 400px) {
+  #home .posts-list,
+  #archive .posts-list {
+    float: left;
+  }
 }
-#archive .categories {
-  float: right;
+@media (min-width: 400px) {
+  #home .categories,
+  #archive .categories {
+    float: right;
+  }
 }
 #about {
   overflow: hidden;
 }
-#about .links-list {
-  float: right;
+@media (min-width: 584px) {
+  #about .links-list {
+    float: right;
+  }
 }
 #about h2 {
   display: inline-block;
