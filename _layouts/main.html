@@ -28,7 +28,7 @@ layout: default
     <div class="last-projects">
         <h2>Last projects</h2>
         <div class="projects-list">
-            {% for project in site.categories.projects limit:3 %}
+            {% for project in site.categories.projects limit:6 %}
                 {% assign project = project %}
                 {% include project-briefing.html %}
             {% endfor %}
