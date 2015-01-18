@@ -1,10 +1,21 @@
 
 .project-brief, .project-image
 
-  width 32.0%
-  display inline-block
-  box-sizing border-box
-  padding lineHeight
+  text-align center
+  margin-top 1em
+
+  @media (min-width: mediumWidthSize)
+    margin-top 0
+    display inline-block
+
+  @media (min-width: mediumWidthSize) and (max-width: bigWidthSize)
+    width 49%
+    padding lineHeight
+
+  @media (min-width: bigWidthSize)
+    width 32.0%
+    padding lineHeight
+
 
   borderRadius = 2px
 

@@ -24,33 +24,37 @@ header
   background-color #222
   background url(/img/header.jpg) no-repeat center center
   background-size cover
-  padding 2%
   font-family fontFamily1
   clearfix()
   text-align center
   @media (min-width: mediumWidthSize)
     text-align left
+    display table
+    width 100%
+
+  &, *
+    transition all 0.5s ease
 
   h1
     display inline-block
     margin 0
     @media (min-width: mediumWidthSize)
+      display table-cell
+      vertical-align middle
       margin-top 0.5rem
-
-    float none
-    @media (min-width: mediumWidthSize)
-      float left
 
   @media (min-width: smallWidthSize) and (max-width: bigWidthSize)
     padding 3% 5%
   @media (min-width: bigWidthSize)
     padding 7% 10%
 
-.container>div
-  >h1
-  >h2
-  >h3
-    margin-top 0
+.container
+  >div
+    >h1
+    >h2
+    >h3
+      margin-top 0
+      overflow hidden
 
 #brand
   text-decoration none
@@ -71,10 +75,10 @@ header
 .nav
   display inline-block
   padding-left 0
-  float none
   @media (min-width: mediumWidthSize)
-    float right
-  @media (max-width: mediumWidthSize)
+    display table-cell
+    vertical-align middle
+    text-align right
     margin 0
 
   li
@@ -158,7 +162,7 @@ notice(color = rgb(251, 251, 217))
 #about
   overflow hidden
   .links-list
-    @media (min-width: (smallWidthSize + (mediumWidthSize - smallWidthSize)/2))
+    @media (min-width: )
       float right
 
   h2
