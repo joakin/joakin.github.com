@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Webkipedia: A wikipedia web app
+title: Webkipedia, a wikipedia web app
 tags:
   - javascript
   - clojurescript
