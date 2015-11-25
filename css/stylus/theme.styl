@@ -41,12 +41,10 @@ header
     @media (min-width: mediumWidthSize)
       display table-cell
       vertical-align middle
-      margin-top 0.5rem
+      margin-top -0.5rem
 
-  @media (min-width: smallWidthSize) and (max-width: bigWidthSize)
+  @media (min-width: smallWidthSize)
     padding 3% 5%
-  @media (min-width: bigWidthSize)
-    padding 7% 10%
 
 .container
   >div
@@ -86,7 +84,7 @@ header
 
     a
       display inline-block
-      font-weight bold
+      // font-weight bold
       text-decoration none
 
       padding (lineHeight/4)
@@ -137,9 +135,10 @@ notice(color = rgb(251, 251, 217))
   well()
 
 .welcome-msg
-  bg = rgb(251, 254, 246)
+  bg = rgb(254, 255, 246)
   well(bg, rgba(darken(bg, 50%), 0.1))
   margin-bottom 30px
+  font-size 0.8em
 
 .notice-msg
   notice()
