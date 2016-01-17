@@ -30,7 +30,7 @@ The problems I've found are:
   dev would I be?). Your most reliable format to export is PDF, and I want to
   be able to put the resume on the web and link to it.
 
-### A new resume
+## A new resume
 
 So after thinking about these problems, I set a few objectives and re-did the
 cv:
@@ -42,7 +42,7 @@ cv:
 * Readability, ease of editing, exporting formats and publishing
 
 
-### [Github - joakin/resume](http://github.com/joakin/resume)
+## [Github - joakin/resume](http://github.com/joakin/resume)
 
 I'm using node.js and npm, I set up the project to execute via npm scripts, as
 you can see in the readme. After setup, it becomes super easy to run both the
@@ -74,7 +74,7 @@ development flow (`npm run watch`) and to just run a build (`npm run build`).
 Have a look at the files, I think the result is very satisfactory, readable and
 very flexible.
 
-#### The content
+### The content
 
 The content of the resume is kept in a YAML file, which I found very pleasing
 and readable.
@@ -131,7 +131,7 @@ templates. You can see it in
 Also, the text blocks (using the `|` pipe) are later translated in jade into
 markdown, so that we can get rich text when writing bigger blocks of text.
 
-### Templates
+## Templates
 
 I'm using HTML/CSS as the base from which to export to other formats like PDF.
 For the markup and style I set up jade templates (simple and readable) and the
@@ -203,7 +203,7 @@ played with flex box to learn how it worked.
 
 You can check the web published version at [chimeces.com/resume](http://chimeces.com/resume)
 
-### Exporting to pdf
+## Exporting to pdf
 
 PDF generation is made via phantomJS, and thanks to npm and the amount of
 libraries it was easy to find one that did what I wanted.
@@ -211,7 +211,7 @@ libraries it was easy to find one that did what I wanted.
 You can check the pdf published version at
 [chimeces.com/resume/resume.pdf](http://chimeces.com/resume/resume.pdf)
 
-### Development story
+## Development story
 
 Another cool thing is that the development server autobuilds the web and pdf
 when any of the files is changed and also has livereload so that the browser
@@ -253,7 +253,7 @@ fi
 git subtree push --prefix $1 origin gh-pages
 ```
 
-### The end
+## The end
 
 That's all for now, feel free to clone the repo, and make it yours changing
 styles and yaml!

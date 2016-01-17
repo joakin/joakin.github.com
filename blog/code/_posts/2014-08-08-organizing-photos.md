@@ -45,7 +45,7 @@ photos. So the idea was to get the photo named `IMG_1000391.jpg` to become
 After several tries and an incomplete program I did in node, I settled to
 accomplish the task with the unix battletested tools we all love and hate.
 
-### Renaming photos
+## Renaming photos
 
 So, for renaming the pictures, I did a little script that I would execute
 inside my `iPhoto` or `Shotwell` picture, and go on renaming pictures based on
@@ -83,7 +83,7 @@ does not exist or can't find it then it uses the created at date attribute on
 the file). Also as a bonus, we tell `jhead` to autorotate the pictures based on
 exif data.
 
-### Organizing the folder structure to the one I wanted
+## Organizing the folder structure to the one I wanted
 
 After renaming the pictures, I had to deal with the folder structure of each
 different program. iPhoto when it exports it puts the pictures in folders named
