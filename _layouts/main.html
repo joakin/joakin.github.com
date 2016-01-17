@@ -13,8 +13,8 @@ layout: default
     </div>
 
     <div class='last-posts'>
-        {% include categories.html %}
         <h2>Last posts</h2>
+        {% include categories.html %}
         <div class='posts-list'>
             {% for post in site.categories.blog limit:5 %}
                 {% include post-briefing.html %}
