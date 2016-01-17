@@ -1,17 +1,4 @@
-@font-face {
-  font-family: Latin Modern Roman;
-  src: url("fonts/lmroman10-regular-webfont.eot");
-  src: url("fonts/lmroman10-regular-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/lmroman10-regular-webfont.woff") format('woff'), url("fonts/lmroman10-regular-webfont.ttf") format('truetype'), url("fonts/lmroman10-regular-webfont.svg#latin_modern_roman10_regular") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: Latin Modern Roman;
-  src: url("fonts/lmroman10-bold-webfont.eot");
-  src: url("fonts/lmroman10-bold-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/lmroman10-bold-webfont.woff") format('woff'), url("fonts/lmroman10-bold-webfont.ttf") format('truetype'), url("fonts/lmroman10-bold-webfont.svg#latin_modern_roman10_bold") format('svg');
-  font-weight: bold;
-  font-style: normal;
-}
+@import url("http://fonts.googleapis.com/css?family=Merriweather:400,700italic,700,400italic,300italic,300|Tenor+Sans&.css");
 @import "normalize.css";
 *,
 *:before,
@@ -35,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Latin Modern Roman', Georgia, serif;
+  font-family: 'Tenor Sans', sans-serif;
   line-height: 1.5;
   font-weight: normal;
 }
@@ -92,12 +79,11 @@ img {
 }
 pre,
 p code {
-  border: 1px solid #ccc;
-  background-color: #eee;
+  border: 1px solid #e8e8ef;
+  background: #f8f8ff;
   padding: 3px 5px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  font-size: 1rem;
 }
 pre {
   line-height: 1.3;
@@ -105,20 +91,20 @@ pre {
 }
 pre,
 code {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 body {
+  font-weight: 300;
   background-color: #fff;
-  text-shadow: 0 1px 0px rgba(255,255,255,0.4);
-  font-family: 'Latin Modern Roman', Georgia, serif;
-  font-size: 22px;
-  line-height: 1.5em;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6em;
   color: #222;
 }
 .container,
 header {
   margin: 0 auto;
-  padding: 0.3em 1%;
+  padding: 0.32em 1em;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -126,28 +112,24 @@ header {
 @media (min-width: 500px) and (max-width: 768px) {
   .container,
   header {
-    padding: 0.375em 3%;
+    padding: 0.4em 1em;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .container,
   header {
-    padding: 0.5em 5%;
+    padding: 0.533333333333333em 5%;
   }
 }
 @media (min-width: 1024px) {
   .container,
   header {
-    padding: 0.75em 10%;
+    padding: 0.8em 10%;
   }
 }
 header {
-  background-color: #222;
-  background: url("/img/header.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  font-family: 'Latin Modern Roman', Georgia, serif;
+  background-color: #fdfdfd;
+  font-family: 'Tenor Sans', sans-serif;
   *zoom: 1;
   text-align: center;
 }
@@ -160,7 +142,7 @@ header:after {
 header:after {
   clear: both;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   header {
     text-align: left;
     display: table;
@@ -179,17 +161,18 @@ header h1 {
   display: inline-block;
   margin: 0;
 }
-@media (min-width: 768px) {
-  header h1 {
-    display: table-cell;
-    vertical-align: middle;
-    margin-top: -0.5rem;
-  }
+header > *,
+header h1 {
+  vertical-align: middle;
 }
 @media (min-width: 500px) {
-  header {
-    padding: 3% 5%;
+  header > *,
+  header h1 {
+    display: table-cell;
   }
+}
+.container {
+  padding-top: 1em;
 }
 .container >div >h1,
 .container >div >h2,
@@ -199,26 +182,26 @@ header h1 {
 }
 #brand {
   text-decoration: none;
-  color: #fff;
+  color: #446;
   text-transform: lowercase;
-  text-shadow: 0 3px 0px rgba(255,255,255,0.2);
+  text-shadow: 0 2px 0px rgba(68,68,102,0.2);
+  display: inline-block;
+  text-align: center;
+  line-height: 0.3em;
+  padding-top: 0.5em;
   position: relative;
 }
 #brand .subtitle {
   font-size: 0.2em;
   font-weight: normal;
   font-style: italic;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
 }
 .nav {
   display: inline-block;
   padding-left: 0;
+  margin: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .nav {
     display: table-cell;
     vertical-align: middle;
@@ -232,8 +215,8 @@ header h1 {
 .nav li a {
   display: inline-block;
   text-decoration: none;
-  padding: 0.375em;
-  color: #fff;
+  padding: 0.4em;
+  color: #446;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   -webkit-transition: all 0.5s ease;
@@ -243,16 +226,16 @@ header h1 {
   transition: all 0.5s ease;
   position: relative;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .nav li a {
-    padding: 0.75em;
+    padding: 0.8em;
   }
 }
 .nav li a:hover {
-  background-color: rgba(255,255,255,0.1);
-  -webkit-box-shadow: 0px 1px 0px rgba(242,242,242,0.3);
-  box-shadow: 0px 1px 0px rgba(242,242,242,0.3);
-  text-shadow: 0 2px 0px rgba(255,255,255,0.2);
+  background-color: rgba(68,68,102,0.05);
+  -webkit-box-shadow: 0px 1px 0px rgba(65,65,97,0.3);
+  box-shadow: 0px 1px 0px rgba(65,65,97,0.3);
+  text-shadow: 0 1px 0px rgba(68,68,102,0.2);
 }
 .nav li a:active {
   -webkit-transition: all 0.1s ease;
@@ -260,13 +243,13 @@ header h1 {
   -o-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   transition: all 0.1s ease;
-  background-color: rgba(255,255,255,0.1);
-  -webkit-box-shadow: inset 0px 1px 0px rgba(242,242,242,0.3);
-  box-shadow: inset 0px 1px 0px rgba(242,242,242,0.3);
+  background-color: rgba(68,68,102,0.1);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(65,65,97,0.3);
+  box-shadow: inset 0px 1px 0px rgba(65,65,97,0.3);
   top: 1px;
 }
 .info {
-  padding: 1.125em;
+  padding: 1.2em;
   font-size: 0.9em;
   background-color: rgba(243,243,243,0.5);
   border-top: 3px solid rgba(0,0,0,0.02);
@@ -284,8 +267,8 @@ header h1 {
   margin-bottom: 0;
 }
 .welcome-msg {
-  background-color: #fefff6;
-  border-top: 3px solid rgba(223,251,0,0.1);
+  background-color: #fffff9;
+  border-top: 3px solid #ffff86;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 15px;
@@ -322,43 +305,10 @@ header h1 {
 #home .last-posts>.info {
   clear: both;
 }
-#archive {
-  overflow: hidden;
-}
-@media (min-width: 500px) {
-  #home .posts-list,
-  #archive .posts-list {
-    float: left;
-  }
-}
-@media (min-width: 500px) {
-  #home .categories,
-  #archive .categories {
-    float: right;
-  }
-}
+#home,
+#archive,
 #about {
   overflow: hidden;
-}
-@media (min-width) {
-  #about .links-list {
-    float: right;
-  }
-}
-#about h2 {
-  display: inline-block;
-}
-.post-brief {
-  *zoom: 1;
-}
-.post-brief:before,
-.post-brief:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.post-brief:after {
-  clear: both;
 }
 .post-brief .post-title,
 .post-brief .post-date {
@@ -377,6 +327,7 @@ header h1 {
     display: inline-block;
     text-align: right;
     padding-right: 20px;
+    width: 150px;
   }
 }
 #post {
@@ -384,8 +335,9 @@ header h1 {
   margin: auto;
 }
 .post-date {
-  margin: -1.5em 0 0;
+  margin: -1.6em 0 0;
   font-style: italic;
+  color: #bbb;
   font-size: 1rem;
 }
 .project-brief,
@@ -404,14 +356,14 @@ header h1 {
   .project-brief,
   .project-image {
     width: 49%;
-    padding: 1.5em;
+    padding: 1.6em;
   }
 }
 @media (min-width: 1024px) {
   .project-brief,
   .project-image {
     width: 32%;
-    padding: 1.5em;
+    padding: 1.6em;
   }
 }
 .project-brief a,
@@ -427,7 +379,7 @@ header h1 {
 .project-brief a .caption,
 .project-image a .caption {
   display: block;
-  padding: 0.75em;
+  padding: 0.8em;
   text-align: center;
   color: #444;
   font-size: 1.3rem;
@@ -450,7 +402,12 @@ header h1 {
   margin-top: 24px;
 }
 .category-rss-link {
-  font-family: 'Latin Modern Roman', Georgia, serif;
+  font-family: 'Tenor Sans', sans-serif;
+}
+@media (min-width: 500px) {
+  .links-list {
+    float: right;
+  }
 }
 @media (max-width: 1024px) {
   .links-list {
@@ -458,14 +415,17 @@ header h1 {
   }
 }
 .links-list .header-link {
-  font-family: 'Latin Modern Roman', Georgia, serif;
+  font-family: 'Tenor Sans', sans-serif;
   list-style-type: none;
   color: #7a7a7a;
   font-variant: small-caps;
-  margin: 0.75em 1em;
+  margin: 0 1em 0.8em;
+}
+.links-list ul {
+  margin-top: 0;
 }
 .links-list li {
-  margin-left: 2.25em;
+  margin-left: 2.4em;
 }
 .post-pic {
   display: block;
