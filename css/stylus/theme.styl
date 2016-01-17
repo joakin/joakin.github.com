@@ -34,13 +34,11 @@ header
   h1
     display inline-block
     margin 0
+
+  > *
+    vertical-align middle
     @media (min-width: mediumWidthSize)
       display table-cell
-      vertical-align middle
-      margin-top -0.5rem
-
-  @media (min-width: smallWidthSize)
-    padding 3% 5%
 
 .container
   >div
@@ -55,20 +53,19 @@ header
   color brand-color
   text-transform lowercase
   text-shadow 0 2px 0px rgba(brand-color,0.2)
+  display inline-block
+  text-align center
+  line-height 0.3em
   position relative
   .subtitle
     font-size 0.2em
     font-weight normal
     font-style italic
-    position absolute
-    bottom 0
-    left 0
-    right 0
-    text-align center
 
 .nav
   display inline-block
   padding-left 0
+  margin 0
   @media (min-width: mediumWidthSize)
     display table-cell
     vertical-align middle
