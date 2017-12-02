@@ -26,7 +26,7 @@ it better][demo] in the [canvas-playground][canvas-playground]
 ([source][viz-source]).
 
 [npm]: https://www.npmjs.com/package/do-i-have-internet
-[demo]: http://chimeces.com/canvas-playground/time-internet-down/
+[demo]: https://chimeces.com/canvas-playground/time-internet-down/
 [code]: https://github.com/joakin/doihaveinternet
-[canvas-playground]: http://chimeces.com/projects/2015/01/10/canvas-playground/
+[canvas-playground]: https://chimeces.com/projects/2015/01/10/canvas-playground/
 [viz-source]: https://github.com/joakin/canvas-playground/blob/master/lib/demos/time-internet-down/index.js

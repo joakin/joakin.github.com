@@ -24,5 +24,5 @@ packaging/bundling.
 
 There is a [demo page where you can play the game][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/connect4/
-[code]: http://github.com/joakin/connect4
+[demo]: https://chimeces.com/connect4/
+[code]: https://github.com/joakin/connect4

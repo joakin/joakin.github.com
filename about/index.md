@@ -6,10 +6,10 @@ links:
     icon: icon-contact
     header: true
   - text: Twitter
-    url: http://twitter.com/joakin
+    url: https://twitter.com/joakin
     icon: icon-twitter
   - text: Github
-    url: http://github.com/joakin
+    url: https://github.com/joakin
     icon: icon-github
   - text: Bitbucket
     url: https://bitbucket.org/joakin
@@ -18,10 +18,10 @@ links:
     url: https://www.youtube.com/channel/UCj0TyysYrAlbpYIE0USCRTA
     icon: icon-youtube
   - text: Pinboard
-    url: http://pinboard.in/u:joakin
+    url: https://pinboard.in/u:joakin
     icon: icon-pinboard
   - text: GoodReads
-    url: http://goodreads.com/joakin
+    url: https://goodreads.com/joakin
     icon: icon-goodreads
 ---
 

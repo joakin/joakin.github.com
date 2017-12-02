@@ -18,5 +18,5 @@ Click the simulation to restart it randomly.
 
 Here is the [live demo][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/gol
+[demo]: https://chimeces.com/gol
 [code]: https://github.com/joakin/gol

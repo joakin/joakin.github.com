@@ -50,5 +50,5 @@ See the [docs][] for more detailed information.
 
 [loot-ui]: https://github.com/joakin/loot-ui
 [loot]: https://github.com/joakin/loot
-[docs]: http://chimeces.com/loot-ui/
+[docs]: https://chimeces.com/loot-ui/
 [live]: https://loot.wmflabs.org/wiki/Wikipedia

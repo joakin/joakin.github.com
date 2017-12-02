@@ -26,5 +26,5 @@ Using less for the styles.
 
 Here is the [live demo][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/webkipedia/
-[code]: http://github.com/joakin/webkipedia
+[demo]: https://chimeces.com/webkipedia/
+[code]: https://github.com/joakin/webkipedia

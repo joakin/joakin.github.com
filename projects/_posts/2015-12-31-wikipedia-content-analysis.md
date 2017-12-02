@@ -42,5 +42,5 @@ endpoints and their sizes, and then a per-page report showing more detailed
 data about what the html content is composed of.
 
 [repo]: https://github.com/joakin/loot-content-analysis
-[live]: http://chimeces.com/loot-content-analysis/
+[live]: https://chimeces.com/loot-content-analysis/
 [loot]: https://github.com/joakin/loot

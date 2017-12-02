@@ -54,9 +54,9 @@ On the README of each folder there are instructions to follow to complete the
 exercises (solutions are in the repo too).
 
 
-[lt]:        http://lighttable.com/
-[futurejs]:  http://www.futurejs.org/
-[slides]:    http://slides.com/joakino/diving-into-clojurescript/
+[lt]:        https://lighttable.com/
+[futurejs]:  https://www.futurejs.org/
+[slides]:    https://slides.com/joakino/diving-into-clojurescript/
 [github]:    https://github.com/joakin/diving-into-clojurescript-exercises/
 [exercises]: https://github.com/joakin/diving-into-clojurescript-exercises/tree/master/basic
 [wall]:      https://github.com/joakin/diving-into-clojurescript-exercises/tree/master/futurejs-wall

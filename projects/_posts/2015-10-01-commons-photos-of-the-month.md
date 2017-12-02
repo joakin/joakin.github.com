@@ -22,5 +22,5 @@ in a cleaner more beautiful way.
 
 Here is the [live demo][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/photo-of-the-day/
+[demo]: https://chimeces.com/photo-of-the-day/
 [code]: https://github.com/joakin/photo-of-the-day

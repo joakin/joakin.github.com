@@ -33,5 +33,5 @@ Visualizations are a lot of fun to code!
 
 Here is the [live demo][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/canvas-playground/
-[code]: http://github.com/joakin/canvas-playground
+[demo]: https://chimeces.com/canvas-playground/
+[code]: https://github.com/joakin/canvas-playground

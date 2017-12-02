@@ -31,5 +31,5 @@ shoulders of the great clojure community.
 
 Here is the [live demo][demo] and the [code is on github][code].
 
-[demo]: http://chimeces.com/cljs-browser-repl/
-[code]: http://github.com/joakin/cljs-browser-repl
+[demo]: https://chimeces.com/cljs-browser-repl/
+[code]: https://github.com/joakin/cljs-browser-repl

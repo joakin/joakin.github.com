@@ -4,10 +4,10 @@
 
     {% if gist.files %}
       {% for filename in gist.files %}
-<script src="https://gist.github.com/{{ gist.id }}.js?file={{ filename }}"></script>
+<script src="//gist.github.com/{{ gist.id }}.js?file={{ filename }}"></script>
       {% endfor %}
     {% else %}
-<script src="https://gist.github.com/{{ gist.id }}.js"> </script>
+<script src="//gist.github.com/{{ gist.id }}.js"> </script>
     {% endif %}
 
   {% endfor %}

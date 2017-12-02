@@ -31,4 +31,4 @@ WikiText, YAML, HTML) so that you can have your lists backed up.
 * [Live version][live]
 
 [repo]: https://github.com/joakin/gather-exporter
-[live]: http://chimeces.com/gather-exporter
+[live]: https://chimeces.com/gather-exporter
