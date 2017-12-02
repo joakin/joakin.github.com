@@ -10,7 +10,7 @@
     {% endunless %}
     {% for cat in site.categories %}
       {% unless cat[0] == 'blog' or cat[0] == 'projects' %}
-        <li><a href='/categories/{{ cat[0] }}.html'>{{ cat[0] }}</a></li>
+        <li><a href='/categories/{{ cat[0] }}'>{{ cat[0] }}</a></li>
       {% endunless %}
     {% endfor %}
   </ul>
