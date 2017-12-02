@@ -1,4 +1,4 @@
-@import url("http://fonts.googleapis.com/css?family=Merriweather:400,700italic,700,400italic,300italic,300|Tenor+Sans&.css");
+@import url("//fonts.googleapis.com/css?family=Merriweather:400,700italic,700,400italic,300italic,300|Tenor+Sans&.css");
 @import "normalize.css";
 *,
 *:before,
@@ -83,7 +83,6 @@ li code {
   border: 1px solid #e8e8ef;
   background: #f8f8ff;
   padding: 3px 5px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
 }
 pre {
@@ -215,7 +214,6 @@ header h1 {
   text-decoration: none;
   padding: 0.4em;
   color: #446;
-  -webkit-border-radius: 8px;
   border-radius: 8px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -251,7 +249,6 @@ header h1 {
   font-size: 0.9em;
   background-color: rgba(243,243,243,0.5);
   border-top: 3px solid rgba(0,0,0,0.02);
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 15px;
   margin: 0 0 20px;
@@ -267,7 +264,6 @@ header h1 {
 .welcome-msg {
   background-color: #fffff9;
   border-top: 3px solid #ffff86;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 15px;
   margin: 0 0 20px;
@@ -285,7 +281,6 @@ header h1 {
 .notice-msg {
   background-color: #fdfde8;
   border-top: 3px solid rgba(169,169,18,0.05);
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 15px;
   margin: 0 0 20px;
@@ -338,6 +333,9 @@ header h1 {
   color: #bbb;
   font-size: 1rem;
 }
+.comments {
+  margin-top: 2em;
+}
 .project-brief,
 .project-image {
   text-align: center;
@@ -368,7 +366,6 @@ header h1 {
 .project-image a {
   display: inline-block;
   border: 5px solid #fff;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   box-shadow: 0 1px 4px rgba(0,0,0,0.2);
