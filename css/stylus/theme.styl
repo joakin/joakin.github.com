@@ -1,9 +1,9 @@
 
 body
   // background white url('../img/bg2.png') top left repeat
-  font-weight 300
+  font-weight 400
   background-color white
-  font-family fontFamily2
+  font-family fontFamily
   font-size fontSize
   line-height lineHeight
   color color
@@ -21,7 +21,7 @@ body
 
 header
   background-color #fdfdfd
-  font-family fontFamily1
+  font-family fontFamily
   clearfix()
   text-align center
   @media (min-width: smallWidthSize)
@@ -131,8 +131,8 @@ notice(color = rgb(251, 251, 217))
   well()
 
 .welcome-msg
-  bg = rgb(255, 255, 134)
-  well(lighten(bg, 95%), bg)
+  bg = rgb(255, 250, 215)
+  well(bg, darken(bg, 10%))
   margin-bottom 30px
   font-size 0.8em
 
