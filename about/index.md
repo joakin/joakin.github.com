@@ -14,9 +14,9 @@ links:
   - text: Bitbucket
     url: https://bitbucket.org/joakin
     icon: icon-bitbucket
-  - text: Grooveshark
-    url: http://grooveshark.com/#!/user/Joaquin+Oltra/66993
-    icon: icon-grooveshark
+  - text: Youtube
+    url: https://www.youtube.com/channel/UCj0TyysYrAlbpYIE0USCRTA
+    icon: icon-youtube
   - text: Pinboard
     url: http://pinboard.in/u:joakin
     icon: icon-pinboard
