@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "description": "my site",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "nib": "^1.0.2"
+    "nib": "^1.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
