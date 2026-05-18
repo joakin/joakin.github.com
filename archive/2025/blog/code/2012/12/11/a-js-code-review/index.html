@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>A JS code review</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>A JS code review</h1>
+
+    <div class='post-content'>
+        <p>I did a code review for a friend about a little piece of code and something
+worth of posting came out of there.</p>
+
+<p>Here it is, first, the code he passed us, and after that, my answer.</p>
+
+<p>It is a mix of idiomatic/readable/my-taste javascript advice. Comments welcome.</p>
+
+<ul>
+  <li><a href="https://gist.github.com/4257379/a581f50c594fee394eb896ac3f5126c15a8925e5">Original JS</a></li>
+  <li><a href="https://gist.github.com/4257379/5803dda7543978e4575c3e398db3413f9e4f4361">My Reply</a></li>
+</ul>
+
+<h4 id="embed">Embed</h4>
+
+<script src="//gist.github.com/4257379.js"> </script>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

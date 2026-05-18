@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Maintaining code style consistency</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>Maintaining code style consistency</h1>
+
+    <div class='post-content'>
+        <p>When working with a team together on a code base, code style is something that
+ends up being pretty important to agree on.</p>
+
+<p>It doesn’t matter if it is with or without semicolons, with or without spaces
+everywhere, it is considered a good practice to settle on some set of rules,
+and try to follow them.</p>
+
+<p>Let’s review current options in JS-land, talk about the setup, and see
+a different take on code style that takes burden off developers.</p>
+
+<h2 id="linters-and-style-checkers">Linters and style checkers</h2>
+
+<p>Usually, what we do is set some kind of linter that the developers are supposed
+to run manually every time they commit. These linters help not only with code
+style issues, but with the quirks of the language, so it is pretty important to
+run them often.</p>
+
+<p>Some popular options are:</p>
+
+<ul>
+  <li><a href="http://eslint.org/">eslint</a>: Super configurable, very well maintained</li>
+  <li><a href="http://standardjs.com/">standard</a>: Zero configuration, based off <code class="language-plaintext highlighter-rouge">eslint</code></li>
+  <li><a href="http://jscs.info/">jscs</a>: Extremely configurable style checker</li>
+  <li><a href="https://www.npmjs.com/package/js-beautify">js-beautify</a>: Older tool, available in several languages</li>
+</ul>
+
+<p>There are a lot more, like <a href="http://jshint.com/">jshint</a> for example, and as usual in JS-land, the
+myriad of options and tooling are overwhelming.</p>
+
+<h3 id="recommendations">Recommendations</h3>
+
+<p>I personally use <a href="http://standardjs.com/">standard</a> for my personal projects because of its lack of
+configuration and ease of set up, as well as being able to format your code and
+fix mistakes automatically.</p>
+
+<p>For bigger projects I would suggest using <a href="http://eslint.org/">eslint</a> because of how well
+maintained it is and how well it supports es2015+ syntax.</p>
+
+<h2 id="workflow">Workflow</h2>
+
+<h3 id="running-the-linter">Running the linter</h3>
+
+<p>When using these linters / style checkers, it is usually a good idea to add
+a npm script for linting the code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"scripts": {
+  "lint": "standard"
+}
+</code></pre></div></div>
+
+<p>This way, everybody uses the same way of linting the code.</p>
+
+<h3 id="linting-before-committing">Linting before committing</h3>
+
+<p>Another option to make this more automatic is to add a <code class="language-plaintext highlighter-rouge">pre-commit</code> or
+<code class="language-plaintext highlighter-rouge">pre-push</code> hook to run the linter before committing/pushing. Edit
+<code class="language-plaintext highlighter-rouge">.git/hooks/pre-commit</code> and add <code class="language-plaintext highlighter-rouge">npm run lint</code> for linting the project before
+committing (and aborting the commit if there are lint errors).</p>
+
+<p>A couple of cons of this approach are:</p>
+
+<ul>
+  <li>Need some script to automate the creation of the <code class="language-plaintext highlighter-rouge">pre-commit</code> hook (otherwise
+it is just tedious to set up for developers)</li>
+  <li>Aborting the commit is very annoying, especially with a long list of style
+nitpicks (context loss)</li>
+</ul>
+
+<h3 id="linting-while-programming-editor-integration">Linting while programming. Editor integration</h3>
+
+<p>A good approach is to have people integrate their editor with the linters, so
+that it shows errors inline. This keeps the developer focus when programming,
+fixing the errors as we create the program.</p>
+
+<p>For example, for vim you can use <a href="https://github.com/scrooloose/syntastic">syntastic</a>, which will run the linters on
+save and show you in the code the errors. With syntastic, if you add
+<code class="language-plaintext highlighter-rouge">./node_modules/bin/</code> to your path, it should autodetect the linter installed
+and run them for you.</p>
+
+<p>Most editors have the capability of linting the code on the code editing view,
+it is really useful.</p>
+
+<h2 id="a-different-take-automatic-style-formatting">A different take. Automatic style formatting</h2>
+
+<p>All the previous approaches are fine, but they take development time and the
+developer’s attention when they could be doing something useful instead of
+fighting a linter to add spaces between brackets, or moving var declarations at
+the top of a function.</p>
+
+<h3 id="linters-that-can-format-your-code">Linters that can format your code</h3>
+
+<p>If you have to choose a linter, choose one that has the capability of
+formatting the code following whatever rules defined. As far as I know,
+<a href="http://eslint.org/">eslint</a>, <a href="http://standardjs.com/">standard</a> and <a href="https://www.npmjs.com/package/js-beautify">js-beautify</a> have this feature.</p>
+
+<p>That way, you can run whatever command your linter has for formatting the code,
+and get most of the warnings on the code fixed for you without having to worry
+about fixing whitespace or code style manually.</p>
+
+<p>For example, with <a href="http://standardjs.com/">standard</a> you can run <code class="language-plaintext highlighter-rouge">standard -F</code> and it will format the
+files trying to make the linter happier.</p>
+
+<h3 id="automatically-format-code-on-git-add">Automatically format code on <code class="language-plaintext highlighter-rouge">git add</code></h3>
+
+<p>One approach that I investigated was automatically formatting the code when
+adding it to the repo. This (in my opinion) keeps the burden to the minimum,
+and makes sure that the code that goes into the repo is always properly
+formatted.</p>
+
+<p>For this, we would use a little unknown feature called <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes">git attributes</a>.</p>
+
+<p>By setting up a <code class="language-plaintext highlighter-rouge">.gitattributes</code> in your repo like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*.js filter=jsbeautify
+</code></pre></div></div>
+
+<p>We’ll tell git to run the specified filter when adding things to the repo. This
+way, when adding a file to the staging area, the file will be passed through
+the specified filter (in this example <code class="language-plaintext highlighter-rouge">jsbeautify</code>, which we’ll define soon)
+and the output will be what will be shown in diffs and added to the repo.</p>
+
+<p>This filter (in this example <code class="language-plaintext highlighter-rouge">jsbeautify</code>) needs to be defined in the repo’s
+configuration. <em>I haven’t found a way to add it as a file in the repo yet, the
+repo’s config gets saved in <code class="language-plaintext highlighter-rouge">.git/config</code></em>.</p>
+
+<p>For defining the filter we need to provide a <code class="language-plaintext highlighter-rouge">clean</code> and <code class="language-plaintext highlighter-rouge">smudge</code> config, like
+this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --local filter.jsbeautify.clean "js-beautify -f -"
+git config --local filter.jsbeautify.smudge cat
+</code></pre></div></div>
+
+<p>We can automate by having a script that runs these commands.</p>
+
+<p>One <em>con</em> for this approach is setting up the config every time somebody clones
+the repo. Still, very interesting to consider for teams really involved in
+having a consistent and enforced code style.</p>
+
+<h2 id="links">Links</h2>
+<ul>
+  <li>Patch where I implemented this for a mediawiki extension: <a href="https://gerrit.wikimedia.org/r/#/c/173026/">gerrit.wikimedia.org/r/#/c/173026</a></li>
+</ul>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

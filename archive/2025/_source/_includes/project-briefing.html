@@ -1,0 +1,9 @@
+
+<div class='project-brief'>
+    <a href='{{ site.baseurl }}{{ project.url }}'>
+        {% for image in project.images limit:1 offset:0 %}
+            <img src="{{ site.baseurl }}{{ image.thumbnail }}" alt='{{ image.title }}'>
+        {% endfor %}
+        <span class="caption">{{ project.title }}</span>
+    </a>
+</div>

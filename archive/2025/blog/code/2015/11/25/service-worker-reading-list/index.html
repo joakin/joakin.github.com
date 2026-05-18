@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Learning about Service worker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>Learning about Service worker</h1>
+
+    <div class='post-content'>
+        <p>Resources for learning about service worker and progressive webapps in no
+particular order.</p>
+
+<h2 id="articles">Articles</h2>
+
+<ul>
+  <li><a href="https://medium.com/@addyosmani/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73">Instant Loading Web Apps With An Application Shell Architecture</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers">Using Service Workers</a></li>
+  <li><a href="https://serviceworke.rs/index.html">The Service Worker Cookbook is a collection of working, practical examples of using service workers in modern web apps</a></li>
+  <li><a href="http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org">Introducing Pokedex.org: a progressive webapp for Pokémon fans</a></li>
+</ul>
+
+<h2 id="videostalks">Videos/Talks</h2>
+
+<ul>
+  <li><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn">Chrome devsummit videos</a>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=jCKZDTtUA2A&amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;index=4">Instant Loading with Service Workers</a></li>
+      <li><a href="https://www.youtube.com/watch?v=MyQ8mtR9WxI&amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;index=9">Progressive Web Apps</a></li>
+      <li><a href="https://www.youtube.com/watch?v=9jmqsq2OQjc&amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;index=2">Developing for billions</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="toolslibraries">Tools/Libraries</h2>
+
+<ul>
+  <li><a href="https://github.com/GoogleChrome/sw-precache">sw-precache</a>: A node module to
+generate service worker code that will precache specific resources.</li>
+  <li><a href="https://github.com/GoogleChrome/sw-toolbox">sw-toolbox</a>: A collection of
+tools for service workers</li>
+</ul>
+
+<h2 id="examples--source">Examples &amp; source</h2>
+
+<ul>
+  <li><a href="https://github.com/jakearchibald/svgomg">SVGOMG</a></li>
+  <li><a href="https://github.com/nolanlawson/pokedex.org">Pokedex.org</a></li>
+</ul>
+
+<h2 id="others">Others</h2>
+
+<h3 id="nolan-lawsons-progressive-web-apps-list-source">Nolan Lawson’s progressive web apps list (<em><a href="https://gist.github.com/nolanlawson/d9e66349635452a95bb1">source</a></em>)</h3>
+
+<ul>
+  <li>Service Worker - offline support for the web
+    <ul>
+      <li><a href="https://ponyfoo.com/articles/serviceworker-revolution">Service Worker - Revolution of the Web Platform</a></li>
+      <li><a href="https://www.youtube.com/watch?v=SmZ9XcTpMS4">The Service Worker is Coming - Look Busy (vid)</a></li>
+      <li><a href="http://deanhume.com/Home/BlogPost/service-workers--dynamic-responsive-images-using-webp-images/10132/">Service Workers: Dynamic Responsive Images using WebP Images</a></li>
+      <li><a href="https://jakearchibald.github.io/isserviceworkerready/">Is Service Worker ready?</a></li>
+    </ul>
+  </li>
+  <li>Progressive apps - high-res icon, splash screen, no URL bar, etc.
+    <ul>
+      <li><a href="https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/">Progressive Web Apps: Escaping Tabs Without Losing Our Soul</a></li>
+      <li><a href="http://tech-blog.flipkart.net/2015/11/progressive-web-app/">Progressive Web App: A New Way to Experience Mobile</a></li>
+      <li><a href="https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android">Support for theme-color in Chrome 39 for Android</a></li>
+      <li><a href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android">Installable Web Apps with the WebApp Manifest in Chrome for Android</a></li>
+    </ul>
+  </li>
+  <li>FLIP animations - flexible 60FPS animations
+    <ul>
+      <li><a href="https://aerotwist.com/blog/flip-your-animations/">FLIP your animations</a></li>
+      <li><a href="https://www.youtube.com/watch?v=RCFQu0hK6bU">The applied science of runtime performance (vid)</a></li>
+      <li><a href="http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">High Performance Animations</a></li>
+    </ul>
+  </li>
+  <li>IndexedDB/WebWorkers - non-blocking sync and storage
+    <ul>
+      <li><a href="http://nolanlawson.com/2015/09/29/indexeddb-websql-localstorage-what-blocks-the-dom/">IndexedDB, WebSQL, LocalStorage – what blocks the DOM?</a></li>
+      <li><a href="http://hood.ie/blog/say-hello-to-offline-first.html">Say Hello to Offline First</a></li>
+    </ul>
+  </li>
+  <li>High-perf networking - fast even on 2G
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=Il4swGfTOSM">Breaking the 1000ms Time to Glass Mobile Barrier  (vid)</a></li>
+      <li><a href="http://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/">You’re Missing the Point of Server-Side Rendered JavaScript Apps</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

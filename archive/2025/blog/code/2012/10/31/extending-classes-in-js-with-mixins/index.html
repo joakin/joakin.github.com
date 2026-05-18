@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Extending classes in js using mixins</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>Extending classes in js using mixins</h1>
+
+    <div class='post-content'>
+        <p>There are times when we have different classes that share a certain behaviour
+but they do not have a common ancestor.</p>
+
+<p>Taking advantage of JS prototypal inheritance, we can make them share
+code/behaviour and avoid duplication .</p>
+
+<h3 id="example-case">Example case</h3>
+
+<p>Imagine we have two random <em>types</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Person = function (name) {
+    this.name = name;
+};
+
+var Car = function (brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+};
+</code></pre></div></div>
+
+<p>If we wanted make both Persons and Cars blow up, we would have to create
+a super class (not a good idea since this two types do not have anything we
+want in common) or implement the behaviour in both classes (code duplication).</p>
+
+<h3 id="a-solution-using-mixins">A solution using mixins</h3>
+
+<p>The solution we are going to explore is Mixins. A mixin is a standalone piece of
+functionality or behaviour. It has to exist in a object form, so that it can be
+used later to extend other types prototypes.</p>
+
+<p>For example, for the explode exercise:</p>
+
+<p>If we use what we will call a mixin, then we get what we wanted. If we define
+the explode functionality as a standalone mixin:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var ExplodeMixin = {
+    blown: null,
+    blowUp: function() {
+        if (this.blown === null) {
+            console.log('KaBoww');
+            this.blown = (new Date()).getTime();
+        } else {
+            console.log('Already blown up');
+        }
+    }
+};
+</code></pre></div></div>
+
+<p>Then we could extend our types with this behaviour without duplicating code or
+creating a common ancestor. For it, we are going to use a function called extend, that
+basically extends a object with another one. Check the underscorejs docs for
+example -&gt; <a href="http://underscorejs.org/#extend">_.extend</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Person = function (name) {
+    this.name = name;
+};
+_.extend(Person.prototype, ExplodeMixin);
+
+var Car = function (brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+};
+_.extend(Car.prototype, ExplodeMixin);
+</code></pre></div></div>
+
+<p>After this, we can safely do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var john = new Person('John');
+john.blowUp();
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">KaBoww</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var golf = new Car('VolsWagen', 'Golf', 2012);
+golf.blowUp();
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">KaBoww</code></p>
+
+<h3 id="using-it-with-backbone">Using it with Backbone</h3>
+
+<p>The case we found for using this pattern was for example, when among multiple
+views you want to have a certain behaviour shared, like in our case with
+putting a view in a loading state.</p>
+
+<p>So our real example looks like this:</p>
+
+<p><strong>views/mixins/loading.js</strong>
+    var LoadingMixin = {
+        loadingOverlayTemplate: require(‘views/templates/loading_overlay’),</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    isLoading: false,
+    
+    setLoading: function(yes) {
+        if (yes) {
+            if (!this.isLoading) {
+                this.isLoading = true;
+                $(this.el).html(this.loadingOverlayTemplate());
+            }
+        } else {
+            if (this.isLoading) {
+                this.isLoading = false;
+                this.$('.flOverlay').remove();
+            }
+        }
+    }
+};
+
+module.exports = LoadingMixin;
+</code></pre></div></div>
+
+<p><strong>views/communication_actions.js</strong>
+    var LoadingMixin = require(‘views/mixins/loading’)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var CommunicationActionsView = CommunicationView.extend({
+    
+    /*
+     * Code for the view here.
+     */
+    
+    formSubmit: function() {
+        
+        // Method of the loading mixin
+        this.setLoading(true);
+        
+        // More stuff
+    }
+});
+
+_.extend(CommunicationActionsView.prototype, LoadingMixin);
+
+module.exports = CommunicationModalStep1View;
+</code></pre></div></div>
+
+<p>This way, you can share behaviours or code among certain types as you want.</p>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

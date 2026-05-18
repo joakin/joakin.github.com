@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Moving the resume to the web</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>Moving the resume to the web</h1>
+
+    <div class='post-content'>
+        <p>I’ve been having trouble with my resume editing for a long time. A long time
+ago it was a word document, afterwards it became a odt document and migrated to
+libreoffice/openoffice, and later I redid the resume using the europass
+template provided by the european union following a standard format (also in
+odt).</p>
+
+<p>The problems I’ve found are:</p>
+
+<ul>
+  <li><strong>Editing difficulties</strong>. The template is made out of hundreds of tables, and
+with the libreoffice gui it is almost impossible for me now to even add new
+work experience. This is the most annoying of all.</li>
+  <li><strong>Undistinguishable style</strong>. The company I redid the resume wanted them all
+in the same format, but usually companies get resumes in different formats
+and using this template makes you indistinguishable of lots of other CVs they
+may get.</li>
+  <li><strong>No versioning</strong>. The file is stored in online backups but there is no
+comprehensive history like the one we could get with version control.</li>
+  <li><strong>No web publishing</strong>. You could export the file to html but it would be
+a horrible markup (and I usually apply for web dev skills…, what kind of
+dev would I be?). Your most reliable format to export is PDF, and I want to
+be able to put the resume on the web and link to it.</li>
+</ul>
+
+<h2 id="a-new-resume">A new resume</h2>
+
+<p>So after thinking about these problems, I set a few objectives and re-did the
+cv:</p>
+
+<ul>
+  <li>Open source</li>
+  <li>Version control (git, GitHub)</li>
+  <li>Separate content, markup and style</li>
+  <li>Plain text format for the content (chose YAML because its readability)</li>
+  <li>Readability, ease of editing, exporting formats and publishing</li>
+</ul>
+
+<h2 id="github---joakinresume"><a href="http://github.com/joakin/resume">Github - joakin/resume</a></h2>
+
+<p>I’m using node.js and npm, I set up the project to execute via npm scripts, as
+you can see in the readme. After setup, it becomes super easy to run both the
+development flow (<code class="language-plaintext highlighter-rouge">npm run watch</code>) and to just run a build (<code class="language-plaintext highlighter-rouge">npm run build</code>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── README.md     # What is this and instructions
+│
+├── bin           # A couple of scripts to generate the html and pdf
+├── package.json  # Package configuration, run scripts and deps
+│
+├── layout.jade   # Jade page layout (html, head, footer)
+├── resume.jade   # Jade template that processes the yaml to html
+│
+├── resume.styl   # CSS styles (stylus preprocessor)
+│
+├── resume.yaml   # Resume data (pure content, yaml and blocks of
+│                 # text with markdown
+│
+├── node_modules  # Deps of the proj (npm install)
+│
+└── static        # Where the the static web files and pdf are generated
+    │
+    ├── img/      # Imgs for the cv
+    ├── fonts/    # Web fonts
+    └── ...       # Generated files
+</code></pre></div></div>
+
+<p>Have a look at the files, I think the result is very satisfactory, readable and
+very flexible.</p>
+
+<h3 id="the-content">The content</h3>
+
+<p>The content of the resume is kept in a YAML file, which I found very pleasing
+and readable.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="na">fullName</span><span class="pi">:</span> <span class="s">Joaquin Oltra Hernandez</span>
+<span class="na">photo</span><span class="pi">:</span> <span class="s">photo.jpg</span>
+<span class="na">phone</span><span class="pi">:</span> <span class="s">(0034) </span><span class="m">600078947</span>
+<span class="na">email</span><span class="pi">:</span> <span class="s">joaquin@chimeces.com</span>
+<span class="na">nationality</span><span class="pi">:</span> <span class="s">Spain</span>
+<span class="na">birthDate</span><span class="pi">:</span> <span class="s">17-12-85</span>
+
+<span class="na">field</span><span class="pi">:</span> <span class="s">Software developer, Javascript programmer, Web developer</span>
+
+<span class="na">intro</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">I'm a programmer and web developer specialized in JS who enjoys reading</span>
+  <span class="s">technical books, developing random playful side projects and learning and</span>
+  <span class="s">...</span>
+
+<span class="na">work</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">employer</span><span class="pi">:</span> <span class="s">Freelance (Various)</span>
+    <span class="na">when</span><span class="pi">:</span> <span class="s">December 2013 - Now</span>
+    <span class="na">position</span><span class="pi">:</span> <span class="s">Freelance web developer, Javascript programmer, HTML &amp; CSS programmer</span>
+    <span class="na">what</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">Freelance contracting for different clients.</span>
+
+      <span class="s">* Data visualizations dashboard with d3</span>
+      <span class="s">* JS web applications</span>
+        <span class="s">* React.js for the view layer</span>
+        <span class="s">* Browser applications using npm &amp; browserify</span>
+      <span class="s">[...]</span>
+
+
+  <span class="pi">-</span> <span class="na">employer</span><span class="pi">:</span> <span class="s">OHIM</span>
+    <span class="na">when</span><span class="pi">:</span> <span class="s">September 2010 - June </span><span class="m">2013</span>
+    <span class="na">position</span><span class="pi">:</span> <span class="s">Freelance web developer, Javascript programmer, Senior analyst programmer</span>
+    <span class="na">what</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">While freelance contracting for OHIM, I went mainly through two different</span>
+      <span class="s">big projects, OHIM eSearch (JS web application) and the new OHIM Website</span>
+      <span class="s">(public site and suite of web tools).</span>
+
+      <span class="s">##### eSearch</span>
+
+      <span class="s">Search engine for OHIM, I was involved in creating the single page</span>
+      <span class="s">application using Javascript, CSS3 with LESS, Backbone. This application</span>
+      <span class="s">[...]</span>
+</code></pre></div></div>
+
+<p>Content is translated in the build step to json and then fed into the jade
+templates. You can see it in
+<a href="https://github.com/joakin/resume/blob/master/static/resume.json"><code class="language-plaintext highlighter-rouge">static/resume.json</code></a>.</p>
+
+<p>Also, the text blocks (using the <code class="language-plaintext highlighter-rouge">|</code> pipe) are later translated in jade into
+markdown, so that we can get rich text when writing bigger blocks of text.</p>
+
+<h2 id="templates">Templates</h2>
+
+<p>I’m using HTML/CSS as the base from which to export to other formats like PDF.
+For the markup and style I set up jade templates (simple and readable) and the
+stylus css preprocessor. Here is a little example</p>
+
+<pre><code class="language-jade">
+extends ./layout.jade
+
+block content
+  header.main
+    h1= fullName
+    img.photo(src=photo)
+
+  section.personal-information
+    header: h2 Personal information
+    article
+
+      .kv.full-name
+        label Full name
+        span= fullName
+      .kv.phone
+        label Phone
+        span= phone
+      .kv.email
+        label Email
+        span= email
+      .kv.nationality
+        label Nationality
+        span= nationality
+
+      - var date = (new Date()).getFullYear() - 1985
+      .kv.age
+        label Age
+        span= date
+[...]
+</code></pre>
+
+<pre><code class="language-stylus">@import "nib"
+@import "stylus-normalize/normalize"
+
+text-color = #333
+light-text-color = #aaa
+light-bg = #ddd
+
+ul
+  list-style-position inside
+
+body
+  color text-color
+  font-family Latin Modern Roman, serif
+
+h1, h2, h3, h4, h5, h6
+  margin 0
+
+body&gt;header
+  background-color light-bg
+  color white
+  text-align center
+  h1
+    margin 0
+    padding 10px
+[...]
+</code></pre>
+
+<p>I’ve tried to keep the html as semantic as possible, and in the styles I’ve
+played with flex box to learn how it worked.</p>
+
+<p>You can check the web published version at <a href="http://chimeces.com/resume">chimeces.com/resume</a></p>
+
+<h2 id="exporting-to-pdf">Exporting to pdf</h2>
+
+<p>PDF generation is made via phantomJS, and thanks to npm and the amount of
+libraries it was easy to find one that did what I wanted.</p>
+
+<p>You can check the pdf published version at
+<a href="http://chimeces.com/resume/resume.pdf">chimeces.com/resume/resume.pdf</a></p>
+
+<h2 id="development-story">Development story</h2>
+
+<p>Another cool thing is that the development server autobuilds the web and pdf
+when any of the files is changed and also has livereload so that the browser
+autoupdates. All this is set up in the <code class="language-plaintext highlighter-rouge">package.json</code> in the scripts field
+using the dependencies specified in <code class="language-plaintext highlighter-rouge">devDependencies</code>.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"serve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./node_modules/.bin/livereloadx -s ./static/"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nl">"watch-stylus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./node_modules/.bin/stylus -w resume.styl --out static -I ./node_modules"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build-stylus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./node_modules/.bin/stylus resume.styl --out static -I ./node_modules"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nl">"watch-html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./node_modules/.bin/watch-run -p </span><span class="se">\"</span><span class="s2">*.+(jade|yaml)</span><span class="se">\"</span><span class="s2"> ./bin/build-html.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build-html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./bin/build-html.js"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nl">"watch-pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./node_modules/.bin/watch-run -p </span><span class="se">\"</span><span class="s2">static/*.!(pdf|json)</span><span class="se">\"</span><span class="s2"> ./bin/build-pdf.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build-pdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./bin/build-pdf.js"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nl">"watch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run watch-html &amp; npm run watch-pdf &amp; npm run watch-stylus &amp; npm run serve"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run build-html &amp; npm run build-stylus &amp; npm run build-pdf"</span><span class="p">,</span><span class="w">
+
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For <strong>deployment</strong> and publishing I use <strong>github pages</strong>, like in this blog, and simply
+put in the repository the generated files and use a
+<a href="https://github.com/joakin/dotfiles/blob/master/bin/gh-pages">onliner script</a>
+to publish (i think it needs git 2.X):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">]</span>
+<span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"Which folder do you want to deploy to GitHub Pages?"</span>
+  <span class="nb">exit </span>1
+<span class="k">fi
+</span>git subtree push <span class="nt">--prefix</span> <span class="nv">$1</span> origin gh-pages
+</code></pre></div></div>
+
+<h2 id="the-end">The end</h2>
+
+<p>That’s all for now, feel free to clone the repo, and make it yours changing
+styles and yaml!</p>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

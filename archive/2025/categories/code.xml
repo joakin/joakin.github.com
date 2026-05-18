@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Code - Chimeces</title>
+    <description></description>
+    <link>http://chimeces.com/archive/2025/categories/code.xml</link>
+    
+      <item>
+        <title>Maintaining code style consistency</title>
+        <description>&lt;p&gt;When working with a team together on a code base, code style is something that
+ends up being pretty important to agree on.&lt;/p&gt;
+
+&lt;p&gt;It doesn’t matter if it is with or without semicolons, with or without spaces
+everywhere, it is considered a good practice to settle on some set of rules,
+and try to follow them.&lt;/p&gt;
+
+&lt;p&gt;Let’s review current options in JS-land, talk about the setup, and see
+a different take on code style that takes burden off developers.&lt;/p&gt;
+
+&lt;h2 id=&quot;linters-and-style-checkers&quot;&gt;Linters and style checkers&lt;/h2&gt;
+
+&lt;p&gt;Usually, what we do is set some kind of linter that the developers are supposed
+to run manually every time they commit. These linters help not only with code
+style issues, but with the quirks of the language, so it is pretty important to
+run them often.&lt;/p&gt;
+
+&lt;p&gt;Some popular options are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://eslint.org/&quot;&gt;eslint&lt;/a&gt;: Super configurable, very well maintained&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://standardjs.com/&quot;&gt;standard&lt;/a&gt;: Zero configuration, based off &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eslint&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jscs.info/&quot;&gt;jscs&lt;/a&gt;: Extremely configurable style checker&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/js-beautify&quot;&gt;js-beautify&lt;/a&gt;: Older tool, available in several languages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are a lot more, like &lt;a href=&quot;http://jshint.com/&quot;&gt;jshint&lt;/a&gt; for example, and as usual in JS-land, the
+myriad of options and tooling are overwhelming.&lt;/p&gt;
+
+&lt;h3 id=&quot;recommendations&quot;&gt;Recommendations&lt;/h3&gt;
+
+&lt;p&gt;I personally use &lt;a href=&quot;http://standardjs.com/&quot;&gt;standard&lt;/a&gt; for my personal projects because of its lack of
+configuration and ease of set up, as well as being able to format your code and
+fix mistakes automatically.&lt;/p&gt;
+
+&lt;p&gt;For bigger projects I would suggest using &lt;a href=&quot;http://eslint.org/&quot;&gt;eslint&lt;/a&gt; because of how well
+maintained it is and how well it supports es2015+ syntax.&lt;/p&gt;
+
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow&lt;/h2&gt;
+
+&lt;h3 id=&quot;running-the-linter&quot;&gt;Running the linter&lt;/h3&gt;
+
+&lt;p&gt;When using these linters / style checkers, it is usually a good idea to add
+a npm script for linting the code:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;scripts&quot;: {
+  &quot;lint&quot;: &quot;standard&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This way, everybody uses the same way of linting the code.&lt;/p&gt;
+
+&lt;h3 id=&quot;linting-before-committing&quot;&gt;Linting before committing&lt;/h3&gt;
+
+&lt;p&gt;Another option to make this more automatic is to add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt; or
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre-push&lt;/code&gt; hook to run the linter before committing/pushing. Edit
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.git/hooks/pre-commit&lt;/code&gt; and add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run lint&lt;/code&gt; for linting the project before
+committing (and aborting the commit if there are lint errors).&lt;/p&gt;
+
+&lt;p&gt;A couple of cons of this approach are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Need some script to automate the creation of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pre-commit&lt;/code&gt; hook (otherwise
+it is just tedious to set up for developers)&lt;/li&gt;
+  &lt;li&gt;Aborting the commit is very annoying, especially with a long list of style
+nitpicks (context loss)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;linting-while-programming-editor-integration&quot;&gt;Linting while programming. Editor integration&lt;/h3&gt;
+
+&lt;p&gt;A good approach is to have people integrate their editor with the linters, so
+that it shows errors inline. This keeps the developer focus when programming,
+fixing the errors as we create the program.&lt;/p&gt;
+
+&lt;p&gt;For example, for vim you can use &lt;a href=&quot;https://github.com/scrooloose/syntastic&quot;&gt;syntastic&lt;/a&gt;, which will run the linters on
+save and show you in the code the errors. With syntastic, if you add
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./node_modules/bin/&lt;/code&gt; to your path, it should autodetect the linter installed
+and run them for you.&lt;/p&gt;
+
+&lt;p&gt;Most editors have the capability of linting the code on the code editing view,
+it is really useful.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-different-take-automatic-style-formatting&quot;&gt;A different take. Automatic style formatting&lt;/h2&gt;
+
+&lt;p&gt;All the previous approaches are fine, but they take development time and the
+developer’s attention when they could be doing something useful instead of
+fighting a linter to add spaces between brackets, or moving var declarations at
+the top of a function.&lt;/p&gt;
+
+&lt;h3 id=&quot;linters-that-can-format-your-code&quot;&gt;Linters that can format your code&lt;/h3&gt;
+
+&lt;p&gt;If you have to choose a linter, choose one that has the capability of
+formatting the code following whatever rules defined. As far as I know,
+&lt;a href=&quot;http://eslint.org/&quot;&gt;eslint&lt;/a&gt;, &lt;a href=&quot;http://standardjs.com/&quot;&gt;standard&lt;/a&gt; and &lt;a href=&quot;https://www.npmjs.com/package/js-beautify&quot;&gt;js-beautify&lt;/a&gt; have this feature.&lt;/p&gt;
+
+&lt;p&gt;That way, you can run whatever command your linter has for formatting the code,
+and get most of the warnings on the code fixed for you without having to worry
+about fixing whitespace or code style manually.&lt;/p&gt;
+
+&lt;p&gt;For example, with &lt;a href=&quot;http://standardjs.com/&quot;&gt;standard&lt;/a&gt; you can run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;standard -F&lt;/code&gt; and it will format the
+files trying to make the linter happier.&lt;/p&gt;
+
+&lt;h3 id=&quot;automatically-format-code-on-git-add&quot;&gt;Automatically format code on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git add&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;One approach that I investigated was automatically formatting the code when
+adding it to the repo. This (in my opinion) keeps the burden to the minimum,
+and makes sure that the code that goes into the repo is always properly
+formatted.&lt;/p&gt;
+
+&lt;p&gt;For this, we would use a little unknown feature called &lt;a href=&quot;https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes&quot;&gt;git attributes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;By setting up a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitattributes&lt;/code&gt; in your repo like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*.js filter=jsbeautify
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We’ll tell git to run the specified filter when adding things to the repo. This
+way, when adding a file to the staging area, the file will be passed through
+the specified filter (in this example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jsbeautify&lt;/code&gt;, which we’ll define soon)
+and the output will be what will be shown in diffs and added to the repo.&lt;/p&gt;
+
+&lt;p&gt;This filter (in this example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jsbeautify&lt;/code&gt;) needs to be defined in the repo’s
+configuration. &lt;em&gt;I haven’t found a way to add it as a file in the repo yet, the
+repo’s config gets saved in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.git/config&lt;/code&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For defining the filter we need to provide a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clean&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smudge&lt;/code&gt; config, like
+this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --local filter.jsbeautify.clean &quot;js-beautify -f -&quot;
+git config --local filter.jsbeautify.smudge cat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can automate by having a script that runs these commands.&lt;/p&gt;
+
+&lt;p&gt;One &lt;em&gt;con&lt;/em&gt; for this approach is setting up the config every time somebody clones
+the repo. Still, very interesting to consider for teams really involved in
+having a consistent and enforced code style.&lt;/p&gt;
+
+&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Patch where I implemented this for a mediawiki extension: &lt;a href=&quot;https://gerrit.wikimedia.org/r/#/c/173026/&quot;&gt;gerrit.wikimedia.org/r/#/c/173026&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <published>2016-01-17 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2016/01/17/maintaining-code-consistency/</link>
+      </item>
+    
+      <item>
+        <title>Learning about Service worker</title>
+        <description>&lt;p&gt;Resources for learning about service worker and progressive webapps in no
+particular order.&lt;/p&gt;
+
+&lt;h2 id=&quot;articles&quot;&gt;Articles&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@addyosmani/instant-loading-web-apps-with-an-application-shell-architecture-7c0c2f10c73&quot;&gt;Instant Loading Web Apps With An Application Shell Architecture&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers&quot;&gt;Using Service Workers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://serviceworke.rs/index.html&quot;&gt;The Service Worker Cookbook is a collection of working, practical examples of using service workers in modern web apps&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.pocketjavascript.com/blog/2015/11/23/introducing-pokedex-org&quot;&gt;Introducing Pokedex.org: a progressive webapp for Pokémon fans&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;videostalks&quot;&gt;Videos/Talks&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&quot;&gt;Chrome devsummit videos&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=jCKZDTtUA2A&amp;amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;amp;index=4&quot;&gt;Instant Loading with Service Workers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=MyQ8mtR9WxI&amp;amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;amp;index=9&quot;&gt;Progressive Web Apps&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=9jmqsq2OQjc&amp;amp;list=PLNYkxOF6rcICcHeQY02XLvoGL34rZFWZn&amp;amp;index=2&quot;&gt;Developing for billions&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;toolslibraries&quot;&gt;Tools/Libraries&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/sw-precache&quot;&gt;sw-precache&lt;/a&gt;: A node module to
+generate service worker code that will precache specific resources.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GoogleChrome/sw-toolbox&quot;&gt;sw-toolbox&lt;/a&gt;: A collection of
+tools for service workers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;examples--source&quot;&gt;Examples &amp;amp; source&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jakearchibald/svgomg&quot;&gt;SVGOMG&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/nolanlawson/pokedex.org&quot;&gt;Pokedex.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
+
+&lt;h3 id=&quot;nolan-lawsons-progressive-web-apps-list-source&quot;&gt;Nolan Lawson’s progressive web apps list (&lt;em&gt;&lt;a href=&quot;https://gist.github.com/nolanlawson/d9e66349635452a95bb1&quot;&gt;source&lt;/a&gt;&lt;/em&gt;)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Service Worker - offline support for the web
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://ponyfoo.com/articles/serviceworker-revolution&quot;&gt;Service Worker - Revolution of the Web Platform&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SmZ9XcTpMS4&quot;&gt;The Service Worker is Coming - Look Busy (vid)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://deanhume.com/Home/BlogPost/service-workers--dynamic-responsive-images-using-webp-images/10132/&quot;&gt;Service Workers: Dynamic Responsive Images using WebP Images&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://jakearchibald.github.io/isserviceworkerready/&quot;&gt;Is Service Worker ready?&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Progressive apps - high-res icon, splash screen, no URL bar, etc.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/&quot;&gt;Progressive Web Apps: Escaping Tabs Without Losing Our Soul&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://tech-blog.flipkart.net/2015/11/progressive-web-app/&quot;&gt;Progressive Web App: A New Way to Experience Mobile&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android&quot;&gt;Support for theme-color in Chrome 39 for Android&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android&quot;&gt;Installable Web Apps with the WebApp Manifest in Chrome for Android&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;FLIP animations - flexible 60FPS animations
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://aerotwist.com/blog/flip-your-animations/&quot;&gt;FLIP your animations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=RCFQu0hK6bU&quot;&gt;The applied science of runtime performance (vid)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/&quot;&gt;High Performance Animations&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;IndexedDB/WebWorkers - non-blocking sync and storage
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://nolanlawson.com/2015/09/29/indexeddb-websql-localstorage-what-blocks-the-dom/&quot;&gt;IndexedDB, WebSQL, LocalStorage – what blocks the DOM?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://hood.ie/blog/say-hello-to-offline-first.html&quot;&gt;Say Hello to Offline First&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;High-perf networking - fast even on 2G
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Il4swGfTOSM&quot;&gt;Breaking the 1000ms Time to Glass Mobile Barrier  (vid)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/&quot;&gt;You’re Missing the Point of Server-Side Rendered JavaScript Apps&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <published>2015-11-25 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2015/11/25/service-worker-reading-list/</link>
+      </item>
+    
+      <item>
+        <title>Moving the resume to the web</title>
+        <description>&lt;p&gt;I’ve been having trouble with my resume editing for a long time. A long time
+ago it was a word document, afterwards it became a odt document and migrated to
+libreoffice/openoffice, and later I redid the resume using the europass
+template provided by the european union following a standard format (also in
+odt).&lt;/p&gt;
+
+&lt;p&gt;The problems I’ve found are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Editing difficulties&lt;/strong&gt;. The template is made out of hundreds of tables, and
+with the libreoffice gui it is almost impossible for me now to even add new
+work experience. This is the most annoying of all.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Undistinguishable style&lt;/strong&gt;. The company I redid the resume wanted them all
+in the same format, but usually companies get resumes in different formats
+and using this template makes you indistinguishable of lots of other CVs they
+may get.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;No versioning&lt;/strong&gt;. The file is stored in online backups but there is no
+comprehensive history like the one we could get with version control.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;No web publishing&lt;/strong&gt;. You could export the file to html but it would be
+a horrible markup (and I usually apply for web dev skills…, what kind of
+dev would I be?). Your most reliable format to export is PDF, and I want to
+be able to put the resume on the web and link to it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-new-resume&quot;&gt;A new resume&lt;/h2&gt;
+
+&lt;p&gt;So after thinking about these problems, I set a few objectives and re-did the
+cv:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open source&lt;/li&gt;
+  &lt;li&gt;Version control (git, GitHub)&lt;/li&gt;
+  &lt;li&gt;Separate content, markup and style&lt;/li&gt;
+  &lt;li&gt;Plain text format for the content (chose YAML because its readability)&lt;/li&gt;
+  &lt;li&gt;Readability, ease of editing, exporting formats and publishing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;github---joakinresume&quot;&gt;&lt;a href=&quot;http://github.com/joakin/resume&quot;&gt;Github - joakin/resume&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;I’m using node.js and npm, I set up the project to execute via npm scripts, as
+you can see in the readme. After setup, it becomes super easy to run both the
+development flow (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run watch&lt;/code&gt;) and to just run a build (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm run build&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── README.md     # What is this and instructions
+│
+├── bin           # A couple of scripts to generate the html and pdf
+├── package.json  # Package configuration, run scripts and deps
+│
+├── layout.jade   # Jade page layout (html, head, footer)
+├── resume.jade   # Jade template that processes the yaml to html
+│
+├── resume.styl   # CSS styles (stylus preprocessor)
+│
+├── resume.yaml   # Resume data (pure content, yaml and blocks of
+│                 # text with markdown
+│
+├── node_modules  # Deps of the proj (npm install)
+│
+└── static        # Where the the static web files and pdf are generated
+    │
+    ├── img/      # Imgs for the cv
+    ├── fonts/    # Web fonts
+    └── ...       # Generated files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Have a look at the files, I think the result is very satisfactory, readable and
+very flexible.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-content&quot;&gt;The content&lt;/h3&gt;
+
+&lt;p&gt;The content of the resume is kept in a YAML file, which I found very pleasing
+and readable.&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;na&quot;&gt;fullName&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Joaquin Oltra Hernandez&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;photo&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;photo.jpg&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;phone&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;(0034) &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;600078947&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;joaquin@chimeces.com&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;nationality&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Spain&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;birthDate&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;17-12-85&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Software developer, Javascript programmer, Web developer&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;intro&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;I&apos;m a programmer and web developer specialized in JS who enjoys reading&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;technical books, developing random playful side projects and learning and&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;work&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;employer&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Freelance (Various)&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;December 2013 - Now&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Freelance web developer, Javascript programmer, HTML &amp;amp; CSS programmer&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;Freelance contracting for different clients.&lt;/span&gt;
+
+      &lt;span class=&quot;s&quot;&gt;* Data visualizations dashboard with d3&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;* JS web applications&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;* React.js for the view layer&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;* Browser applications using npm &amp;amp; browserify&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;[...]&lt;/span&gt;
+
+
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;employer&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;OHIM&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;when&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;September 2010 - June &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2013&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Freelance web developer, Javascript programmer, Senior analyst programmer&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;what&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;While freelance contracting for OHIM, I went mainly through two different&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;big projects, OHIM eSearch (JS web application) and the new OHIM Website&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;(public site and suite of web tools).&lt;/span&gt;
+
+      &lt;span class=&quot;s&quot;&gt;##### eSearch&lt;/span&gt;
+
+      &lt;span class=&quot;s&quot;&gt;Search engine for OHIM, I was involved in creating the single page&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;application using Javascript, CSS3 with LESS, Backbone. This application&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;[...]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Content is translated in the build step to json and then fed into the jade
+templates. You can see it in
+&lt;a href=&quot;https://github.com/joakin/resume/blob/master/static/resume.json&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;static/resume.json&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, the text blocks (using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; pipe) are later translated in jade into
+markdown, so that we can get rich text when writing bigger blocks of text.&lt;/p&gt;
+
+&lt;h2 id=&quot;templates&quot;&gt;Templates&lt;/h2&gt;
+
+&lt;p&gt;I’m using HTML/CSS as the base from which to export to other formats like PDF.
+For the markup and style I set up jade templates (simple and readable) and the
+stylus css preprocessor. Here is a little example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-jade&quot;&gt;
+extends ./layout.jade
+
+block content
+  header.main
+    h1= fullName
+    img.photo(src=photo)
+
+  section.personal-information
+    header: h2 Personal information
+    article
+
+      .kv.full-name
+        label Full name
+        span= fullName
+      .kv.phone
+        label Phone
+        span= phone
+      .kv.email
+        label Email
+        span= email
+      .kv.nationality
+        label Nationality
+        span= nationality
+
+      - var date = (new Date()).getFullYear() - 1985
+      .kv.age
+        label Age
+        span= date
+[...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-stylus&quot;&gt;@import &quot;nib&quot;
+@import &quot;stylus-normalize/normalize&quot;
+
+text-color = #333
+light-text-color = #aaa
+light-bg = #ddd
+
+ul
+  list-style-position inside
+
+body
+  color text-color
+  font-family Latin Modern Roman, serif
+
+h1, h2, h3, h4, h5, h6
+  margin 0
+
+body&amp;gt;header
+  background-color light-bg
+  color white
+  text-align center
+  h1
+    margin 0
+    padding 10px
+[...]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I’ve tried to keep the html as semantic as possible, and in the styles I’ve
+played with flex box to learn how it worked.&lt;/p&gt;
+
+&lt;p&gt;You can check the web published version at &lt;a href=&quot;http://chimeces.com/resume&quot;&gt;chimeces.com/resume&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;exporting-to-pdf&quot;&gt;Exporting to pdf&lt;/h2&gt;
+
+&lt;p&gt;PDF generation is made via phantomJS, and thanks to npm and the amount of
+libraries it was easy to find one that did what I wanted.&lt;/p&gt;
+
+&lt;p&gt;You can check the pdf published version at
+&lt;a href=&quot;http://chimeces.com/resume/resume.pdf&quot;&gt;chimeces.com/resume/resume.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;development-story&quot;&gt;Development story&lt;/h2&gt;
+
+&lt;p&gt;Another cool thing is that the development server autobuilds the web and pdf
+when any of the files is changed and also has livereload so that the browser
+autoupdates. All this is set up in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;package.json&lt;/code&gt; in the scripts field
+using the dependencies specified in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;devDependencies&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;serve&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./node_modules/.bin/livereloadx -s ./static/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;watch-stylus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./node_modules/.bin/stylus -w resume.styl --out static -I ./node_modules&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build-stylus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./node_modules/.bin/stylus resume.styl --out static -I ./node_modules&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;watch-html&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./node_modules/.bin/watch-run -p &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;*.+(jade|yaml)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ./bin/build-html.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build-html&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./bin/build-html.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;watch-pdf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./node_modules/.bin/watch-run -p &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;static/*.!(pdf|json)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ./bin/build-pdf.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build-pdf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;./bin/build-pdf.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;watch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run watch-html &amp;amp; npm run watch-pdf &amp;amp; npm run watch-stylus &amp;amp; npm run serve&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run build-html &amp;amp; npm run build-stylus &amp;amp; npm run build-pdf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;echo &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Error: no test specified&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For &lt;strong&gt;deployment&lt;/strong&gt; and publishing I use &lt;strong&gt;github pages&lt;/strong&gt;, like in this blog, and simply
+put in the repository the generated files and use a
+&lt;a href=&quot;https://github.com/joakin/dotfiles/blob/master/bin/gh-pages&quot;&gt;onliner script&lt;/a&gt;
+to publish (i think it needs git 2.X):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Which folder do you want to deploy to GitHub Pages?&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+&lt;/span&gt;git subtree push &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-end&quot;&gt;The end&lt;/h2&gt;
+
+&lt;p&gt;That’s all for now, feel free to clone the repo, and make it yours changing
+styles and yaml!&lt;/p&gt;
+
+</description>
+        <published>2014-08-13 00:00:00 +0200</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2014/08/13/moving-the-resume-to-web-technologies/</link>
+      </item>
+    
+      <item>
+        <title>Organizing photos with bash</title>
+        <description>&lt;p&gt;I’ve been trying to organize my photos out of iPhoto and Shotwell into a common
+file name format and into old trusty folders and files that I can backup and
+check in services like Dropbox or Google Drive.&lt;/p&gt;
+
+&lt;p&gt;After exporting the library from iPhoto and Shotwell, and importing photos
+I had in bare folders I had the task to get them organized consistently.&lt;/p&gt;
+
+&lt;p&gt;What I set up to get was a folder structure like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── 2007
+│   ├── Diario Informacion
+│   ├── Examenes Septiembre
+│   ├── Laysa
+│   ├── Lolo
+│   ├── Reuniones familiares
+│   ├── Uni
+│   └── Verano Garden
+├── 2008
+│   ├── Aachen
+│   ├── Aachen visita Tapi Ana
+│   ├── Aachen visita colegas
+│   ├── Berlin
+│   ├── Bonn
+│   ├── Carnaval
+│
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thats &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY/AlbumName/...&lt;/code&gt;. For the name I wanted to rename the photos in
+a common format to unify the different names that different cameras give to
+photos. So the idea was to get the photo named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IMG_1000391.jpg&lt;/code&gt; to become
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYYMMDD-HHSS-[Original name].jpg&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After several tries and an incomplete program I did in node, I settled to
+accomplish the task with the unix battletested tools we all love and hate.&lt;/p&gt;
+
+&lt;h2 id=&quot;renaming-photos&quot;&gt;Renaming photos&lt;/h2&gt;
+
+&lt;p&gt;So, for renaming the pictures, I did a little script that I would execute
+inside my &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iPhoto&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shotwell&lt;/code&gt; picture, and go on renaming pictures based on
+their exif data (date taken) as possible, using the awesome &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jhead&lt;/code&gt; command
+line tool:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/joakin/dotfiles/blob/master/bin/organize-photos&quot;&gt;organize-photos&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-z&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Which folder do you want organize photos in?&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi
+
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;IFS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;$&apos;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;find &lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Do you want to organize &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;? [y/N] &quot;&lt;/span&gt; response
+  &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$response&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;yY][eE][sS]|[yY]&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      jhead &lt;span class=&quot;nt&quot;&gt;-autorot&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt;%Y%m%d-%H%M%S-%f &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With that we get the pictures renamed with the data they were taken on (if that
+does not exist or can’t find it then it uses the created at date attribute on
+the file). Also as a bonus, we tell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jhead&lt;/code&gt; to autorotate the pictures based on
+exif data.&lt;/p&gt;
+
+&lt;h2 id=&quot;organizing-the-folder-structure-to-the-one-i-wanted&quot;&gt;Organizing the folder structure to the one I wanted&lt;/h2&gt;
+
+&lt;p&gt;After renaming the pictures, I had to deal with the folder structure of each
+different program. iPhoto when it exports it puts the pictures in folders named
+as the events you had in, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Aachen, Bonn, Berlin, ...&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For those, I just had to create the year folders and drop the event folders on
+its corresponding year folder, easy.&lt;/p&gt;
+
+&lt;p&gt;For the Shotwell photos I had to move them from the created structure
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY/MM/DD/photo.jpg&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY/MM/photo.jpg&lt;/code&gt;. So using this small cli oneliner
+I grouped the photos as expected.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;find &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d | xargs &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt;  sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;echo mv ${0}/* &quot;$( dirname ${0})&quot; &quot;;&quot; rm -rv ${0} &apos;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Executing this command should show the command line commands that would move
+the photos, when you have verified that they should do what you want, just
+append &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;| sh&lt;/code&gt; after it and execute it again. Be careful and backup all your
+photos before doing all this stuff.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;find &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d | xargs &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt;  sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;echo mv ${0}/* &quot;$( dirname ${0})&quot; &quot;;&quot; rm -rv ${0} &apos;&lt;/span&gt; | sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With that, I created some event folders and dropped the months in as expected.&lt;/p&gt;
+
+&lt;p&gt;Overall, pretty smooth experience, and a quick way to unify the photos
+databases into a simple and trusty folder/file structure (28G of pics!).&lt;/p&gt;
+
+&lt;p&gt;The advantage is the ease of sync, and because the file names are organized as
+the taken date, sorting by name in a folder will give you the files in taken
+order so that you can make a quick presentation if you need to.&lt;/p&gt;
+
+&lt;p&gt;Some time in the future, I want to research how to go looking at the pictures
+and marking the wants I don’t want, to have them archived or deleted, and also
+duplicate detection, since there are some folders that have thumbnails and
+pictures which are the same.&lt;/p&gt;
+
+</description>
+        <published>2014-08-08 00:00:00 +0200</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2014/08/08/organizing-photos/</link>
+      </item>
+    
+      <item>
+        <title>Developing comfortably on windows</title>
+        <description>&lt;p&gt;Since almost 3 years ago I have been working mostly in Windows as a web
+developer, because of the constraints of a corporate environment. First Windows
+XP, then Windows 7, both equally closed and restricted, without admin
+privileges, with a propietary NtlmV2 proxy on the way to the net, etc.&lt;/p&gt;
+
+&lt;p&gt;Through all this time, bit by bit I learned new tricks, applications, etc, that
+as a developer made feel at home (unix) and be more productive. In here I will
+provide the tricks I used and the applications I have installed at the moment
+of leaving, commenting their utility and &lt;em&gt;why&lt;/em&gt; I’ve used them.&lt;/p&gt;
+
+&lt;h2 id=&quot;first-some-system-advice-installing-programs&quot;&gt;First, some system advice. Installing programs.&lt;/h2&gt;
+
+&lt;p&gt;In our restricted corporate environment we had two drives on each machine. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:&lt;/code&gt;
+was used for the operating system and corporate programs, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;D:&lt;/code&gt; was used as
+the other “&lt;em&gt;free&lt;/em&gt;” drive. Under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;D:&lt;/code&gt; I had permissions to &lt;em&gt;fully write&lt;/em&gt;, and
+the evil &lt;strong&gt;McAffee&lt;/strong&gt; wouldn’t possess the cpu and hard drive each time the disk
+was touched.&lt;/p&gt;
+
+&lt;p&gt;So, with time, the advice when trying to get a program working was:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Try installer normally&lt;/li&gt;
+  &lt;li&gt;Through installer, look for “&lt;em&gt;Options&lt;/em&gt;”, “&lt;em&gt;Personalize&lt;/em&gt;” or similar.&lt;/li&gt;
+  &lt;li&gt;If there was the option, change install dir to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*D:\bin*&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;If I was able to choose what would be installed, uncheck all unnecessary
+items that may cause problems. For example &lt;em&gt;Add to PATH&lt;/em&gt; or &lt;em&gt;Add shortcuts
+to Start Menu and Desktop&lt;/em&gt;, etc. Look out for these things.&lt;/li&gt;
+  &lt;li&gt;No luck, then go search for a portable version.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So without more delays, these are the programs and utilities that solve
+different needs a programmer can have.&lt;/p&gt;
+
+&lt;h2 id=&quot;system-wide-programs&quot;&gt;System wide programs&lt;/h2&gt;
+
+&lt;h3 id=&quot;cntlm-avoiding-the-ntlmv2-proxy-as-much-as-possible&quot;&gt;Cntlm. Avoiding the NTLMv2 proxy as much as possible.&lt;/h3&gt;
+
+&lt;p&gt;If you are under a win proxy, chances are that many programs do not know how to
+talk that propietary protocol, so you won’t be able to use networking with
+them. For example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;npm&lt;/code&gt; with node, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem&lt;/code&gt; with ruby, and lots more.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;http://cntlm.sourceforge.net/&quot;&gt;Cntlm&lt;/a&gt; is one of the best things I did on the computer. When
+configured properly, it acts as a normal proxy and redirects everything to the
+corporate proxy filling in auth and NTLMv2 info.&lt;/p&gt;
+
+&lt;p&gt;At the beginning I was using fiddler2 but cntlm is much better and transparent.&lt;/p&gt;
+
+&lt;p&gt;After configuring it create a shortcut to cntlm.exe on:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And then, right click it, and on the target input set it to start with your
+config file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;D:\devel\bin\cntlm\cntlm.exe -c D:\devel\bin\cntlm\cntlm.ini&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To fill the .ini file, look at these links or use your &lt;em&gt;search-fu&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/joakin/5656471&quot;&gt;My example cntlm.ini config based on my real one working&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/9181637/how-to-fill-proxy-information-in-cntlm-config-file&quot;&gt;How to fill proxy information in cntlm config file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;text-editor-anywhere-open-your-preferred-text-editor-to-edit-text-anywhere&quot;&gt;Text Editor Anywhere. Open your preferred text editor to edit text anywhere.&lt;/h3&gt;
+
+&lt;p&gt;I am a fan of my editor. I have it customized and it suits my editing needs
+perfectly. So, when I am anywhere else, if I intend to do some serious editing
+I want to use it.&lt;/p&gt;
+
+&lt;p&gt;For this requirement, &lt;a href=&quot;http://www.listary.com/text-editor-anywhere&quot;&gt;Text Editor Anywhere&lt;/a&gt; is a god send. I have it mapped
+to Win+A, and wherever I am, Outlook, Firefox, Chrome, Notepad, I can press it
+and I get my editor open and pre-filled. When I’m finished, just save and close
+and the text gets updated from where it came from. Simple and excellent.&lt;/p&gt;
+
+&lt;h3 id=&quot;flux-change-the-tone-of-your-screen-depending-on-daylight&quot;&gt;Flux. Change the tone of your screen depending on daylight.&lt;/h3&gt;
+
+&lt;p&gt;For those short winter days where daylight disappears soon, &lt;a href=&quot;http://stereopsis.com/flux/&quot;&gt;Flux&lt;/a&gt; makes your
+monitor light differently through the day, making it easier on the eyes after
+long hours.&lt;/p&gt;
+
+&lt;h3 id=&quot;autohotkey-scriptable-windows&quot;&gt;AutoHotkey. Scriptable Windows.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.autohotkey.com/&quot;&gt;AutoHotkey&lt;/a&gt; is the &lt;strong&gt;holy grail&lt;/strong&gt; of windows customization and automation.
+It is a runtime with a scripting language with which you can do almost
+anything.  Paraphrasing from their site:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; Fast scriptable desktop automation with hotkeys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It is not only what you can do, but what everybody else has already done. It is
+great and you need it.&lt;/p&gt;
+
+&lt;p&gt;I have used it to remap some keys, change mouse behaviour, etc. Here go
+a couple of links to get started. Next item is my custom autohotkey script, so
+go look at that also.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.autohotkey.com/docs/misc/Remap.htm&quot;&gt;Remapping Keys and Buttons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.autohotkey.com/docs/Tutorial.htm&quot;&gt;Tutorial and Overview&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;custom-user-autohotkey-script&quot;&gt;Custom user AutoHotkey script&lt;/h3&gt;
+
+&lt;p&gt;I’ve got one custom script that I execute on startup that does a couple of
+things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Remap Capslock to something more useful (Ctrl)&lt;/li&gt;
+  &lt;li&gt;Reverse scroll to work like in OSX&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Looking at the documentation on the previous item, you will be able to do these
+things, and a million more.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/joakin/5656110&quot;&gt;Capslock and reverse scroll custom ahk script&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;windowpad-what-aero-snap-should-have-been&quot;&gt;WindowPad. What aero snap should have been.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.autohotkey.com/board/topic/19990-windowpad-window-moving-tool/&quot;&gt;WindowPad&lt;/a&gt; is a great substitute of the poor aero snap. It is a window manager
+on its own. It lets you move windows, resize them, change them of monitor,
+maximize, etc, all with key shortcuts. It is a wonderful utility and it is
+built on AutoHotkey, but it is delivered as a self contained executable.&lt;/p&gt;
+
+&lt;p&gt;There is also &lt;a href=&quot;http://hoppfrosch.github.io/WindowPadX/files/WindowPadX-ahk.html&quot;&gt;WindowPadX&lt;/a&gt;, a fork of WindowPad that is supposed to add some
+good features. I haven’t tried it myself, but looks promising.&lt;/p&gt;
+
+&lt;h3 id=&quot;snipping-tool-screenshots-and-annotations-made-easy&quot;&gt;Snipping Tool. Screenshots and annotations made easy.&lt;/h3&gt;
+
+&lt;p&gt;The Windows &lt;a href=&quot;http://windows.microsoft.com/en-sg/windows7/products/features/snipping-tool&quot;&gt;Snipping Tool&lt;/a&gt; is the default windows 7 screen shooting tool
+(besides the Print Screen button). It actually is quite nice, and has enough
+functionality for a day to day work.&lt;/p&gt;
+
+&lt;p&gt;I included it because it is a hidden gem that is useful and already available.&lt;/p&gt;
+
+&lt;h3 id=&quot;custom-fonts-install-fonts-on-a-non-admin-environment&quot;&gt;Custom fonts. Install fonts on a non-admin environment.&lt;/h3&gt;
+
+&lt;p&gt;If you are anything like me, you like having fonts of your liking available to
+customize how parts of the system work. The editor, browser defaults, and
+system font, for example. The problem with not having administrator privileges
+is that you cannot install fonts normally because they are located on
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\Windows\Fonts&lt;/code&gt; and that is an administrator folder.&lt;/p&gt;
+
+&lt;p&gt;Luckily, normal users are able to install fonts using shortcuts that only last
+through the user session. When the user logs out the fonts are erased.&lt;/p&gt;
+
+&lt;p&gt;By using a program like &lt;a href=&quot;http://www.marshwiggle.net/regfont/&quot;&gt;regfont&lt;/a&gt;, and adding it to startup, we can have the
+fonts installed every time we log in. It only takes a few seconds.&lt;/p&gt;
+
+&lt;p&gt;So save regfont somewhere, like in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;D:\devel\bin\regfont.exe&lt;/code&gt;, then create
+a shortcut, and place it on the startup folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And then, right click it, and on the target field set it so that regfont loads
+them from where you are putting your custom fonts:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;D:\devel\bin\regfont.exe -a D:\devel\fonts\*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Ref links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tsukasa.jidder.de/blog/2008/04/18/temporarily-register-fonts-using-a-normal-user-account&quot;&gt;Font problem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.dailygyan.com/2008/05/how-to-install-fonts-in-windows-without.html&quot;&gt;Font problem 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;applications&quot;&gt;Applications&lt;/h2&gt;
+
+&lt;h3 id=&quot;dropbox-seamless-storage-in-sync&quot;&gt;Dropbox. Seamless storage in sync.&lt;/h3&gt;
+
+&lt;p&gt;This online storage solution needs no presentation. Seamless cloud file sync
+that allow you to share stuff between your home computer and the work one.&lt;/p&gt;
+
+&lt;p&gt;I managed to get the &lt;a href=&quot;https://www.dropbox.com/&quot;&gt;Dropbox&lt;/a&gt; installer working but I know some partners
+that had to use the officially supported and very updated &lt;a href=&quot;http://nionsoftware.com/dbpahk/&quot;&gt;Dropbox portable&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;calibre-portable-book-and-document-organiser-and-reader&quot;&gt;Calibre Portable. Book and document organiser and reader.&lt;/h3&gt;
+
+&lt;p&gt;Calibre is a book manager that works greatly. It has also an ebook reader,
+which is what I used it for. Besides that, you can use it for sorting a library
+of work related pdfs and documents.&lt;/p&gt;
+
+&lt;p&gt;I had to install &lt;a href=&quot;http://calibre-ebook.com/download_portable&quot;&gt;Calibre Portable&lt;/a&gt;, not the normal version.&lt;/p&gt;
+
+&lt;h3 id=&quot;pidgin-instant-messaging-multi-protocol-client&quot;&gt;Pidgin. Instant messaging multi-protocol client.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.pidgin.im/&quot;&gt;Pidgin&lt;/a&gt; is an open source IM client. It allows you to connect to multiple
+chat services, and works great.&lt;/p&gt;
+
+&lt;h3 id=&quot;launchy-open-applications-and-folders-fast-and-easy&quot;&gt;Launchy. Open applications and folders fast and easy.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.launchy.net/&quot;&gt;Launchy&lt;/a&gt; is an application launcher, very useful if you have to move a lot
+through folders or open different applications all the time.&lt;/p&gt;
+
+&lt;h3 id=&quot;focuswriter-distraction-free-writing&quot;&gt;FocusWriter. Distraction free writing.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://gottcode.org/focuswriter/&quot;&gt;FocusWriter&lt;/a&gt; is a minimalistic writing environment worth checking out. No
+fancy bells, just writing. The full screen mode is worth it.&lt;/p&gt;
+
+&lt;h3 id=&quot;pencil-project-mockups-prototypes-and-diagrams&quot;&gt;Pencil Project. Mockups, prototypes and diagrams.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pencil.evolus.vn/&quot;&gt;Pencil Project&lt;/a&gt; is an open source tool based on firefox’s xul runner. It is
+a very interesting prototyping tool, cross platform, and worth checking out.&lt;/p&gt;
+
+&lt;h2 id=&quot;web-development-tools&quot;&gt;Web development tools&lt;/h2&gt;
+
+&lt;h3 id=&quot;restclient-test-and-call-web-urls-curl-like&quot;&gt;RestClient. Test and call web urls (curl like)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://code.google.com/p/rest-client/&quot;&gt;RestClient&lt;/a&gt; is a java app that comes in handy when you have to test some
+webservices and do not have a web page set up. It works, but it is far from
+pretty. With time I substituted it with things like &lt;a href=&quot;https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm&quot;&gt;Chrome’s Postman
+extension&lt;/a&gt; or &lt;a href=&quot;https://addons.mozilla.org/en-us/firefox/addon/restclient/&quot;&gt;Firefox’s Rest Client
+extension&lt;/a&gt;, which comply as well and are prettier and do not
+depend on java.&lt;/p&gt;
+
+&lt;h3 id=&quot;xampp-server-database-and-web-language-on-one-package&quot;&gt;Xampp. Server, database and web language on one package.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.apachefriends.org/en/xampp.html&quot;&gt;Xampp&lt;/a&gt; provides an easy way of setting up an Apache, MySql, Php stack. For
+example I have the apache document root pointing to my projects folder and
+opened at startup, so that at anytime I can open any file/site of the folder in
+the browser.&lt;/p&gt;
+
+&lt;h3 id=&quot;node-js-on-the-server-scripting-and-web-dev-tools&quot;&gt;Node. JS on the server, scripting and web dev tools.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://nodejs.org/&quot;&gt;Node&lt;/a&gt; is a JS framework based on async that runs on V8 on the server. It
+also serves as a platform to lots of useful tools for web development, like css
+and js minifiers, less/stylus compilers, jslint/jshint, uglifyjs, coffeescript
+compiler, etc.&lt;/p&gt;
+
+&lt;p&gt;On it’s ecosystem lots of useful tools for web development and it has been
+really useful to have node and npm installed to make use of this tools.&lt;/p&gt;
+
+&lt;p&gt;To install it, I had to find a portable version the first time, from something
+like &lt;a href=&quot;http://imsky.co/downloads&quot;&gt;Node portable 0.10.8 by imsky.co&lt;/a&gt;, save it on my paths,
+and then, from there on, I updated the node binary from the official node site,
+going to &lt;a href=&quot;http://nodejs.org/download/&quot;&gt;Node downloads&lt;/a&gt; and downloading the &lt;strong&gt;Windows Binary
+(.exe)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;chrome-great-browser-and-greater-dev-tools&quot;&gt;Chrome. Great browser and greater dev tools.&lt;/h3&gt;
+
+&lt;p&gt;Google &lt;a href=&quot;http://google.com/chrome&quot;&gt;Chrome&lt;/a&gt; is a fantastic browser that installs perfectly on corporate
+restricted environments, and has been tremendously useful. It’s devtools are
+great, and it is a very good browser.&lt;/p&gt;
+
+&lt;h3 id=&quot;firefox-portable-great-browser-untied-from-the-corporate-version&quot;&gt;Firefox Portable. Great browser, untied from the corporate version.&lt;/h3&gt;
+
+&lt;p&gt;At work we had a Firefox installed, but it was the ESR (Enterprise Release)
+version and it had the profile modified and settings blocked, besides bookmarks
+and home page presets and nasty addons pre-installed.&lt;/p&gt;
+
+&lt;p&gt;At the beginning I moved to using &lt;a href=&quot;http://www.mozilla.org/en-US/firefox/aurora/&quot;&gt;Aurora&lt;/a&gt;, a more experimental release of
+firefox, but very stable, but the enterprise firefox updates would screw with
+my profile.&lt;/p&gt;
+
+&lt;p&gt;To use the excellent and free Firefox and keep my profile with my stuff and
+without the company’s stuff I had to search for the &lt;a href=&quot;http://portableapps.com/apps/internet/firefox_portable&quot;&gt;Firefox Portable&lt;/a&gt;
+version, which works seamlessly.&lt;/p&gt;
+
+&lt;h2 id=&quot;programming-tools&quot;&gt;Programming tools&lt;/h2&gt;
+
+&lt;h3 id=&quot;vim-amazing-text-editing&quot;&gt;Vim. Amazing text editing.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.vim.org/&quot;&gt;Vim&lt;/a&gt; is a open source modal editor that enables you to edit text
+efficiently. It is my editor of choice and works perfectly on windows.&lt;/p&gt;
+
+&lt;h3 id=&quot;emacs-great-text-editor&quot;&gt;Emacs. Great text editor.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt; is also an open source editor that is very extensible. It is very
+good as well. Emacs and Vim are both old players on the text editing arena and
+really good programs.&lt;/p&gt;
+
+&lt;h3 id=&quot;lighttable-live-coding-for-programming&quot;&gt;LightTable. Live coding for programming.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.lighttable.com/&quot;&gt;LightTable&lt;/a&gt; is a new editor that puts an emphasis on live programing and on
+the future on extensibility (not yet). Even it being 0.4 right now, it works
+really well and has helped me to do some tasks.&lt;/p&gt;
+
+&lt;h3 id=&quot;console2-what-cmdexe-should-be&quot;&gt;Console2. What cmd.exe should be.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sourceforge.net/projects/console/&quot;&gt;Console2&lt;/a&gt; is a great cmd replacement that enables you to have profiles for
+shells (so that you can have both shells of bash and shells of DOS and
+PowerShell under the same window) and it also features lots of goodies like
+configurability, tabs, transparent background, etc.&lt;/p&gt;
+
+&lt;p&gt;Great program, I could not have lived without it.&lt;/p&gt;
+
+&lt;p&gt;Edit: Some commenters have recommended &lt;a href=&quot;http://code.google.com/p/conemu-maximus5/&quot;&gt;ConEmu&lt;/a&gt; over Console2, check it out
+and decide by yourself, I’m going to.&lt;/p&gt;
+
+&lt;h3 id=&quot;msysgit-or-cygwin-posix-shell-on-windows-bash&quot;&gt;Msysgit (or cygwin). POSIX shell on windows (bash)&lt;/h3&gt;
+
+&lt;p&gt;If you come from some linux/unix, for sure you are going to miss a good bash.
+It is possible to have a good capable shell on windows, that will work for lots
+of the cases and make your life easier.&lt;/p&gt;
+
+&lt;p&gt;That I know, there are two options:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://msysgit.github.io/&quot;&gt;msysgit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cygwin.com/&quot;&gt;cygwin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Msysgit is the shell that gets installed when you install git from the
+installer. That is the one I have used, and I haven’t missed much.&lt;/p&gt;
+
+&lt;p&gt;Cygwin is another one that is more complete than the git one, but I haven’t
+tried it. I think it has a bigger community and a lot more packages available.&lt;/p&gt;
+
+&lt;p&gt;Anyway, choose what you want, it is a great tool to have.&lt;/p&gt;
+
+&lt;h3 id=&quot;git-versatile-version-control-system&quot;&gt;Git. Versatile version control system.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://msysgit.github.io/&quot;&gt;Git&lt;/a&gt; is a distributed version control system. I used it for the projects and
+to keep my configuration files in sync. Essential.&lt;/p&gt;
+
+&lt;h3 id=&quot;ack-search-through-code-fast-and-easy&quot;&gt;Ack. Search through code fast and easy.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://beyondgrep.com/&quot;&gt;Ack&lt;/a&gt; is a great search tool written in perl (provided by msysgit in my
+case). It is my partner when navigating through code, works wonderfully and
+fast.&lt;/p&gt;
+
+&lt;p&gt;I have integrated with Vim, so I can use it within my editor or in the shell.&lt;/p&gt;
+
+&lt;h3 id=&quot;ctags-code-navigation&quot;&gt;Ctags. Code navigation.&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://ctags.sourceforge.net/&quot;&gt;Ctags&lt;/a&gt; is a tool that generates tag files from code. Tag files are files
+that your editor can interpret to show you completions when coding and to help
+you navigate code.&lt;/p&gt;
+
+&lt;p&gt;It is very useful and every editor has some plug-in or support for tag files.&lt;/p&gt;
+
+&lt;h3 id=&quot;python-scripting-on-your-computer&quot;&gt;Python. Scripting on your computer.&lt;/h3&gt;
+
+&lt;p&gt;I dabbled into &lt;a href=&quot;http://www.python.org/&quot;&gt;Python&lt;/a&gt; through its fantastic docs to do some scripting and
+automate tasks on my computer. Python is a great language really pleasant to
+use. When I installed it there was no portable version and it was a bit of
+a hell to get it to install, but it seems like they have updated ones at
+&lt;a href=&quot;http://www.portablepython.com/&quot;&gt;Portable python&lt;/a&gt; now.&lt;/p&gt;
+
+&lt;h2 id=&quot;closing-up&quot;&gt;Closing up&lt;/h2&gt;
+
+&lt;p&gt;It is a long list and it was compiled through time. You should not try to
+install all of them, but go one by one and give your self some days to get used
+to the new tools.&lt;/p&gt;
+
+&lt;p&gt;It is never going to be as our beloved linux/osx, but it can be quite good if
+you invest some time in getting the appropriate tools and on improving your
+workflow.&lt;/p&gt;
+
+&lt;p&gt;If you see anything to correct or you have more suggestions about useful tools
+for windows developers, please leave a comment.&lt;/p&gt;
+
+</description>
+        <published>2013-05-27 00:00:00 +0200</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2013/05/27/developing-comfortably-on-windows/</link>
+      </item>
+    
+      <item>
+        <title>A JS code review</title>
+        <description>&lt;p&gt;I did a code review for a friend about a little piece of code and something
+worth of posting came out of there.&lt;/p&gt;
+
+&lt;p&gt;Here it is, first, the code he passed us, and after that, my answer.&lt;/p&gt;
+
+&lt;p&gt;It is a mix of idiomatic/readable/my-taste javascript advice. Comments welcome.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/4257379/a581f50c594fee394eb896ac3f5126c15a8925e5&quot;&gt;Original JS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/4257379/5803dda7543978e4575c3e398db3413f9e4f4361&quot;&gt;My Reply&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;embed&quot;&gt;Embed&lt;/h4&gt;
+
+&lt;script src=&quot;//gist.github.com/4257379.js&quot;&gt; &lt;/script&gt;
+
+</description>
+        <published>2012-12-11 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2012/12/11/a-js-code-review/</link>
+      </item>
+    
+      <item>
+        <title>Extending classes in js using mixins</title>
+        <description>&lt;p&gt;There are times when we have different classes that share a certain behaviour
+but they do not have a common ancestor.&lt;/p&gt;
+
+&lt;p&gt;Taking advantage of JS prototypal inheritance, we can make them share
+code/behaviour and avoid duplication .&lt;/p&gt;
+
+&lt;h3 id=&quot;example-case&quot;&gt;Example case&lt;/h3&gt;
+
+&lt;p&gt;Imagine we have two random &lt;em&gt;types&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var Person = function (name) {
+    this.name = name;
+};
+
+var Car = function (brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we wanted make both Persons and Cars blow up, we would have to create
+a super class (not a good idea since this two types do not have anything we
+want in common) or implement the behaviour in both classes (code duplication).&lt;/p&gt;
+
+&lt;h3 id=&quot;a-solution-using-mixins&quot;&gt;A solution using mixins&lt;/h3&gt;
+
+&lt;p&gt;The solution we are going to explore is Mixins. A mixin is a standalone piece of
+functionality or behaviour. It has to exist in a object form, so that it can be
+used later to extend other types prototypes.&lt;/p&gt;
+
+&lt;p&gt;For example, for the explode exercise:&lt;/p&gt;
+
+&lt;p&gt;If we use what we will call a mixin, then we get what we wanted. If we define
+the explode functionality as a standalone mixin:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var ExplodeMixin = {
+    blown: null,
+    blowUp: function() {
+        if (this.blown === null) {
+            console.log(&apos;KaBoww&apos;);
+            this.blown = (new Date()).getTime();
+        } else {
+            console.log(&apos;Already blown up&apos;);
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then we could extend our types with this behaviour without duplicating code or
+creating a common ancestor. For it, we are going to use a function called extend, that
+basically extends a object with another one. Check the underscorejs docs for
+example -&amp;gt; &lt;a href=&quot;http://underscorejs.org/#extend&quot;&gt;_.extend&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var Person = function (name) {
+    this.name = name;
+};
+_.extend(Person.prototype, ExplodeMixin);
+
+var Car = function (brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+};
+_.extend(Car.prototype, ExplodeMixin);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After this, we can safely do:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var john = new Person(&apos;John&apos;);
+john.blowUp();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KaBoww&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var golf = new Car(&apos;VolsWagen&apos;, &apos;Golf&apos;, 2012);
+golf.blowUp();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;KaBoww&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;using-it-with-backbone&quot;&gt;Using it with Backbone&lt;/h3&gt;
+
+&lt;p&gt;The case we found for using this pattern was for example, when among multiple
+views you want to have a certain behaviour shared, like in our case with
+putting a view in a loading state.&lt;/p&gt;
+
+&lt;p&gt;So our real example looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;views/mixins/loading.js&lt;/strong&gt;
+    var LoadingMixin = {
+        loadingOverlayTemplate: require(‘views/templates/loading_overlay’),&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    isLoading: false,
+    
+    setLoading: function(yes) {
+        if (yes) {
+            if (!this.isLoading) {
+                this.isLoading = true;
+                $(this.el).html(this.loadingOverlayTemplate());
+            }
+        } else {
+            if (this.isLoading) {
+                this.isLoading = false;
+                this.$(&apos;.flOverlay&apos;).remove();
+            }
+        }
+    }
+};
+
+module.exports = LoadingMixin;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;views/communication_actions.js&lt;/strong&gt;
+    var LoadingMixin = require(‘views/mixins/loading’)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var CommunicationActionsView = CommunicationView.extend({
+    
+    /*
+     * Code for the view here.
+     */
+    
+    formSubmit: function() {
+        
+        // Method of the loading mixin
+        this.setLoading(true);
+        
+        // More stuff
+    }
+});
+
+_.extend(CommunicationActionsView.prototype, LoadingMixin);
+
+module.exports = CommunicationModalStep1View;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This way, you can share behaviours or code among certain types as you want.&lt;/p&gt;
+
+</description>
+        <published>2012-10-31 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2012/10/31/extending-classes-in-js-with-mixins/</link>
+      </item>
+    
+      <item>
+        <title>Noir</title>
+        <description>&lt;p&gt;Surfing through several links, first about how to configure vim to work with a
+repl on clojure (&lt;a href=&quot;https://github.com/daveray/vimclojure-easy&quot;&gt;vimclojure&lt;/a&gt; || &lt;a href=&quot;http://www.vim.org/scripts/script.php?script_id=2531&quot;&gt;slimev&lt;/a&gt;), then about &lt;a href=&quot;http://thecomputersarewinning.com/post/clojure-heroku-noir-mongo/&quot;&gt;modern hipster
+development&lt;/a&gt;, afterwards making some &lt;a href=&quot;http://www.4clojure.com/&quot;&gt;4clojure&lt;/a&gt; problems, looking at the
+docs and the repl, I’ve ended up on the &lt;a href=&quot;http://webnoir.org/&quot;&gt;‘Noir’ site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It is a micro web framework for clojure, and just coming into the page you can
+see how easy it is to grasp with some code samples (related read &lt;a href=&quot;http://blog.fogus.me/2012/08/23/minimum-viable-snippet/&quot;&gt;Minimum
+Viable Snippet - Fogus&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;I’ve been reading the tutorials on the site, and the docs, and I must say I
+really like the information provided, and the documentation. It is really a
+simple framework, with some good docs.&lt;/p&gt;
+
+&lt;p&gt;After reading the tutorials and giving a look to the docs, I’ve downloaded the 
+&lt;a href=&quot;https://github.com/ibdknox/Noir-blog&quot;&gt;sample noir blog from github&lt;/a&gt; and I’ve been checking the code and
+it’s quite nice, although very short. I wouldn’t mind having a look at a more
+complete application (I’ll search some more).&lt;/p&gt;
+
+&lt;p&gt;Having spent the last ~3 years basically on frontend development has left me
+with limited knowledge and almost resourceless on backend/server/computer
+tools. Sure, I got a lot of knowledge on html/css and I’ve come to know js
+deeply, but I cannot stay there only, I want to know more, I want to be full
+stack. This could be the topic for a blog post, and afterwards, another topic
+to write about could be how our lovely university taught us basically only
+object oriented languages and paradigms.&lt;/p&gt;
+
+&lt;p&gt;In a certain way, I have to thank that JS has first order functions and
+closures, giving me the tools to expand my horizons further than the OO
+boundaries and inquiring me to relearn about programming paradigms like the
+functional or the declarative one, that I once started to learn but that were
+mercilessly crushed by an enormous amount of OO [patters|way of doing|coding]
+through the years.&lt;/p&gt;
+
+</description>
+        <published>2012-08-29 00:00:00 +0200</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2012/08/29/noir/</link>
+      </item>
+    
+      <item>
+        <title>IE weirdos v1</title>
+        <description>&lt;p&gt;As usual when working in a project, the moment to face IE comes, and it always
+comes with new and weirder surprises.&lt;/p&gt;
+
+&lt;p&gt;Compatibility mode is usually the first thing to fuck your page up. I always
+use the strategy to start from newer to older, just because i get fewer errors.
+Then fix that stuff, and move on into the older versions one at a time.&lt;/p&gt;
+
+&lt;p&gt;So this time, after including html5shiv because IE8 and brothers don’t know
+what &amp;lt;section&amp;gt; or &amp;lt;header&amp;gt; elements are (and since it doesn’t know, it just
+wont let you manipulate it with javascript) …&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Unexpected call to method or property access.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;… I found one of these surprises that we like from microsoft.&lt;/p&gt;
+
+&lt;p&gt;So, I was getting this error from the IE console:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Object doesn&apos;t support this action
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Looking at the code then you see this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults: {
+    case: null,
+    legal: null
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;… What the fuck is going on …&lt;/p&gt;
+
+&lt;p&gt;… could it be … no, no, it can’t be that stupid …&lt;/p&gt;
+
+&lt;p&gt;… Mmmh let’s try …&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults: {
+    &quot;case&quot;: null,
+    legal: null
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Booom, error fixed. Stupid browser says that object does not support the case
+instruction … Ahh for fuck sake, this is new.&lt;/p&gt;
+
+&lt;p&gt;So after this… you start seeing more like this but with other keywords, like:&lt;/p&gt;
+
+&lt;p&gt;The default switch instruction:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults: {
+    &apos;default&apos;: {
+        key: null,
+        locarno: []
+    },
+    [...]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Etc. I suppose that with the rest of words its the same.&lt;/p&gt;
+
+&lt;p&gt;Fuck IE, seriously, there is nothing worse than a browser/interpreter that
+makes you change how your code looks because it hasn’t the grammar properly
+implemented… (that, and all the css quirks that it has, and the opposition to
+webgl, etc)&lt;/p&gt;
+
+&lt;p&gt;Bonus: Extra commas in object literals result in broken JS on IE, like this&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var a = {
+    ie: &apos;sucks&apos;,
+    aLot: &apos;fuckit&apos;,
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That extra comma will break all your scripts.&lt;/p&gt;
+
+</description>
+        <published>2012-01-17 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2012/01/17/ie-weirdos-v1/</link>
+      </item>
+    
+      <item>
+        <title>From posterous to wordpress</title>
+        <description>&lt;p&gt;I have just moved from my posterous blog into a self hosted solution (wordpress).&lt;/p&gt;
+
+&lt;h3 id=&quot;why-move&quot;&gt;Why move&lt;/h3&gt;
+
+&lt;p&gt;Moving out of posterous was a no-brainer, specially since they changed into posterous spaces. Everything became so social, with facebook/google+/tumblr smell that it no longer is a blogging platform I can consider using.&lt;/p&gt;
+
+&lt;p&gt;It still has its uses, and of course its public, but it’s just not for me.&lt;/p&gt;
+
+&lt;h3 id=&quot;bad-things-about-posterous&quot;&gt;Bad things about posterous&lt;/h3&gt;
+
+&lt;p&gt;It is slow. Or at least I perceive it as slow.&lt;/p&gt;
+
+&lt;p&gt;Management is horrible. Blogs management is horrible. The whole backend it’s an ajax application that is really bloated. It’s the page that most times has crashed google chrome for me.&lt;/p&gt;
+
+&lt;p&gt;It has poor customization. The job with the themes is very good (but the editor makes you want to kill yourself slowly and painfully) but you cannot use javascript on them. It’s understandable because of the security risks, but if you need to touch stuff then you can’t. It also lacks plugins, so you get the standard blog format without the ability to customize it with plugins and addons. If you want a half serious writing platform, you need something more customizable.&lt;/p&gt;
+
+&lt;p&gt;Added stuff on the blog theme. Since it is a hosted solution, they promote the usage of their application by putting some things into your page, even if you don’t want to, like the navigation bar or the bottom-of-the-page bar.&lt;/p&gt;
+
+&lt;h3 id=&quot;good-things-about-posterous&quot;&gt;Good things about posterous&lt;/h3&gt;
+
+&lt;p&gt;Its hosted. That means no sysadmin stuff, everything is installed, no maintenance, etc. It makes it easy, and straight to the point, writing.&lt;/p&gt;
+
+&lt;p&gt;Themes. It has several quality themes (aesthetically pleasing) and it gives you the ability to modify completely the theme file, so html, css, and posterous theme structures are completely customizable if you want to.&lt;/p&gt;
+
+&lt;p&gt;Email posting. By default, and what they promoted as one of their key features in the past, posterous enables you to post to your blog via email, which means that you can compose wherever you are, and keep drafts in the email and whenever you are ready you just send it and bam! published. It makes publishing easy and encourages writing.&lt;/p&gt;
+
+&lt;h3 id=&quot;new-platform-wordpress&quot;&gt;New platform: wordpress&lt;/h3&gt;
+
+&lt;p&gt;As a solution for blogging I was researching and after seeing several publishing platforms I finally settled for wordpress. The reasons are clear, even hating php.&lt;/p&gt;
+
+&lt;p&gt;It is a established player with a great product. It is solid, maintained by a profitable company, open source and easy to use. There are tons of documentation available on the net.&lt;/p&gt;
+
+&lt;p&gt;It has tons of plugins for whatever you want, it has importers from lots of places and exporters so that if you ever want to get your data away you can.&lt;/p&gt;
+
+&lt;p&gt;Millions of themes (even if I use the default). If you want a beautiful theme there are free available, cheap good ones, or wonderful premium. You also get tons of resources just in case you want to create your own.&lt;/p&gt;
+
+&lt;p&gt;There probably are lots of stuff that I don’t even know, but I know that they are there, and if some day I need to add stuff or handle special cases chances are that somebody already did it successfully and shared it.&lt;/p&gt;
+
+&lt;h3 id=&quot;migration&quot;&gt;Migration&lt;/h3&gt;
+
+&lt;p&gt;Posterous doesn’t provide a exporter that I can use directly on wordpress, and there are several solutions available, but right now I can’t get any of them to work.&lt;/p&gt;
+
+&lt;p&gt;The first one was using the posterous importer plugin to fetch the data, but that didn’t work. It looks like the plugin is no longer maintained, so it’s outdated.&lt;/p&gt;
+
+&lt;p&gt;The other one was creating a blog in &lt;a href=&quot;http://wordpress.com/&quot;&gt;wordpress.com&lt;/a&gt; and using their posterous importer, and then export that blog into wordpress rss format and import it on this one.
+This didn’t work either because the posts never got imported into wordpress.com . Maybe I did something wrong, maybe it is because that blog is private, who knows, I will keep trying.&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins&quot;&gt;Plugins&lt;/h3&gt;
+
+&lt;p&gt;Mandatory plugins I found are:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/wp-super-cache/&quot;&gt;WordPress super cache&lt;/a&gt;
+Keeps a cache of your site, so that it can handle visits better&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://wordpress.org/extend/plugins/google-analytics-for-wordpress/&quot;&gt;Google analytics for wordpress&lt;/a&gt;
+What it says. Besides from importing your code, it adds interesting variables to the google analytics custom variables that you can see later. Like visits per category or tag, for example.&lt;/p&gt;
+
+&lt;h3 id=&quot;technology&quot;&gt;Technology&lt;/h3&gt;
+
+&lt;p&gt;The stack is a simple LAMP on a &lt;a href=&quot;http://www.linode.com/&quot;&gt;linode&lt;/a&gt;, and the domain was bought at &lt;a href=&quot;http://namecheap.com/&quot;&gt;namecheap&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For installing and configuring the lamp, wordpress and the domain records, I followed the &lt;a href=&quot;http://library.linode.com/&quot;&gt;documentation from the linode library&lt;/a&gt;. It is pretty good.&lt;/p&gt;
+
+&lt;p&gt;That’s it for now, it has been quite easy until the moment to get going.&lt;/p&gt;
+
+</description>
+        <published>2011-12-07 00:00:00 +0100</published>
+        <link>http://chimeces.com/archive/2025/blog/code/2011/12/07/from-posterous-to-wordpress/</link>
+      </item>
+    
+  </channel>
+</rss>

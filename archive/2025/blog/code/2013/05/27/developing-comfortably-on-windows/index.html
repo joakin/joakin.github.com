@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Developing comfortably on windows</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/archive/2025/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/archive/2025/css/style.css">
+</head>
+<body>
+    <!--[if lt IE 9]>
+      <p class='info'>
+        Hey! It seems that you are using a browser older than IE9. I'm sorry
+        if the site does not look or work properly. If that's the case, try
+        using a different modern browser.
+      </p>
+    <![endif]-->
+
+    
+    <header>
+        <h1>
+            <a id="brand" href="/archive/2025/">
+                Chimeces<br/>
+                <span class="subtitle">
+                    ...
+                </span>
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li>
+                <a href='/archive/2025/'>Home</a>
+            </li>
+            <li>
+                <a href='/archive/2025/blog'>Blog</a>
+            </li>
+            <li>
+                <a href='/archive/2025/projects'>Projects</a>
+            </li>
+            <li>
+                <a href='/archive/2025/about'>About</a>
+            </li>
+            <li>
+                <a href="/archive/2025/feed.xml">
+                    Feed
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+    <div class='container' role="main">
+        <div id='post'>
+
+    <h1 class='post-title'>Developing comfortably on windows</h1>
+
+    <div class='post-content'>
+        <p>Since almost 3 years ago I have been working mostly in Windows as a web
+developer, because of the constraints of a corporate environment. First Windows
+XP, then Windows 7, both equally closed and restricted, without admin
+privileges, with a propietary NtlmV2 proxy on the way to the net, etc.</p>
+
+<p>Through all this time, bit by bit I learned new tricks, applications, etc, that
+as a developer made feel at home (unix) and be more productive. In here I will
+provide the tricks I used and the applications I have installed at the moment
+of leaving, commenting their utility and <em>why</em> I’ve used them.</p>
+
+<h2 id="first-some-system-advice-installing-programs">First, some system advice. Installing programs.</h2>
+
+<p>In our restricted corporate environment we had two drives on each machine. <code class="language-plaintext highlighter-rouge">C:</code>
+was used for the operating system and corporate programs, and <code class="language-plaintext highlighter-rouge">D:</code> was used as
+the other “<em>free</em>” drive. Under <code class="language-plaintext highlighter-rouge">D:</code> I had permissions to <em>fully write</em>, and
+the evil <strong>McAffee</strong> wouldn’t possess the cpu and hard drive each time the disk
+was touched.</p>
+
+<p>So, with time, the advice when trying to get a program working was:</p>
+
+<ol>
+  <li>Try installer normally</li>
+  <li>Through installer, look for “<em>Options</em>”, “<em>Personalize</em>” or similar.</li>
+  <li>If there was the option, change install dir to <code class="language-plaintext highlighter-rouge">*D:\bin*</code>.</li>
+  <li>If I was able to choose what would be installed, uncheck all unnecessary
+items that may cause problems. For example <em>Add to PATH</em> or <em>Add shortcuts
+to Start Menu and Desktop</em>, etc. Look out for these things.</li>
+  <li>No luck, then go search for a portable version.</li>
+</ol>
+
+<p>So without more delays, these are the programs and utilities that solve
+different needs a programmer can have.</p>
+
+<h2 id="system-wide-programs">System wide programs</h2>
+
+<h3 id="cntlm-avoiding-the-ntlmv2-proxy-as-much-as-possible">Cntlm. Avoiding the NTLMv2 proxy as much as possible.</h3>
+
+<p>If you are under a win proxy, chances are that many programs do not know how to
+talk that propietary protocol, so you won’t be able to use networking with
+them. For example, <code class="language-plaintext highlighter-rouge">npm</code> with node, <code class="language-plaintext highlighter-rouge">gem</code> with ruby, and lots more.</p>
+
+<p>Using <a href="http://cntlm.sourceforge.net/">Cntlm</a> is one of the best things I did on the computer. When
+configured properly, it acts as a normal proxy and redirects everything to the
+corporate proxy filling in auth and NTLMv2 info.</p>
+
+<p>At the beginning I was using fiddler2 but cntlm is much better and transparent.</p>
+
+<p>After configuring it create a shortcut to cntlm.exe on:</p>
+
+<p><code class="language-plaintext highlighter-rouge">%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code></p>
+
+<p>And then, right click it, and on the target input set it to start with your
+config file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">D:\devel\bin\cntlm\cntlm.exe -c D:\devel\bin\cntlm\cntlm.ini</code></p>
+
+<p>To fill the .ini file, look at these links or use your <em>search-fu</em>:</p>
+
+<ul>
+  <li><a href="https://gist.github.com/joakin/5656471">My example cntlm.ini config based on my real one working</a></li>
+  <li><a href="http://stackoverflow.com/questions/9181637/how-to-fill-proxy-information-in-cntlm-config-file">How to fill proxy information in cntlm config file</a></li>
+</ul>
+
+<h3 id="text-editor-anywhere-open-your-preferred-text-editor-to-edit-text-anywhere">Text Editor Anywhere. Open your preferred text editor to edit text anywhere.</h3>
+
+<p>I am a fan of my editor. I have it customized and it suits my editing needs
+perfectly. So, when I am anywhere else, if I intend to do some serious editing
+I want to use it.</p>
+
+<p>For this requirement, <a href="http://www.listary.com/text-editor-anywhere">Text Editor Anywhere</a> is a god send. I have it mapped
+to Win+A, and wherever I am, Outlook, Firefox, Chrome, Notepad, I can press it
+and I get my editor open and pre-filled. When I’m finished, just save and close
+and the text gets updated from where it came from. Simple and excellent.</p>
+
+<h3 id="flux-change-the-tone-of-your-screen-depending-on-daylight">Flux. Change the tone of your screen depending on daylight.</h3>
+
+<p>For those short winter days where daylight disappears soon, <a href="http://stereopsis.com/flux/">Flux</a> makes your
+monitor light differently through the day, making it easier on the eyes after
+long hours.</p>
+
+<h3 id="autohotkey-scriptable-windows">AutoHotkey. Scriptable Windows.</h3>
+
+<p><a href="http://www.autohotkey.com/">AutoHotkey</a> is the <strong>holy grail</strong> of windows customization and automation.
+It is a runtime with a scripting language with which you can do almost
+anything.  Paraphrasing from their site:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Fast scriptable desktop automation with hotkeys
+</code></pre></div></div>
+
+<p>It is not only what you can do, but what everybody else has already done. It is
+great and you need it.</p>
+
+<p>I have used it to remap some keys, change mouse behaviour, etc. Here go
+a couple of links to get started. Next item is my custom autohotkey script, so
+go look at that also.</p>
+
+<ul>
+  <li><a href="http://www.autohotkey.com/docs/misc/Remap.htm">Remapping Keys and Buttons</a></li>
+  <li><a href="http://www.autohotkey.com/docs/Tutorial.htm">Tutorial and Overview</a></li>
+</ul>
+
+<h3 id="custom-user-autohotkey-script">Custom user AutoHotkey script</h3>
+
+<p>I’ve got one custom script that I execute on startup that does a couple of
+things:</p>
+
+<ul>
+  <li>Remap Capslock to something more useful (Ctrl)</li>
+  <li>Reverse scroll to work like in OSX</li>
+</ul>
+
+<p>Looking at the documentation on the previous item, you will be able to do these
+things, and a million more.</p>
+
+<ul>
+  <li><a href="https://gist.github.com/joakin/5656110">Capslock and reverse scroll custom ahk script</a></li>
+</ul>
+
+<h3 id="windowpad-what-aero-snap-should-have-been">WindowPad. What aero snap should have been.</h3>
+
+<p><a href="http://www.autohotkey.com/board/topic/19990-windowpad-window-moving-tool/">WindowPad</a> is a great substitute of the poor aero snap. It is a window manager
+on its own. It lets you move windows, resize them, change them of monitor,
+maximize, etc, all with key shortcuts. It is a wonderful utility and it is
+built on AutoHotkey, but it is delivered as a self contained executable.</p>
+
+<p>There is also <a href="http://hoppfrosch.github.io/WindowPadX/files/WindowPadX-ahk.html">WindowPadX</a>, a fork of WindowPad that is supposed to add some
+good features. I haven’t tried it myself, but looks promising.</p>
+
+<h3 id="snipping-tool-screenshots-and-annotations-made-easy">Snipping Tool. Screenshots and annotations made easy.</h3>
+
+<p>The Windows <a href="http://windows.microsoft.com/en-sg/windows7/products/features/snipping-tool">Snipping Tool</a> is the default windows 7 screen shooting tool
+(besides the Print Screen button). It actually is quite nice, and has enough
+functionality for a day to day work.</p>
+
+<p>I included it because it is a hidden gem that is useful and already available.</p>
+
+<h3 id="custom-fonts-install-fonts-on-a-non-admin-environment">Custom fonts. Install fonts on a non-admin environment.</h3>
+
+<p>If you are anything like me, you like having fonts of your liking available to
+customize how parts of the system work. The editor, browser defaults, and
+system font, for example. The problem with not having administrator privileges
+is that you cannot install fonts normally because they are located on
+<code class="language-plaintext highlighter-rouge">C:\Windows\Fonts</code> and that is an administrator folder.</p>
+
+<p>Luckily, normal users are able to install fonts using shortcuts that only last
+through the user session. When the user logs out the fonts are erased.</p>
+
+<p>By using a program like <a href="http://www.marshwiggle.net/regfont/">regfont</a>, and adding it to startup, we can have the
+fonts installed every time we log in. It only takes a few seconds.</p>
+
+<p>So save regfont somewhere, like in <code class="language-plaintext highlighter-rouge">D:\devel\bin\regfont.exe</code>, then create
+a shortcut, and place it on the startup folder.</p>
+
+<p><code class="language-plaintext highlighter-rouge">%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code></p>
+
+<p>And then, right click it, and on the target field set it so that regfont loads
+them from where you are putting your custom fonts:</p>
+
+<p><code class="language-plaintext highlighter-rouge">D:\devel\bin\regfont.exe -a D:\devel\fonts\*</code></p>
+
+<p>Ref links:</p>
+
+<ul>
+  <li><a href="http://tsukasa.jidder.de/blog/2008/04/18/temporarily-register-fonts-using-a-normal-user-account">Font problem</a></li>
+  <li><a href="http://www.dailygyan.com/2008/05/how-to-install-fonts-in-windows-without.html">Font problem 2</a></li>
+</ul>
+
+<h2 id="applications">Applications</h2>
+
+<h3 id="dropbox-seamless-storage-in-sync">Dropbox. Seamless storage in sync.</h3>
+
+<p>This online storage solution needs no presentation. Seamless cloud file sync
+that allow you to share stuff between your home computer and the work one.</p>
+
+<p>I managed to get the <a href="https://www.dropbox.com/">Dropbox</a> installer working but I know some partners
+that had to use the officially supported and very updated <a href="http://nionsoftware.com/dbpahk/">Dropbox portable</a>.</p>
+
+<h3 id="calibre-portable-book-and-document-organiser-and-reader">Calibre Portable. Book and document organiser and reader.</h3>
+
+<p>Calibre is a book manager that works greatly. It has also an ebook reader,
+which is what I used it for. Besides that, you can use it for sorting a library
+of work related pdfs and documents.</p>
+
+<p>I had to install <a href="http://calibre-ebook.com/download_portable">Calibre Portable</a>, not the normal version.</p>
+
+<h3 id="pidgin-instant-messaging-multi-protocol-client">Pidgin. Instant messaging multi-protocol client.</h3>
+
+<p><a href="http://www.pidgin.im/">Pidgin</a> is an open source IM client. It allows you to connect to multiple
+chat services, and works great.</p>
+
+<h3 id="launchy-open-applications-and-folders-fast-and-easy">Launchy. Open applications and folders fast and easy.</h3>
+
+<p><a href="http://www.launchy.net/">Launchy</a> is an application launcher, very useful if you have to move a lot
+through folders or open different applications all the time.</p>
+
+<h3 id="focuswriter-distraction-free-writing">FocusWriter. Distraction free writing.</h3>
+
+<p><a href="http://gottcode.org/focuswriter/">FocusWriter</a> is a minimalistic writing environment worth checking out. No
+fancy bells, just writing. The full screen mode is worth it.</p>
+
+<h3 id="pencil-project-mockups-prototypes-and-diagrams">Pencil Project. Mockups, prototypes and diagrams.</h3>
+
+<p><a href="http://pencil.evolus.vn/">Pencil Project</a> is an open source tool based on firefox’s xul runner. It is
+a very interesting prototyping tool, cross platform, and worth checking out.</p>
+
+<h2 id="web-development-tools">Web development tools</h2>
+
+<h3 id="restclient-test-and-call-web-urls-curl-like">RestClient. Test and call web urls (curl like)</h3>
+
+<p><a href="https://code.google.com/p/rest-client/">RestClient</a> is a java app that comes in handy when you have to test some
+webservices and do not have a web page set up. It works, but it is far from
+pretty. With time I substituted it with things like <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">Chrome’s Postman
+extension</a> or <a href="https://addons.mozilla.org/en-us/firefox/addon/restclient/">Firefox’s Rest Client
+extension</a>, which comply as well and are prettier and do not
+depend on java.</p>
+
+<h3 id="xampp-server-database-and-web-language-on-one-package">Xampp. Server, database and web language on one package.</h3>
+
+<p><a href="http://www.apachefriends.org/en/xampp.html">Xampp</a> provides an easy way of setting up an Apache, MySql, Php stack. For
+example I have the apache document root pointing to my projects folder and
+opened at startup, so that at anytime I can open any file/site of the folder in
+the browser.</p>
+
+<h3 id="node-js-on-the-server-scripting-and-web-dev-tools">Node. JS on the server, scripting and web dev tools.</h3>
+
+<p><a href="http://nodejs.org/">Node</a> is a JS framework based on async that runs on V8 on the server. It
+also serves as a platform to lots of useful tools for web development, like css
+and js minifiers, less/stylus compilers, jslint/jshint, uglifyjs, coffeescript
+compiler, etc.</p>
+
+<p>On it’s ecosystem lots of useful tools for web development and it has been
+really useful to have node and npm installed to make use of this tools.</p>
+
+<p>To install it, I had to find a portable version the first time, from something
+like <a href="http://imsky.co/downloads">Node portable 0.10.8 by imsky.co</a>, save it on my paths,
+and then, from there on, I updated the node binary from the official node site,
+going to <a href="http://nodejs.org/download/">Node downloads</a> and downloading the <strong>Windows Binary
+(.exe)</strong>.</p>
+
+<h3 id="chrome-great-browser-and-greater-dev-tools">Chrome. Great browser and greater dev tools.</h3>
+
+<p>Google <a href="http://google.com/chrome">Chrome</a> is a fantastic browser that installs perfectly on corporate
+restricted environments, and has been tremendously useful. It’s devtools are
+great, and it is a very good browser.</p>
+
+<h3 id="firefox-portable-great-browser-untied-from-the-corporate-version">Firefox Portable. Great browser, untied from the corporate version.</h3>
+
+<p>At work we had a Firefox installed, but it was the ESR (Enterprise Release)
+version and it had the profile modified and settings blocked, besides bookmarks
+and home page presets and nasty addons pre-installed.</p>
+
+<p>At the beginning I moved to using <a href="http://www.mozilla.org/en-US/firefox/aurora/">Aurora</a>, a more experimental release of
+firefox, but very stable, but the enterprise firefox updates would screw with
+my profile.</p>
+
+<p>To use the excellent and free Firefox and keep my profile with my stuff and
+without the company’s stuff I had to search for the <a href="http://portableapps.com/apps/internet/firefox_portable">Firefox Portable</a>
+version, which works seamlessly.</p>
+
+<h2 id="programming-tools">Programming tools</h2>
+
+<h3 id="vim-amazing-text-editing">Vim. Amazing text editing.</h3>
+
+<p><a href="http://www.vim.org/">Vim</a> is a open source modal editor that enables you to edit text
+efficiently. It is my editor of choice and works perfectly on windows.</p>
+
+<h3 id="emacs-great-text-editor">Emacs. Great text editor.</h3>
+
+<p><a href="http://www.gnu.org/software/emacs/">Emacs</a> is also an open source editor that is very extensible. It is very
+good as well. Emacs and Vim are both old players on the text editing arena and
+really good programs.</p>
+
+<h3 id="lighttable-live-coding-for-programming">LightTable. Live coding for programming.</h3>
+
+<p><a href="http://www.lighttable.com/">LightTable</a> is a new editor that puts an emphasis on live programing and on
+the future on extensibility (not yet). Even it being 0.4 right now, it works
+really well and has helped me to do some tasks.</p>
+
+<h3 id="console2-what-cmdexe-should-be">Console2. What cmd.exe should be.</h3>
+
+<p><a href="http://sourceforge.net/projects/console/">Console2</a> is a great cmd replacement that enables you to have profiles for
+shells (so that you can have both shells of bash and shells of DOS and
+PowerShell under the same window) and it also features lots of goodies like
+configurability, tabs, transparent background, etc.</p>
+
+<p>Great program, I could not have lived without it.</p>
+
+<p>Edit: Some commenters have recommended <a href="http://code.google.com/p/conemu-maximus5/">ConEmu</a> over Console2, check it out
+and decide by yourself, I’m going to.</p>
+
+<h3 id="msysgit-or-cygwin-posix-shell-on-windows-bash">Msysgit (or cygwin). POSIX shell on windows (bash)</h3>
+
+<p>If you come from some linux/unix, for sure you are going to miss a good bash.
+It is possible to have a good capable shell on windows, that will work for lots
+of the cases and make your life easier.</p>
+
+<p>That I know, there are two options:</p>
+
+<ul>
+  <li><a href="http://msysgit.github.io/">msysgit</a></li>
+  <li><a href="http://www.cygwin.com/">cygwin</a></li>
+</ul>
+
+<p>Msysgit is the shell that gets installed when you install git from the
+installer. That is the one I have used, and I haven’t missed much.</p>
+
+<p>Cygwin is another one that is more complete than the git one, but I haven’t
+tried it. I think it has a bigger community and a lot more packages available.</p>
+
+<p>Anyway, choose what you want, it is a great tool to have.</p>
+
+<h3 id="git-versatile-version-control-system">Git. Versatile version control system.</h3>
+
+<p><a href="http://msysgit.github.io/">Git</a> is a distributed version control system. I used it for the projects and
+to keep my configuration files in sync. Essential.</p>
+
+<h3 id="ack-search-through-code-fast-and-easy">Ack. Search through code fast and easy.</h3>
+
+<p><a href="http://beyondgrep.com/">Ack</a> is a great search tool written in perl (provided by msysgit in my
+case). It is my partner when navigating through code, works wonderfully and
+fast.</p>
+
+<p>I have integrated with Vim, so I can use it within my editor or in the shell.</p>
+
+<h3 id="ctags-code-navigation">Ctags. Code navigation.</h3>
+
+<p><a href="http://ctags.sourceforge.net/">Ctags</a> is a tool that generates tag files from code. Tag files are files
+that your editor can interpret to show you completions when coding and to help
+you navigate code.</p>
+
+<p>It is very useful and every editor has some plug-in or support for tag files.</p>
+
+<h3 id="python-scripting-on-your-computer">Python. Scripting on your computer.</h3>
+
+<p>I dabbled into <a href="http://www.python.org/">Python</a> through its fantastic docs to do some scripting and
+automate tasks on my computer. Python is a great language really pleasant to
+use. When I installed it there was no portable version and it was a bit of
+a hell to get it to install, but it seems like they have updated ones at
+<a href="http://www.portablepython.com/">Portable python</a> now.</p>
+
+<h2 id="closing-up">Closing up</h2>
+
+<p>It is a long list and it was compiled through time. You should not try to
+install all of them, but go one by one and give your self some days to get used
+to the new tools.</p>
+
+<p>It is never going to be as our beloved linux/osx, but it can be quite good if
+you invest some time in getting the appropriate tools and on improving your
+workflow.</p>
+
+<p>If you see anything to correct or you have more suggestions about useful tools
+for windows developers, please leave a comment.</p>
+
+
+    </div>
+
+    
+
+    <div class='comments'>
+        <div id="disqus_thread">
+            <a class='comments-show-link' href="#" onclick="disqus();return false;">Show Comments</a> 
+        </div>
+        <script type="text/javascript">
+            var disqus_shortname = 'chimeces';
+
+            var disqus_loaded = false;
+
+            function disqus() {
+                if (!disqus_loaded)  {
+                    disqus_loaded = true;
+                    
+                    var e = document.createElement("script");
+                    e.type = "text/javascript";
+                    e.async = true;
+                    e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                    (document.getElementsByTagName("head")[0] ||
+                    document.getElementsByTagName("body")[0])
+                    .appendChild(e);
+                }
+            } 
+        </script>
+    </div>
+
+
+
+
+</div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+    <script src="/archive/2025/js/script.js"></script>
+    -->
+    
+    <script>
+    var _gaq=[['_setAccount', 'UA-27533999-1'],['_setDomainName', 'chimeces.com'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

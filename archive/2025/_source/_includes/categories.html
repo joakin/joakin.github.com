@@ -1,0 +1,17 @@
+<div class='categories links-list'>
+  {% if heading %}
+    <h3>Topics</h3>
+  {% endif %}
+  <ul class='categories-list'>
+    {% unless heading %}
+      <li class="header-link">
+          Topics
+      </li>
+    {% endunless %}
+    {% for cat in site.categories %}
+      {% unless cat[0] == 'blog' or cat[0] == 'projects' %}
+        <li><a href='{{ site.baseurl }}/categories/{{ cat[0] }}'>{{ cat[0] }}</a></li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+</div>
