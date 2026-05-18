@@ -1,12 +1,393 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=/archive/2025/">
-  <title>Chimeces</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joaquín Oltra Hernández</title>
+  <meta name="description"
+    content="Joaquín Oltra Hernández is a software engineer and engineering manager focused on UI systems, programming languages, creative coding, and practical tools." />
+  <style>
+    @font-face {
+      font-family: "Sono";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("./assets/fonts/Sono-Regular.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Sono";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("./assets/fonts/Sono-SemiBold.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Sono";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url("./assets/fonts/Sono-Bold.woff2") format("woff2");
+    }
+
+    :root {
+      --color-scheme: light dark;
+      --light-bg: #fbfaf7;
+      --light-text: #1d1c1a;
+      --light-muted: #6f6b63;
+      --light-rule: #ded9cf;
+      --light-link: #315c74;
+      --light-link-hover: #111;
+      --dark-bg: #151514;
+      --dark-text: #e9e4dc;
+      --dark-muted: #aaa197;
+      --dark-rule: #383531;
+      --dark-link: #8fb7c8;
+      --dark-link-hover: #fff8ef;
+      --bg: var(--light-bg);
+      --text: var(--light-text);
+      --muted: var(--light-muted);
+      --rule: var(--light-rule);
+      --link: var(--light-link);
+      --link-hover: var(--light-link-hover);
+      color-scheme: var(--color-scheme);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: var(--dark-bg);
+        --text: var(--dark-text);
+        --muted: var(--dark-muted);
+        --rule: var(--dark-rule);
+        --link: var(--dark-link);
+        --link-hover: var(--dark-link-hover);
+      }
+    }
+
+    :root[data-theme="light"] {
+      --color-scheme: light;
+      --bg: var(--light-bg);
+      --text: var(--light-text);
+      --muted: var(--light-muted);
+      --rule: var(--light-rule);
+      --link: var(--light-link);
+      --link-hover: var(--light-link-hover);
+    }
+
+    :root[data-theme="dark"] {
+      --color-scheme: dark;
+      --bg: var(--dark-bg);
+      --text: var(--dark-text);
+      --muted: var(--dark-muted);
+      --rule: var(--dark-rule);
+      --link: var(--dark-link);
+      --link-hover: var(--dark-link-hover);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family:
+        "Sono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.58;
+      letter-spacing: 0;
+    }
+
+    main {
+      width: min(100% - 32px, 1280px);
+      margin: 0 auto;
+      padding: clamp(24px, 5vw, 48px) 0;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    h1,
+    h2,
+    p,
+    ul {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    strong,
+    .label {
+      font-size: inherit;
+      font-weight: 700;
+    }
+
+    h1 {
+      line-height: 1.35;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+    }
+
+    p+p {
+      margin-top: 18px;
+    }
+
+    section {
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid section {
+      margin-top: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li+li {
+      margin-top: 8px;
+    }
+
+    a {
+      color: var(--link);
+      font-weight: 600;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--link-hover);
+    }
+
+    button {
+      font: inherit;
+      letter-spacing: inherit;
+      padding: 5px 8px;
+      border: 1px solid var(--rule);
+      color: var(--text);
+      background: var(--bg);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    button:hover,
+    button:focus-visible,
+    button[aria-pressed="true"] {
+      color: var(--link-hover);
+      border-color: var(--muted);
+    }
+
+    button[aria-pressed="true"] {
+      background: var(--rule);
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 1;
+      display: flex;
+      gap: 4px;
+    }
+
+    .meta {
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .intro {
+      max-width: 68ch;
+      font-weight: 400;
+    }
+
+    .intro+.grid {
+      margin-top: 30px;
+    }
+
+    .quiet {
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        width: min(100% - 24px, 760px);
+        padding-top: 28px;
+        padding-bottom: 36px;
+      }
+
+      header {
+        margin-bottom: 36px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .grid section+section {
+        margin-top: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <p><a href="/archive/2025/">Archived site</a></p>
+  <div class="toolbar" aria-label="Theme">
+    <button type="button" data-theme-option="system" aria-pressed="true">system</button>
+    <button type="button" data-theme-option="light" aria-pressed="false">light</button>
+    <button type="button" data-theme-option="dark" aria-pressed="false">dark</button>
+  </div>
+
+  <main>
+    <header>
+      <h1>Joaquín Oltra Hernández</h1>
+      <p class="meta">joakin · Alicante, Spain · software engineer</p>
+    </header>
+
+    <p class="intro">
+      Hi, I am Joaquin. This is my personal site, with a few notes below about
+      my work and some of the things I like.
+    </p>
+
+    <div class="grid">
+      <section aria-labelledby="work">
+        <h2 id="work">Work</h2>
+        <p>
+          I am a software engineer by trade. Over the years I have been a
+          frontend engineer, tech lead, developer advocate, and engineering
+          manager across big enterprise companies, open source, and smaller
+          startups. I love working with tight-knit teams and bringing
+          thoughtful, maintainable products to life, and shaping autonomous
+          teams, great culture and work processes.
+        </p>
+      </section>
+
+      <section aria-labelledby="programming">
+        <h2 id="programming">Programming</h2>
+        <p>
+          <strong>UI:</strong> I like creating clean, beautiful interfaces
+          with design systems, CSS, and web languages.
+        </p>
+        <p>
+          <strong>Languages:</strong> I love learning new programming
+          languages, from ClojureScript, Elm, and OCaml to Rust, Gleam, and
+          Odin.
+        </p>
+        <p>
+          <strong>Compilers:</strong> I am captivated by type systems and have
+          implemented my own ML-like language.
+        </p>
+        <p>
+          <strong>Play:</strong> Art and games nourish the soul, I love
+          exploring that through generative art, live graphics sketches, and
+          small games.
+        </p>
+        <p>
+          <strong>Tools:</strong> I use programming to make tiny utilities for
+          real workflows that help me and the people I know.
+        </p>
+      </section>
+
+      <section aria-labelledby="more">
+        <h2 id="more">More</h2>
+        <p>
+          <strong>Travel:</strong> Seeing the world and meeting people across
+          cultures and languages has shaped a lot of my life.
+        </p>
+        <p>
+          <strong>Family:</strong> I am raising a wonderful family with lots of
+          kids.
+        </p>
+        <p>
+          <strong>Books:</strong> Philosophy and science fiction are what I
+          reach for most often.
+        </p>
+        <p>
+          <strong>Body:</strong> Strength training, exercise, and eating well
+          help me take care of myself.
+        </p>
+        <p>
+          <strong>Games:</strong> I get lost in videogames every once in a
+          while, and I love playing with others as a way to bond.
+        </p>
+      </section>
+    </div>
+
+    <section aria-labelledby="elsewhere">
+      <h2 id="elsewhere">Elsewhere</h2>
+      <nav class="links" aria-label="Links">
+        <a href="https://github.com/joakin">github</a>
+        <a href="/resume">resume</a>
+        <a href="mailto:joaquin@chimeces.com">send me an email</a>
+      </nav>
+    </section>
+  </main>
+  <script>
+    const root = document.documentElement;
+    const themeButtons = document.querySelectorAll("[data-theme-option]");
+
+    function syncThemeButtons(theme) {
+      themeButtons.forEach((button) => {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.themeOption === theme),
+        );
+      });
+    }
+
+    function applyTheme(theme) {
+      if (theme === "light" || theme === "dark") {
+        root.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+      } else {
+        delete root.dataset.theme;
+        localStorage.removeItem("theme");
+        theme = "system";
+      }
+
+      syncThemeButtons(theme);
+    }
+
+    applyTheme(localStorage.getItem("theme"));
+
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyTheme(button.dataset.themeOption);
+      });
+    });
+  </script>
 </body>
+
 </html>
